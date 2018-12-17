@@ -15,26 +15,38 @@
     <div data-role="page">
 
         <div data-role="panel" data-display="overlay" id="panel">
-            <h1>Navigation Bar</h1>
-            <button data-rel="close">Close</button>
+            <input id="search" type="search" placeholder="Search..">
+            <button class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-search ui-btn-icon-right">Search</button>
+            <br />
+            <button class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-camera ui-btn-icon-right">Scan
+                QR</button>
+            <ul data-role="listview" data-inset="true">
+                     <li>Home</li>
+                    <li>Favourites</li>
+                    <li>Books</li>
+                    <li>Events</li>
+                    <li>Points of Interest</li>
+                    <li>News</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+            </ul>
+            <br />
+            <button data-rel="close" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-right">Close</button>
         </div>
 
-        <div data-role="header" data-position="fixed" id="header">
+        <div data-role="header" data-position="fixed" data-fullscreen="true">
             <a href="#panel" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Navigation
                 Bar</a>
-            <h1>Header</h1>
-            <a href="#panel" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-user ui-btn-icon-left ui-btn-icon-notext">User</a>
+            <h1>Alexandria</h1>
+            <a href="#" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-user ui-btn-icon-left ui-btn-icon-notext">User</a>
         </div>
 
-        <div data-role="footer">
-                <h4>Footer</h4>
+        <div data-role="footer" data-position="fixed" data-fullscreen="true">
+            <h1>Developed By Project Petrus</h1>
+            <p style="text-align: center"><a href="#">Copyright 2018 </a> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
         </div>
 
     </div>
 </body>
-
-<script>
-
-</script>
 
 </html>
