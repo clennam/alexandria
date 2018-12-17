@@ -1,5 +1,7 @@
-var device;
-if (new RegExp("iPhone").test(navigator.userAgent)) {
+// Initial redirect rules for the site
+var device = "iPad"; // default should be iPad as that is closest to PC
+if (new RegExp("iPhone").test(navigator.userAgent) ||
+    new RegExp("Android").test(navigator.userAgent)) {
     device = "iPhone";
 }
 if (new RegExp("iPad").test(navigator.userAgent)) {
