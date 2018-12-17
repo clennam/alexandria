@@ -9,6 +9,10 @@
     "start-cached": "http-server ./ -o & json-server --watch assets/common/db.json"
   },
   "author": "Project Petrus",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clennam/alexandria.git"
+  },
   "license": "Apache-2.0",
   "dependencies": {
     "@types/jquerymobile": "^1.4.30",
