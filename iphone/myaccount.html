@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
+    <!-- Page Data -->
+    <title>Alexandria - My Account</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alexandria - Home</title>
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
     <!-- Javascript Libraries -->
@@ -12,6 +13,12 @@
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <!-- JSON Server Interface -->
     <script src="../assets/common/database/json_server.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        if (sessionStorage.length === 0) {
+            window.location.replace('signin.html');
+        }
+    </script>
 </head>
 
 <body>
@@ -61,17 +68,17 @@
                             <h2>User Information</h2>
                             <form>
                                 <label for="firstName">First Name:</label>
-                                <input type="text" id="firstName" name="firstName" value="Moiz"/>
+                                <input type="text" id="firstName" name="firstName"/>
                                 <br/>
                                 <label for="lastName">Last Name:</label>
-                                <input type="text" id="lastName" name="lastName" value="Mansoor Ali"/>
+                                <input type="text" id="lastName" name="lastName"/>
                             </form>
                         </div>
                         <div data-role="collapsible">
                             <h2>Email</h2>
                             <form>
                                 <label for="email">Email:</label>
-                                <input type="text" id="email" name="email" value="moiz.2015033@iit.ac.lk"/>
+                                <input type="text" id="email" name="email"/>
                             </form>
                         </div>
                         <div data-role="collapsible">
@@ -104,7 +111,7 @@
                 </li>
                 <li data-role="list-divider">Rewards</li>
                 <li>
-                    Token Amount: <span id="tokenAmount">0</span>
+                    Token Amount: <span id="tokens">0</span>
                 </li>
             </ul>
 
@@ -122,5 +129,27 @@
     </div>
     <!-- Page -->
 </body>
+
+<script>
+    // $(document).on('pagebeforecreate', function(event) {
+    //     console.log("Document - Page Before Create");
+    //     if (sessionStorage.length === 0) {
+    //         window.location.replace('signin.html');
+    //     }
+    // });
+    // $(document).on('pagecreate', function(event) {
+    //     console.log("Document - After Page Create");
+    //     $('#firstName').val(sessionStorage.getItem('firstName'));
+    //     $('#lastName').val(sessionStorage.getItem('lastName'));
+    //     $('#email').val(sessionStorage.getItem('email'));
+    //     $('#tokens').html(sessionStorage.getItem('tokens'));
+    // });
+    $(document).ready(function() {
+        $('#firstName').val(sessionStorage.getItem('firstName'));
+        $('#lastName').val(sessionStorage.getItem('lastName'));
+        $('#email').val(sessionStorage.getItem('email'));
+        $('#tokens').html(sessionStorage.getItem('tokens'));
+    });
+</script>
 
 </html>

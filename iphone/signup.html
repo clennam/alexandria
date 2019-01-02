@@ -12,6 +12,12 @@
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <!-- JSON Server Interface -->
     <script src="../assets/common/database/json_server.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        if (sessionStorage.length > 0) {
+            window.location.replace('myaccount.html');
+        }
+    </script>
 </head>
 
 <body>
@@ -132,6 +138,12 @@
                             console.error("POST request failed");
                         } else {
                             console.log("Create session and Redirect to my account");
+                            sessionStorage.setItem("firstName", firstName);
+                            sessionStorage.setItem("lastName", lastName);
+                            sessionStorage.setItem("email", email);
+                            sessionStorage.setItem("tokens", 0);
+                            sessionStorage.setItem("favourites", []);
+                            sessionStorage.setItem("bookings", []);
                             window.location.replace("myaccount.html");
                         }
                     });

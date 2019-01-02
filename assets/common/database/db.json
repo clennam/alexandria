@@ -6,9 +6,17 @@
       "lastName": "Mansoor Ali",
       "email": "moiz.2015033@iit.ac.lk",
       "password": "Yahyee",
-      "tokens": 0,
+      "tokens": 250,
       "favourites": [],
       "bookings": []
+    },
+    {
+      "firstName": "Aishcharya",
+      "lastName": "Kahandawala",
+      "email": "aishcharya.2015033@iit.ac.lk",
+      "password": "password",
+      "tokens": "0",
+      "id": 2
     }
   ],
   "books": [

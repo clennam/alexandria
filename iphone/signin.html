@@ -12,6 +12,12 @@
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <!-- JSON Server Interface -->
     <script src="../assets/common/database/json_server.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        if (sessionStorage.length > 0) {
+            window.location.replace('myaccount.html');
+        }
+    </script>
 </head>
 
 <body>
@@ -86,6 +92,13 @@
             JsonServer.get("users?email=" + email + "&password=" + password, function(data, status) {
                 if (status === "success") {
                     if (data.length === 1) {
+                        var user = data[0];
+                        sessionStorage.setItem('firstName', user.firstName);
+                        sessionStorage.setItem('lastName', user.lastName);
+                        sessionStorage.setItem('email', user.email);
+                        sessionStorage.setItem('tokens', user.tokens);
+                        sessionStorage.setItem('favourites', user.favourites);
+                        sessionStorage.setItem('bookings', user.bookings);
                         window.location.replace("myaccount.html");
                     } else {
                         console.error("No Such Account Found");
