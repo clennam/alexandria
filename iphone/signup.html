@@ -10,6 +10,8 @@
     <!-- Javascript Libraries -->
     <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Interface -->
+    <script src="../assets/common/database/json_server.js"></script>
 </head>
 
 <body>
@@ -52,25 +54,25 @@
             <h1 style="text-align: center">Create New Account</h1>
             <form>
                 <label for="firstName">First Name:</label>
-                <input type="text" name="firstName" id="firstName">
+                <input type="text" name="firstName" id="firstName" required>
                 <br />
                 <label for="lastName">Last Name:</label>
-                <input type="text" name="lastName" id="lastName">
+                <input type="text" name="lastName" id="lastName" required>
                 <br />
                 <label for="email">Email Address:</label>
-                <input type="text" name="email" id="email">
+                <input type="text" name="email" id="email" required>
                 <br />
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
+                <input type="password" name="password" id="password" required>
                 <br />
                 <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" name="confirmPassword" id="confirmPassword">
+                <input type="password" name="confirmPassword" id="confirmPassword" required>
                 <br />
-                <input type="checkbox" name="termsAndConditions" id="termsAndConditions">
+                <input type="checkbox" name="termsAndConditions" id="termsAndConditions" required>
                 <label for="termsAndConditions">I agree to the given <a href="#">terms and conditions</a></label>
             </form>
             <br />
-            <button>Create Account</button>
+            <button onclick="createNewAccount()">Create Account</button>
         </div>
         <!-- Page Content -->
 
@@ -85,5 +87,60 @@
     </div>
     <!-- Page -->
 </body>
+
+<script>
+    function createNewAccount() {
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        var confirmPassword = $('#confirmPassword').val();
+        var termsAndConditions = $('#termsAndConditions').is(':checked');
+
+        if (firstName && lastName && email && password && confirmPassword) {
+                if (password === confirmPassword) {
+                    if (termsAndConditions) {
+                        createAccount(firstName, lastName, email, password);
+                    } else {
+                        console.log("not checked");
+                    }
+                } else {
+                    console.log("passwords dont match");
+                }
+            } else {
+                console.log("Form incomplete");
+        }
+    }
+
+    function createAccount(firstName, lastName, email, password) {
+        JsonServer.get("users?email=" + email, function(data, status) {
+            if (status === "success") {
+                if (data.length > 0) {
+                    console.log("An account with this email has already been created");
+                } else {
+                    var user = {
+                        "firstName": firstName, 
+                        "lastName": lastName, 
+                        "email": email, 
+                        "password": password,
+                        "tokens": 0,
+                        "favourites": [],
+                        "bookings": []
+                    };
+                    JsonServer.post("users", user, function(requestData, requestStatus) {
+                        if (requestStatus !== "success") {
+                            console.error("POST request failed");
+                        } else {
+                            console.log("Create session and Redirect to my account");
+                            window.location.replace("myaccount.html");
+                        }
+                    });
+                }
+            } else {
+                console.error("GET request failed");
+            }
+        });
+    }
+</script>
 
 </html>

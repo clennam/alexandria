@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Moiz",
+      "lastName": "Mansoor Ali",
+      "email": "moiz.2015033@iit.ac.lk",
+      "password": "Yahyee",
+      "tokens": 0,
+      "favourites": [],
+      "bookings": []
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "Harry Potter",
+      "author": "J.K Rowling",
+      "image": "poster.png",
+      "description": "",
+      "price": "10.00USD"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "Christmas Book Club",
+      "organizer": "Jobless Peopple",
+      "image": "poster.png",
+      "description": "",
+      "price": "10.00USD"
+    }
+  ],
+  "pois": [
+    {
+      "id": 1,
+      "name": "Random Bookshop",
+      "address": "123 Street at ABC",
+      "image": "poster.png",
+      "description": "",
+      "location": "google map location"
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "headline": "Trump Assassinated",
+      "author": "Obama",
+      "image": "poster.png",
+      "content": ""
+    }
+  ]
+}

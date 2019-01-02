@@ -51,17 +51,7 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <h1 style="text-align: center">Sign In</h1>
-            <form>
-                <label for="email">Email Address:</label>
-                <input type="text" name="email" id="email">
-                <br />
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
-            </form>
-            <br />
-            <button onclick="signIn()">Sign In</button>
-            <br />
+            <!-- TODO: ADD PAGE CONTENT -->
         </div>
         <!-- Page Content -->
 
@@ -76,28 +66,5 @@
     </div>
     <!-- Page -->
 </body>
-
-<script>
-    function signIn() {
-        var email = $('#email').val();
-        var password = $('#password').val();
-        
-        if (email && password) {
-            JsonServer.get("users?email=" + email + "&password=" + password, function(data, status) {
-                if (status === "success") {
-                    if (data.length === 1) {
-                        window.location.replace("myaccount.html");
-                    } else {
-                        console.error("No Such Account Found");
-                    }
-                } else {
-                    console.error("Error Occurred");
-                }
-            });
-        } else {
-            console.log("No data entered");
-        }
-    }
-</script>
 
 </html>
