@@ -51,7 +51,63 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            
+            <h1 style="text-align: center">Your Account</h1>
+            <hr/>
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">Edit Profile</li>
+                <li>
+                    <div data-role="collapsibleset">
+                        <div data-role="collapsible">
+                            <h2>User Information</h2>
+                            <form>
+                                <label for="firstName">First Name:</label>
+                                <input type="text" id="firstName" name="firstName" value="Moiz"/>
+                                <br/>
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" id="lastName" name="lastName" value="Mansoor Ali"/>
+                            </form>
+                        </div>
+                        <div data-role="collapsible">
+                            <h2>Email</h2>
+                            <form>
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" name="email" value="moiz.2015033@iit.ac.lk"/>
+                            </form>
+                        </div>
+                        <div data-role="collapsible">
+                            <h2>Password</h2>
+                            <form>
+                                <label for="currentPassword">Current Password:</label>
+                                <input type="password" id="currentPassword" name="currentPassword"/>
+                                <br />
+                                <label for="newPassword">New Password:</label>
+                                <input type="password" id="newPassword" name="newPassword"/>
+                                <br />
+                                <label for="confirmNewPassword">Confirm New Password:</label>
+                                <input type="password" id="confirmNewPassword" name="confirmNewPassword"/>
+                            </form>
+                        </div>
+                    </div>
+                    <br/>
+                    <button>Save Changes</button>
+                </li>
+                <li data-role="list-divider">Bookings</li>
+                <li>
+                    <div data-role="collapsibleset">
+                        <div data-role="collapsible">
+                            <h2>Booking History</h2>
+                            <ul data-role="listview">
+                                <li>No Bookings Made</li>                            
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li data-role="list-divider">Rewards</li>
+                <li>
+                    Token Amount: <span id="tokenAmount">0</span>
+                </li>
+            </ul>
+
         </div>
         <!-- Page Content -->
 
