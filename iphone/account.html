@@ -13,9 +13,15 @@
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <!-- JSON Server Interface -->
     <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/iphone/js/load_panels.js"></script>
     <!-- Pre-render Script -->
     <script>
-        if (sessionStorage.length === 0) {
+        var sessionFirstName = sessionStorage.getItem('firstName');
+        var sessionLastName = sessionStorage.getItem('lastName');
+        var sessionEmail = sessionStorage.getItem('email');
+        var sessionTokens = sessionStorage.getItem('tokens');
+        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
             window.location.replace('signin.html');
         }
     </script>
@@ -26,34 +32,11 @@
     <div data-role="page">
 
         <!-- Navigation Panel -->
-        <div data-role="panel" data-display="overlay" id="panel">
-            <input id="search" type="search" placeholder="Search..">
-            <button class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-search ui-btn-icon-right">Search</button>
-            <br />
-            <button class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-camera ui-btn-icon-right">Scan
-                QR</button>
-            <ul data-role="listview" data-inset="true">
-                     <li>Home</li>
-                    <li>Favourites</li>
-                    <li>Books</li>
-                    <li>Events</li>
-                    <li>Points of Interest</li>
-                    <li>News</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-            </ul>
-            <br />
-            <button data-rel="close" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-right">Close</button>
-        </div>
+        <div id="external_navbar"></div>
         <!-- Navigation Panel -->
 
         <!-- Page Header -->
-        <div data-role="header" data-position="fixed">
-            <a href="#panel" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Navigation
-                Bar</a>
-            <h1>Alexandria</h1>
-            <a href="#" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-user ui-btn-icon-left ui-btn-icon-notext">User</a>
-        </div>
+        <div id="external_header"></div>
         <!-- Page Header -->
 
         <!-- Page Content -->
@@ -96,7 +79,7 @@
                         </div>
                     </div>
                     <br />
-                    <button>Save Changes</button>
+                    <button id="saveChanges" disabled="true" onclick="saveChanges()">Save Changes</button>
                 </li>
                 <li data-role="list-divider">Bookings</li>
                 <li>
@@ -104,7 +87,7 @@
                         <div data-role="collapsible">
                             <h2>Booking History</h2>
                             <ul data-role="listview">
-                                             <li>No Bookings Made</li>
+                                <li>No Bookings Made</li>
                             </ul>
                         </div>
                     </div>
@@ -114,16 +97,25 @@
                     Token Amount: <span id="tokens">0</span>
                 </li>
             </ul>
-
+            <hr />
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">Sign Out</li>
+                <li>
+                    <button onclick="signOut()">Sign Out</button>
+                </li>
+            </ul>
+            <hr />
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">Danger</li>
+                <li>
+                    <button onclick="deleteAccount()">Delete Account</button>
+                </li>
+            </ul>
         </div>
         <!-- Page Content -->
 
         <!-- Page Footer -->
-        <div data-role="footer">
-                <h1>Developed By Project Petrus</h1>
-            <p style="text-align: center"><a href="#">Copyright 2018 </a> | <a href="#">Terms of Use</a> | <a href="#">Privacy
-                    Policy</a></p>
-        </div>
+        <div id="external_footer"></div>
         <!-- Page Footer -->
 
     </div>
@@ -131,25 +123,29 @@
 </body>
 
 <script>
-    // $(document).on('pagebeforecreate', function(event) {
-    //     console.log("Document - Page Before Create");
-    //     if (sessionStorage.length === 0) {
-    //         window.location.replace('signin.html');
-    //     }
-    // });
-    // $(document).on('pagecreate', function(event) {
-    //     console.log("Document - After Page Create");
-    //     $('#firstName').val(sessionStorage.getItem('firstName'));
-    //     $('#lastName').val(sessionStorage.getItem('lastName'));
-    //     $('#email').val(sessionStorage.getItem('email'));
-    //     $('#tokens').html(sessionStorage.getItem('tokens'));
-    // });
     $(document).ready(function () {
         $('#firstName').val(sessionStorage.getItem('firstName'));
         $('#lastName').val(sessionStorage.getItem('lastName'));
         $('#email').val(sessionStorage.getItem('email'));
         $('#tokens').html(sessionStorage.getItem('tokens'));
+
+        $('input').change(function() {
+            $('#saveChanges').attr('disabled', false);
+        });
     });
+
+    function saveChanges() {
+        console.log('save changes does nothing');
+    }
+
+    function signOut() {
+        sessionStorage.clear();
+        window.location.replace('signin.html');
+    }
+
+    function deleteAccount() {
+    }
+
 </script>
 
 </html>
