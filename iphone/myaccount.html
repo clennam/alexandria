@@ -59,7 +59,7 @@
         <!-- Page Content -->
         <div role="main" class="ui-content">
             <h1 style="text-align: center">Your Account</h1>
-            <hr/>
+            <hr />
             <ul data-role="listview" data-inset="true">
                 <li data-role="list-divider">Edit Profile</li>
                 <li>
@@ -68,34 +68,34 @@
                             <h2>User Information</h2>
                             <form>
                                 <label for="firstName">First Name:</label>
-                                <input type="text" id="firstName" name="firstName"/>
-                                <br/>
+                                <input type="text" id="firstName" name="firstName" />
+                                <br />
                                 <label for="lastName">Last Name:</label>
-                                <input type="text" id="lastName" name="lastName"/>
+                                <input type="text" id="lastName" name="lastName" />
                             </form>
                         </div>
                         <div data-role="collapsible">
                             <h2>Email</h2>
                             <form>
                                 <label for="email">Email:</label>
-                                <input type="text" id="email" name="email"/>
+                                <input type="text" id="email" name="email" />
                             </form>
                         </div>
                         <div data-role="collapsible">
                             <h2>Password</h2>
                             <form>
                                 <label for="currentPassword">Current Password:</label>
-                                <input type="password" id="currentPassword" name="currentPassword"/>
+                                <input type="password" id="currentPassword" name="currentPassword" />
                                 <br />
                                 <label for="newPassword">New Password:</label>
-                                <input type="password" id="newPassword" name="newPassword"/>
+                                <input type="password" id="newPassword" name="newPassword" />
                                 <br />
                                 <label for="confirmNewPassword">Confirm New Password:</label>
-                                <input type="password" id="confirmNewPassword" name="confirmNewPassword"/>
+                                <input type="password" id="confirmNewPassword" name="confirmNewPassword" />
                             </form>
                         </div>
                     </div>
-                    <br/>
+                    <br />
                     <button>Save Changes</button>
                 </li>
                 <li data-role="list-divider">Bookings</li>
@@ -104,7 +104,7 @@
                         <div data-role="collapsible">
                             <h2>Booking History</h2>
                             <ul data-role="listview">
-                                <li>No Bookings Made</li>                            
+                                             <li>No Bookings Made</li>
                             </ul>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
     //     $('#email').val(sessionStorage.getItem('email'));
     //     $('#tokens').html(sessionStorage.getItem('tokens'));
     // });
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#firstName').val(sessionStorage.getItem('firstName'));
         $('#lastName').val(sessionStorage.getItem('lastName'));
         $('#email').val(sessionStorage.getItem('email'));
