@@ -12,59 +12,30 @@
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <!-- JSON Server Interface -->
     <script src="../assets/common/database/json_server.js"></script>
+    <script src="../assets/iphone/js/load_panels.js"></script>
 </head>
 
 <body>
+
     <!-- Page -->
-    <div data-role="page">
+    <div data-role="page" id="page1">
 
-        <!-- Navigation Panel -->
-        <div data-role="panel" data-display="overlay" id="panel">
-            <input id="search" type="search" placeholder="Search..">
-            <button class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-search ui-btn-icon-right">Search</button>
-            <br />
-            <button class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-camera ui-btn-icon-right">Scan
-                QR</button>
-            <ul data-role="listview" data-inset="true">
-                     <li>Home</li>
-                    <li>Favourites</li>
-                    <li>Books</li>
-                    <li>Events</li>
-                    <li>Points of Interest</li>
-                    <li>News</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-            </ul>
-            <br />
-            <button data-rel="close" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-right">Close</button>
-        </div>
-        <!-- Navigation Panel -->
+        <div id="external_navbar"></div>
 
-        <!-- Page Header -->
-        <div data-role="header" data-position="fixed">
-            <a href="#panel" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Navigation
-                Bar</a>
-            <h1>Alexandria</h1>
-            <a href="#" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-user ui-btn-icon-left ui-btn-icon-notext">User</a>
-        </div>
-        <!-- Page Header -->
+        <div id="external_header"></div>
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
             <!-- TODO: ADD PAGE CONTENT -->
+            <a href="#page2">Onwards, noble steed!</a>
         </div>
         <!-- Page Content -->
 
-        <!-- Page Footer -->
-        <div data-role="footer">
-                <h1>Developed By Project Petrus</h1>
-            <p style="text-align: center"><a href="#">Copyright 2018 </a> | <a href="#">Terms of Use</a> | <a href="#">Privacy
-                    Policy</a></p>
-        </div>
-        <!-- Page Footer -->
+        <div id="external_footer"></div>
 
     </div>
     <!-- Page -->
+
 </body>
 
 </html>
