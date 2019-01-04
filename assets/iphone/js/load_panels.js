@@ -8,3 +8,15 @@ $(function () {
         });
     });
 });
+
+function userClick() {
+    var sessionFirstName = sessionStorage.getItem('firstName');
+    var sessionLastName = sessionStorage.getItem('lastName');
+    var sessionEmail = sessionStorage.getItem('email');
+    var sessionTokens = sessionStorage.getItem('tokens');
+    if (sessionFirstName && sessionLastName && sessionEmail && sessionTokens) {
+        window.location.replace('account.html');
+    } else {
+        window.location.replace('signin.html');
+    }
+}
