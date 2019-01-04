@@ -3,15 +3,17 @@
 
 <head>
     <!-- Page Data -->
-    <title>Alexandria - My Account</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
     <!-- Javascript Libraries -->
     <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <!-- JSON Server Interface -->
+    <!-- JSON Server Script -->
     <script src="../assets/common/database/json_server.js"></script>
     <!-- Panel Loader Script -->
     <script src="../assets/iphone/js/load_panels.js"></script>
@@ -87,7 +89,7 @@
                         <div data-role="collapsible">
                             <h2>Booking History</h2>
                             <ul data-role="listview">
-                                <li>No Bookings Made</li>
+                                <li>No Bookings Made</li>
                             </ul>
                         </div>
                     </div>
@@ -129,7 +131,7 @@
         $('#email').val(sessionStorage.getItem('email'));
         $('#tokens').html(sessionStorage.getItem('tokens'));
 
-        $('input').change(function() {
+        $('input').change(function () {
             $('#saveChanges').attr('disabled', false);
         });
     });
@@ -145,7 +147,6 @@
 
     function deleteAccount() {
     }
-
 </script>
 
 </html>

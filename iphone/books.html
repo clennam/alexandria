@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/iphone/js/load_panels.js"></script>
+</head>
+
+<body>
+    <!-- Book List Page -->
+    <div data-role="page">
+
+        <!-- Navigation Panel -->
+        <div id="external_navbar"></div>
+        <!-- Navigation Panel -->
+
+        <!-- Page Header -->
+        <div id="external_header"></div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-content">
+            <h1 class="narrow-margin center-content">Books</h1>
+            <hr />
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="Search Books...">
+                <li data-role="list-divider">A</li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Harry Potter</h2>
+                        <p>J. K. Rowling</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Wolfgang Amadeus Phoenix</h2>
+                        <p>Phoenix</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">B</li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Wolfgang Amadeus Phoenix</h2>
+                        <p>Phoenix</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Wolfgang Amadeus Phoenix</h2>
+                        <p>Phoenix</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">C</li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Wolfgang Amadeus Phoenix</h2>
+                        <p>Phoenix</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Wolfgang Amadeus Phoenix</h2>
+                        <p>Phoenix</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">D</li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Wolfgang Amadeus Phoenix</h2>
+                        <p>Phoenix</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Wolfgang Amadeus Phoenix</h2>
+                        <p>Phoenix</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Wolfgang Amadeus Phoenix</h2>
+                        <p>Phoenix</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#book" data-transition="slide">
+                        <img src="../assets/common/images/hpfs.jpg" />
+                        <h2>Wolfgang Amadeus Phoenix</h2>
+                        <p>Phoenix</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer"></div>
+        <!-- Page Footer -->
+
+    </div>
+    <!-- Book List Page -->
+
+    <!-- Book Page -->
+    <div data-role="page" id="book">
+
+        <!-- Page Header -->
+        <div data-role="header">
+            <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
+            <h1>Alexandria</h1>
+        </div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-content">
+            <div class="center-content">
+                <img src="../assets/common/images/hpfs.jpg" alt="Book Image" class="bookImage">
+            </div>
+            <h2 class="narrow-margin center-content">Harry Potter And The Philosopher's Stone</h2>
+            <h3 class="center-content">J.K. Rowling</h3>
+            <hr />
+            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Add To Favourites</button>
+            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location">Locate Nearest Store</button>
+            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-comment">Write A Review</button>
+            <br />
+            <div class="card">
+                <h3 class="center-content" style="margin-top: 0">Synopsis</h3>
+                <p class="justify-content" style="margin-bottom: 0">
+                    Harry Potter and the Philosopher's Stone is a fantasy novel written by
+                    British author J. K. Rowling. The first novel in the Harry Potter series and Rowling's
+                    debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on
+                    his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft
+                    and Wizardry. Harry makes close friends and a few enemies during his first year at the school,
+                    and with the help of his friends, Harry faces an attempted comeback by the dark wizard Lord
+                    Voldemort,
+                    who killed Harry's parents, but failed to kill Harry when he was just 15 months old. (Wikipedia)
+                </p>
+            </div>
+            <hr />
+            <h2 class="narrow-margin center-content">Book Reviews</h2>
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">Moiz Mansoor Ali <span class="ui-li-count">5 Stars</span></li>
+                <li class="justify-content">
+                    <p>
+                        This was an amazing book, I absolutely loved itawdawda adawdawd awdaw dawdawdadawd awdawd
+                        awdawd awda aw awdawd awda
+                    </p>
+                </li>
+                <li data-role="list-divider">Moiz Mansoor Ali <span class="ui-li-count">5 Stars</span></li>
+                <li>Comment</li>
+                <li data-role="list-divider">Moiz Mansoor Ali <span class="ui-li-count">5 Stars</span></li>
+                <li>Comment</li>
+                <li>Comment</li>
+                <li>Comment</li>
+                <li>Comment</li>
+                <li>Comment</li>
+            </ul>
+        </div>
+        <!-- Page Content -->
+
+    </div>
+    <!-- Book Page -->
+</body>
+
+</html>

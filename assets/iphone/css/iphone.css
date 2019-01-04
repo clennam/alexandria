@@ -1,0 +1,31 @@
+.bookImage {
+    height: 20em;
+}
+
+.center-content {
+    text-align: center;
+}
+
+.justify-content {
+    text-align: justify;
+}
+
+hr {
+    margin-bottom: 1em;
+}
+
+.card {
+    box-shadow: 0 4px 8px 1px rgba(0,0,0,0.2);
+    padding: 1em;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+
+.navbar-list li a {
+    font-size: 5em;
+}
+
+.narrow-margin {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
