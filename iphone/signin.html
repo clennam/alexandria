@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alexandria</title>
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
     <!-- iPhone CSS -->
     <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
     <!-- Javascript Libraries -->
@@ -43,20 +45,21 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <h1 style="text-align: center">Sign In</h1>
+            <h1 class="center-content narrow-margin">Sign In</h1>
             <hr />
-            <br />
-            <form>
-                <label for="email">Email Address:</label>
-                <input type="text" name="email" id="email">
+            <div class="ui-body ui-body-a ui-corner-all card">
+                <form>
+                    <label for="email">Email Address:</label>
+                    <input type="text" name="email" id="email">
+                    <br />
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                </form>
                 <br />
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
-            </form>
-            <br />
-            <button onclick="signIn()">Sign In</button>
-            <br />
-            <h3 style="text-align: center">Do not have an account? <a href="signup.html" data-ajax="false">Sign Up</a></h3>
+                <button onclick="signIn()">Sign In</button>
+            </div>
+            <h3 class="center-content">Do not have an account? <a href="signup.html" data-ajax="false">Sign Up</a></h3>
+            <br /><br /><br /><br /><br /><br />
         </div>
         <!-- Page Content -->
 

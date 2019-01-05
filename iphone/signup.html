@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alexandria</title>
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
     <!-- iPhone CSS -->
     <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
     <!-- Javascript Libraries -->
@@ -43,31 +45,31 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <h1 style="text-align: center">Create New Account</h1>
+            <h1 class="center-content narrow-margin">Create New Account</h1>
             <hr />
-            <br />
-            <form>
-                <label for="firstName">First Name:</label>
-                <input type="text" name="firstName" id="firstName" />
+            <div class="ui-body ui-body-a ui-corner-all card">
+                <form>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" name="firstName" id="firstName" />
+                    <br />
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" name="lastName" id="lastName" />
+                    <br />
+                    <label for="email">Email Address:</label>
+                    <input type="text" name="email" id="email" />
+                    <br />
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" />
+                    <br />
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" />
+                    <br />
+                    <input type="checkbox" name="termsAndConditions" id="termsAndConditions" />
+                    <label for="termsAndConditions">I agree to the given <a href="#">terms and conditions</a></label>
+                </form>
                 <br />
-                <label for="lastName">Last Name:</label>
-                <input type="text" name="lastName" id="lastName" />
-                <br />
-                <label for="email">Email Address:</label>
-                <input type="text" name="email" id="email" />
-                <br />
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" />
-                <br />
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" />
-                <br />
-                <input type="checkbox" name="termsAndConditions" id="termsAndConditions" />
-                <label for="termsAndConditions">I agree to the given <a href="#">terms and conditions</a></label>
-            </form>
-            <br />
-            <button onclick="createNewAccount()">Create Account</button>
-            <br />
+                <button onclick="createNewAccount()">Create Account</button>
+            </div>
             <h3 style="text-align: center">Already have an account? <a href="signin.html" data-ajax="false">Sign In</a></h3>
         </div>
         <!-- Page Content -->
