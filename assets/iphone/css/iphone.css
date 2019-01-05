@@ -56,6 +56,7 @@ hr {
 .card {
     padding: 1em;
     border-color: #7d003e;
+    border-width: 1.5px;
 }
 
 .member-image {
@@ -63,8 +64,4 @@ hr {
     width: 8em;
     border-radius: 50%;
     padding: 0.5em;
-}
-
-.head-icon {
-    background-color: #7d003e;
 }

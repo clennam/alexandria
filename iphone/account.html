@@ -52,7 +52,7 @@
                     <h1>Edit Profile</h1>
                 </div>
                 <div class="ui-body ui-body-a card">
-                    <div data-role="collapsibleset">
+                    <div data-role="collapsibleset" data-iconpos="right" data-collapsed-icon="carat-d">
                         <div data-role="collapsible">
                             <h2>User Information</h2>
                             <form>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <br />
-                    <button id="saveChanges" disabled="true" onclick="saveChanges()">Save Changes</button>
+                    <button id="saveChanges" onclick="saveChanges()">Save Changes</button>
                 </div>
             </div>
             <br />
@@ -128,9 +128,9 @@
         $('#email').val(sessionStorage.getItem('email'));
         $('#tokens').html(sessionStorage.getItem('tokens'));
 
-        $('input').change(function () {
-            $('#saveChanges').attr('disabled', false);
-        });
+        // $('input').change(function () {
+        //     $('#saveChanges').attr('disabled', false);
+        // });
     });
 
     function saveChanges() {

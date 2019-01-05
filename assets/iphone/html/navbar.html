@@ -1,8 +1,19 @@
 <!-- Navigation Panel -->
 <div data-role="panel" data-display="overlay" id="panel" data-theme="a">
-    <input id="search" type="search" placeholder="Search.." />
-    <button class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-search ui-btn-icon-right">Search</button>
-    <br />
+    <form class="ui-filterable">
+        <input id="autocomplete-input" data-type="search" placeholder="Search...">
+    </form>
+    <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-input="#autocomplete-input" data-inset="true">
+        <li>A</li>
+        <li>A</li>
+        <li>A</li>
+        <li>A</li>
+        <li>A</li>
+        <li>A</li>
+        <li>A</li>
+        <li>A</li>
+    </ul>
+    <hr />
     <button class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-camera ui-btn-icon-right">Scan QR</button>
     <br />
     <br />
