@@ -9,7 +9,7 @@ function hasGetUserMedia() {
 function initCamera() {
     if (hasGetUserMedia()) {
         const constraints = {
-            video: { width: { exact: 480 }, height: { exact: 480 } }
+            video: { width: { ideal: 480 }, height: { ideal: 480 }, facingMode: { ideal: "environment" } }
         };
 
         const video = document.querySelector('video');
@@ -48,7 +48,10 @@ function decodeQR(imageData) {
             $('#resultPopup').popup("open");
         }
         if (value) {
-            if (value.result.includes('github.com/clennam/alexandria')) {
+            if (value.result.includes('127.0.0.1')
+                || value.result.includes('localhost')
+                || value.result.includes('ngrok.io')
+                || value.result.includes('github.com/clennam/alexandria')) {
                 window.location.href = value.result;
             } else {
                 $("#resultPopup p").html('This QR code leads to an external location. Please use only Alexandria QR codes'
