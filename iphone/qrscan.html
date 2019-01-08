@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
+    <link rel="stylesheet" href="../assets/iphone/css/qrscan.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Load QR library -->
+    <script type="text/javascript" src="../node_modules/qrcode-reader/dist/index.js"></script>
+    <!-- Camera Initialiser Script -->
+    <script src="../assets/common/js/camera.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/iphone/js/load_panels.js"></script>
+</head>
+
+<body>
+    <!-- Page -->
+    <div data-role="page">
+
+        <!-- Navigation Panel -->
+        <div id="external_navbar"></div>
+        <!-- Navigation Panel -->
+
+        <!-- Page Header -->
+        <div id="external_header"></div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" id="cameraContainer">
+            <video class="full-width" autoplay></video>
+            <canvas style="display: none;"></canvas>
+            <div id="cameraToolbar">
+                <button id="scanQR" onclick="scanImage()">Scan</button>
+            </div>
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer"></div>
+        <!-- Page Footer -->
+
+    </div>
+    <!-- Page -->
+
+    <!-- Popup -->
+    <div data-role="popup" data-theme="a" id="resultPopup">
+        <p>This is a completely basic popup, no options set.</p>
+    </div>
+    <!-- Popup -->
+</body>
+
+</html>
