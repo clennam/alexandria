@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/iphone/js/load_panels.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        var sessionFirstName = sessionStorage.getItem('firstName');
+        var sessionLastName = sessionStorage.getItem('lastName');
+        var sessionEmail = sessionStorage.getItem('email');
+        var sessionTokens = sessionStorage.getItem('tokens');
+        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
+            window.location.replace('signin.html');
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Page -->
+    <div data-role="page">
+
+        <!-- Navigation Panel -->
+        <div id="external_navbar"></div>
+        <!-- Navigation Panel -->
+
+        <!-- Page Header -->
+        <div id="external_header"></div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-grid-solo">
+            <div class="ui-content" data-role="collapsibleset" data-iconpos="right" data-collapsed-icon="carat-d"
+                data-expanded-icon="carat-u">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h2 class="sharp-corners">User Information</h2>
+                    <form>
+                        <label for="distance">Distance(km):</label>
+                        <input data-theme="b" type="range" name="distance" id="distance" value="5" min="5" max="50"
+                            step="5" data-highlight="true">
+                        <br />
+                        <select name="country" id="country" data-native-menu="false">
+                            <option value="choose-one" data-placeholder="true">--Country--</option>
+                            <option value="1">The 1st Option</option>
+                            <option value="2">The 2nd Option</option>
+                            <option value="3">The 3rd Option</option>
+                            <option value="4">The 4th Option</option>
+                        </select>
+                        <select name="eventType" id="eventType" data-native-menu="false">
+                            <option value="choose-one" data-placeholder="true">--Event Type--</option>
+                            <option value="1">The 1st Option</option>
+                            <option value="2">The 2nd Option</option>
+                            <option value="3">The 3rd Option</option>
+                            <option value="4">The 4th Option</option>  
+                        </select>
+                        <select name="attendees" id="attendees" data-native-menu="false">
+                            <option value="choose-one" data-placeholder="true">--No. Of Attendees--</option>
+                            <option value="1">The 1st Option</option>
+                            <option value="2">The 2nd Option</option>
+                            <option value="3">The 3rd Option</option>
+                            <option value="4">The 4th Option</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <hr />
+            <ul class="sharp-corners" data-role="listview" data-inset="true">
+                <li>
+                    <a href="#event" data-transition="slide">
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Christmas Book Club</h2>
+                        <p><span>16th December</span> | <span>British Council</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#event" data-transition="slide">
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Christmas Book Club</h2>
+                        <p><span>16th December</span> | <span>British Council</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#event" data-transition="slide">
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Christmas Book Club</h2>
+                        <p><span>16th December</span> | <span>British Council</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#event" data-transition="slide">
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Christmas Book Club</h2>
+                        <p><span>16th December</span> | <span>British Council</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#event" data-transition="slide">
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Christmas Book Club</h2>
+                        <p><span>16th December</span> | <span>British Council</span></p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer"></div>
+        <!-- Page Footer -->
+
+    </div>
+    <!-- Page -->
+</body>
+
+</html>

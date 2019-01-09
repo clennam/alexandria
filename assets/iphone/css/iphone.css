@@ -3,7 +3,7 @@
 }
 
 .center-content {
-    text-align: center;
+    text-align: center !important;
 }
 
 .justify-content {
@@ -72,4 +72,16 @@ hr {
 
 .hide {
     display: none;
+}
+
+.sharp-corners {
+    border-radius: 0;
+}
+
+.ui-slider-handle {
+    border-radius: 50%;
+}
+
+.ui-collapsible-heading .ui-btn {
+    text-align: center;
 }
