@@ -9,7 +9,7 @@ function hasGetUserMedia() {
 function initCamera() {
     if (hasGetUserMedia()) {
         const constraints = {
-            video: { width: { ideal: 480 }, height: { ideal: 480 }, facingMode: { ideal: "environment" } }
+            video: { width: { ideal: window.width }, height: { ideal: window.height }, facingMode: { ideal: "environment" } }
         };
 
         const video = document.querySelector('video');
@@ -64,4 +64,19 @@ function decodeQR(imageData) {
     qr.decode(imageData);
 }
 
-$(function () { initCamera(); });
+$(window).on("orientationchange", function (event) {
+    if (event.orientation == 'landscape') {
+        $('video').css('height', '86vh');
+        if ($('#scanQR').offset().top > window.outerHeight) {
+            $('html, body').animate({
+                scrollTop: ($('video').offset().top)
+            }, 500);
+        }
+    }
+    if (event.orientation == 'portrait')
+        $('video').css('height', 'auto');
+});
+
+$(function () {
+    initCamera();
+});

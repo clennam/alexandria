@@ -4,6 +4,7 @@ $(function () {
             $("#external_footer").load("../assets/iphone/html/footer.html", function () {
                 $("[data-role='header'], [data-role='footer']").toolbar();
                 $("[data-role='panel']").enhanceWithin().panel();
+                $(window).orientationchange();
             });
         });
     });

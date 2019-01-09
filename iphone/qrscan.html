@@ -41,7 +41,7 @@
         <!-- Page Content -->
         <div role="main" id="cameraContainer">
             <video class="full-width" autoplay></video>
-            <canvas style="display: none;"></canvas>
+            <canvas class="hide"></canvas>
             <div id="cameraToolbar">
                 <button id="scanQR" onclick="scanImage()">Scan</button>
             </div>
@@ -56,7 +56,7 @@
     <!-- Page -->
 
     <!-- Popup -->
-    <div data-role="popup" data-theme="a" id="resultPopup">
+    <div data-role="popup" data-theme="a" data-overlay-theme="b" id="resultPopup">
         <p>This is a completely basic popup, no options set.</p>
     </div>
     <!-- Popup -->

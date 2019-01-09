@@ -69,3 +69,7 @@ hr {
 .full-width {
     width: 100vw;
 }
+
+.hide {
+    display: none;
+}
