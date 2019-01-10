@@ -21,16 +21,6 @@
     <script src="../assets/common/database/json_server.js"></script>
     <!-- Panel Loader Script -->
     <script src="../assets/iphone/js/load_panels.js"></script>
-    <!-- Pre-render Script -->
-    <script>
-        var sessionFirstName = sessionStorage.getItem('firstName');
-        var sessionLastName = sessionStorage.getItem('lastName');
-        var sessionEmail = sessionStorage.getItem('email');
-        var sessionTokens = sessionStorage.getItem('tokens');
-        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
-            window.location.replace('signin.html');
-        }
-    </script>
 </head>
 
 <body>
