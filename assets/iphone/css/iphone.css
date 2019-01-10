@@ -40,6 +40,7 @@ hr {
     -webkit-border-top-right-radius: inherit;
     border-top-right-radius: inherit;
 }
+
 .custom-corners .ui-body {
     border-top-width: 0;
     -webkit-border-bottom-left-radius: inherit;
