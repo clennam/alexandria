@@ -46,42 +46,8 @@
         <!-- Page Header -->
 
         <!-- Page Content -->
-        <div role="main" class="ui-grid-solo">
-            <div class="ui-content" data-role="collapsibleset" data-iconpos="right" data-collapsed-icon="carat-d"
-                data-expanded-icon="carat-u">
-                <div data-role="collapsible" data-collapsed="false">
-                    <h2 class="sharp-corners">Filter Events</h2>
-                    <form>
-                        <label for="distance">Distance(km):</label>
-                        <input data-theme="b" type="range" name="distance" id="distance" value="5" min="5" max="50"
-                            step="5" data-highlight="true">
-                        <br />
-                        <select name="country" id="country" data-native-menu="false">
-                            <option value="choose-one" data-placeholder="true">--Country--</option>
-                            <option value="1">The 1st Option</option>
-                            <option value="2">The 2nd Option</option>
-                            <option value="3">The 3rd Option</option>
-                            <option value="4">The 4th Option</option>
-                        </select>
-                        <select name="eventType" id="eventType" data-native-menu="false">
-                            <option value="choose-one" data-placeholder="true">--Event Type--</option>
-                            <option value="1">The 1st Option</option>
-                            <option value="2">The 2nd Option</option>
-                            <option value="3">The 3rd Option</option>
-                            <option value="4">The 4th Option</option>  
-                        </select>
-                        <select name="attendees" id="attendees" data-native-menu="false">
-                            <option value="choose-one" data-placeholder="true">--No. Of Attendees--</option>
-                            <option value="1">The 1st Option</option>
-                            <option value="2">The 2nd Option</option>
-                            <option value="3">The 3rd Option</option>
-                            <option value="4">The 4th Option</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-            <hr />
-            <ul class="sharp-corners" data-role="listview" data-inset="true">
+        <div role="main" class="ui-grid-solo filter-has-margins">
+            <ul class="sharp-corners" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search Events...">
                 <li>
                     <a href="#event" data-transition="slide">
                         <img src="../assets/common/images/bookclub.jpeg" />
