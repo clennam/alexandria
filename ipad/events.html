@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/ipad/css/ipad.css">
+    <link rel="stylesheet" href="../assets/ipad/css/community.css">
+    <link rel="stylesheet" href="../assets/ipad/css/confirm_booking.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/ipad/js/load_panels.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        var sessionFirstName = sessionStorage.getItem('firstName');
+        var sessionLastName = sessionStorage.getItem('lastName');
+        var sessionEmail = sessionStorage.getItem('email');
+        var sessionTokens = sessionStorage.getItem('tokens');
+        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
+            window.location.replace('signin.html');
+        }
+    </script>
+
+
+</head>
+
+<body>
+<!-- Page -->
+<div data-role="page">
+
+    <!-- Page Header -->
+    <div id="external_header_ipad"></div>
+    <!-- Page Header -->
+
+    <!-- Page Content -->
+    <div role="main" class="ui-grid-solo filter-has-margins" >
+        <ul class="sharp-corners" data-role="listview" data-theme="a" data-inset="true" data-filter="true" data-filter-placeholder="Search Events..." style="position: inherit!important;">
+            <li>
+                <a href="#event" data-transition="slide" class="themeColor">
+                    <img src="../assets/common/images/bookclub.jpeg" />
+                    <h2>Christmas Book Club</h2>
+                    <p><span>16th December</span> | <span>British Council</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="#event" data-transition="slide" class="themeColor">
+                    <img src="../assets/common/images/bookclub.jpeg" />
+                    <h2>Christmas Book Club</h2>
+                    <p><span>16th December</span> | <span>British Council</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="#event" data-transition="slide" class="themeColor">
+                    <img src="../assets/common/images/bookclub.jpeg" />
+                    <h2>Christmas Book Club</h2>
+                    <p><span>16th December</span> | <span>British Council</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="#event" data-transition="slide" class="themeColor">
+                    <img src="../assets/common/images/bookclub.jpeg" />
+                    <h2>Christmas Book Club</h2>
+                    <p><span>16th December</span> | <span>British Council</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="#event" data-transition="slide" class="themeColor">
+                    <img src="../assets/common/images/bookclub.jpeg" />
+                    <h2>Christmas Book Club</h2>
+                    <p><span>16th December</span> | <span>British Council</span></p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Page Content -->
+
+    <!-- Page Footer -->
+    <div id="external_footer_ipad"></div>
+    <!-- Page Footer -->
+
+</div>
+<!-- Page -->
+
+<!-- Page -->
+<div data-role="page" id="event">
+    <!-- Page Header -->
+    <div data-role="header">
+        <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
+        <h1>Christmas Book Club</h1>
+    </div>
+    <!-- Page Header -->
+
+    <!-- Page Content -->
+    <div role="main" class="ui-content">
+
+
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <img class="eventImage" src="../assets/common/images/bookclub.jpeg" alt="Event Image">
+                <a href="confirm_booking.html" data-ajax="false" class="ui-btn ui-btn-outline ui-corner-all checkout-btn">Buy
+                    Tickets</a>
+            </div>
+
+
+            <div class="ui-block-b" style="padding: 10px">
+                <h1 class="narrow-margin center-content" >Christmas Book Club</h1>
+                <p class="narrow-margin center-content" style="font-size: 28px;">16th December | British Council</p>
+
+
+                <form class="center-content">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend class="center-content" style="font-size: 23px;">Will you attend this event?</legend>
+                        <label for="eventAttendingYes">Yes</label>
+                        <input type="radio" name="eventAttending" id="eventAttendingYes" value="yes">
+                        <label for="eventAttendingNo">No</label>
+                        <input type="radio" name="eventAttending" id="eventAttendingNo" value="no">
+                        <label for="eventAttendingMaybe">Maybe</label>
+                        <input type="radio" name="eventAttending" id="eventAttendingMaybe" value="maybe">
+                    </fieldset>
+                </form>
+                <div class="center-content ui-body-a" style="font-size: 25px; !important;">
+                    Welcome to introvert happy hour! Looking for a great book club read to round out your year, or some
+                    great friends to celebrate Christmas with? Drop by the next Christmas Book Club meeting, and you just
+                    might find both!
+                </div>
+            </div>
+        </div>
+        <div data-role="tabs">
+
+            <div data-role="navbar">
+                <h1 class="center-content" style="">Who's Coming</h1>
+                <ul>
+                    <li><a href="#tabYes" class="ui-btn-active themeColor">Yes</a></li>
+                    <li><a href="#tabNo" class="themeColor">No</a></li>
+                    <li><a href="#tabMaybe" class="themeColor">Maybe</a></li>
+                </ul>
+            </div>
+            <div class="ui-body ui-body-a tabview-scroll nopadding" id="tabYes">
+                <ul class="sharp-corners nomargin" data-role="listview" data-inset="true">
+                    <li>
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Aishcharya Kahandawala</h2>
+                    </li>
+                    <li>
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Moiz Mansoor Ali</h2>
+                    </li>
+                </ul>
+            </div>
+            <div class="ui-body ui-body-a tabview-scroll nopadding" id="tabNo">
+                <ul class="sharp-corners nomargin" data-role="listview" data-inset="true">
+                    <li>
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Aishcharya Kahandawala</h2>
+                    </li>
+                    <li>
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Moiz Mansoor Ali</h2>
+                    </li>
+                </ul>
+            </div>
+            <div class="ui-body ui-body-a tabview-scroll nopadding" id="tabMaybe">
+                <ul class="sharp-corners nomargin" data-role="listview" data-inset="true">
+                    <li>
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Aishcharya Kahandawala</h2>
+                    </li>
+                    <li>
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Moiz Mansoor Ali</h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Page Content -->
+</div>
+<!-- Page -->
+
+</body>
+
+</html>
