@@ -29,6 +29,17 @@
             window.location.replace('account.html');
         }
     </script>
+
+
+    <style>
+        @media all and (min-width: 1366px){
+
+            .signUpContainer {
+                width: 65% !important;
+                margin: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -41,33 +52,39 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <h1 class="center-content narrow-margin">Create New Account</h1>
-            <hr />
-            <div class="ui-body ui-body-a ui-corner-all card">
-                <form>
-                    <label for="firstName">First Name:</label>
-                    <input type="text" name="firstName" id="firstName" />
+
+            <div class="signUpContainer">
+                <h1 class="center-content narrow-margin">Create New Account</h1>
+                <hr />
+                <div class="ui-body ui-body-a ui-corner-all card">
+                    <form>
+                        <label for="firstName">First Name:</label>
+                        <input type="text" name="firstName" id="firstName" />
+                        <br />
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" name="lastName" id="lastName" />
+                        <br />
+                        <label for="email">Email Address:</label>
+                        <input type="text" name="email" id="email" />
+                        <br />
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" />
+                        <br />
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" name="confirmPassword" id="confirmPassword" />
+                        <br />
+                        <input type="checkbox" name="termsAndConditions" id="termsAndConditions" />
+                        <label for="termsAndConditions">I agree to the given <a href="#">terms and conditions</a></label>
+                    </form>
                     <br />
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" name="lastName" id="lastName" />
-                    <br />
-                    <label for="email">Email Address:</label>
-                    <input type="text" name="email" id="email" />
-                    <br />
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" />
-                    <br />
-                    <label for="confirmPassword">Confirm Password:</label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" />
-                    <br />
-                    <input type="checkbox" name="termsAndConditions" id="termsAndConditions" />
-                    <label for="termsAndConditions">I agree to the given <a href="#">terms and conditions</a></label>
-                </form>
-                <br />
-                <button onclick="createNewAccount()">Create Account</button>
+                    <button onclick="createNewAccount()">Create Account</button>
+                </div>
+                <h3 style="text-align: center">Already have an account? <a href="signin.html" data-ajax="false"  style="color: #7d003e;">Sign In</a></h3>
+
             </div>
-            <h3 style="text-align: center">Already have an account? <a href="signin.html" data-ajax="false"  style="color: #7d003e;">Sign In</a></h3>
         </div>
+
+
         <!-- Page Content -->
 
         <!-- Page Footer -->
