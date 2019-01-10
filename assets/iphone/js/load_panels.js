@@ -1,4 +1,4 @@
-$(function () {
+function loadPanels() {
     $("#external_header").load("../assets/iphone/html/header.html", function () {
         $("#external_navbar").load("../assets/iphone/html/navbar.html", function () {
             $("#external_footer").load("../assets/iphone/html/footer.html", function () {
@@ -8,7 +8,7 @@ $(function () {
             });
         });
     });
-});
+}
 
 function userClick() {
     var sessionFirstName = sessionStorage.getItem('firstName');
@@ -21,3 +21,5 @@ function userClick() {
         window.location.replace('signin.html');
     }
 }
+
+$(function () { loadPanels(); });

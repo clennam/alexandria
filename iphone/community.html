@@ -13,6 +13,7 @@
     <!-- iPhone CSS -->
     <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
     <link rel="stylesheet" href="../assets/iphone/css/community.css">
+    <link rel="stylesheet" href="../assets/iphone/css/confirm_booking.css">
     <!-- Javascript Libraries -->
     <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -49,7 +50,7 @@
             <div class="ui-content" data-role="collapsibleset" data-iconpos="right" data-collapsed-icon="carat-d"
                 data-expanded-icon="carat-u">
                 <div data-role="collapsible" data-collapsed="false">
-                    <h2 class="sharp-corners">User Information</h2>
+                    <h2 class="sharp-corners">Filter Events</h2>
                     <form>
                         <label for="distance">Distance(km):</label>
                         <input data-theme="b" type="range" name="distance" id="distance" value="5" min="5" max="50"
@@ -126,6 +127,92 @@
 
     </div>
     <!-- Page -->
+
+    <!-- Page -->
+    <div data-role="page" id="event">
+        <!-- Page Header -->
+        <div data-role="header">
+            <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
+            <h1>Christmas Book Club</h1>
+        </div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-content">
+            <div class="limit-image center-content">
+                <img class="fill-width" src="../assets/common/images/bookclub.jpeg" alt="Event Image" class="event-image">
+            </div>
+            <h2 class="narrow-margin center-content">Christmas Book Club</h2>
+            <p class="narrow-margin center-content">16th December | British Council</p>
+            <a href="confirm_booking.html" data-ajax="false" class="ui-btn ui-btn-outline ui-corner-all checkout-btn">Buy
+                Tickets</a>
+            <form class="center-content">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <legend class="narrow-margin center-content">Will you attend this event?</legend>
+                    <label for="eventAttendingYes">Yes</label>
+                    <input type="radio" name="eventAttending" id="eventAttendingYes" value="yes">
+                    <label for="eventAttendingNo">No</label>
+                    <input type="radio" name="eventAttending" id="eventAttendingNo" value="no">
+                    <label for="eventAttendingMaybe">Maybe</label>
+                    <input type="radio" name="eventAttending" id="eventAttendingMaybe" value="maybe">
+                </fieldset>
+            </form>
+            <div class="ui-body ui-body-a">
+                Welcome to introvert happy hour! Looking for a great book club read to round out your year, or some
+                great friends to celebrate Christmas with? Drop by the next Christmas Book Club meeting, and you just
+                might find both!
+            </div>
+            <h1 class="center-content">Who's Coming</h1>
+            <div data-role="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#tabYes" class="ui-btn-active">Yes</a></li>
+                        <li><a href="#tabNo">No</a></li>
+                        <li><a href="#tabMaybe">Maybe</a></li>
+                    </ul>
+                </div>
+                <div class="ui-body ui-body-a tabview-scroll nopadding" id="tabYes">
+                    <ul class="sharp-corners nomargin" data-role="listview" data-inset="true">
+                        <li>
+                            <img src="../assets/common/images/bookclub.jpeg" />
+                            <h2>Aishcharya Kahandawala</h2>
+                        </li>
+                        <li>
+                            <img src="../assets/common/images/bookclub.jpeg" />
+                            <h2>Moiz Mansoor Ali</h2>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ui-body ui-body-a tabview-scroll nopadding" id="tabNo">
+                    <ul class="sharp-corners nomargin" data-role="listview" data-inset="true">
+                        <li>
+                            <img src="../assets/common/images/bookclub.jpeg" />
+                            <h2>Aishcharya Kahandawala</h2>
+                        </li>
+                        <li>
+                            <img src="../assets/common/images/bookclub.jpeg" />
+                            <h2>Moiz Mansoor Ali</h2>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ui-body ui-body-a tabview-scroll nopadding" id="tabMaybe">
+                    <ul class="sharp-corners nomargin" data-role="listview" data-inset="true">
+                        <li>
+                            <img src="../assets/common/images/bookclub.jpeg" />
+                            <h2>Aishcharya Kahandawala</h2>
+                        </li>
+                        <li>
+                            <img src="../assets/common/images/bookclub.jpeg" />
+                            <h2>Moiz Mansoor Ali</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Content -->
+    </div>
+    <!-- Page -->
+
 </body>
 
 </html>

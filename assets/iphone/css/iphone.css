@@ -93,3 +93,16 @@ hr {
 .ui-btn-outline {
     border-color: #7d003e !important;
 }
+
+.tabview-scroll {
+    height: 20em;
+    overflow: scroll;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
