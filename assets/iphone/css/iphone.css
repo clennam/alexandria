@@ -116,3 +116,7 @@ hr {
 .filter-has-margins .ui-filterable {
     margin: 0.5em;
 }
+
+.normal-whitespace {
+    white-space: normal !important;
+}
