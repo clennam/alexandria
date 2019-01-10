@@ -1,0 +1,12 @@
+.form-margins {
+    padding: 0 2%;
+}
+@media all and (max-width: 376px) {
+	.stack-portrait {
+		width: 100% !important;
+		float: none;
+    }
+    .limit-image {
+        margin: 0 4.5em;
+    }
+}
