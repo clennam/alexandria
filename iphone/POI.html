@@ -21,16 +21,6 @@
     <script src="../assets/common/database/json_server.js"></script>
     <!-- Panel Loader Script -->
     <script src="../assets/iphone/js/load_panels.js"></script>
-    <!-- Pre-render Script -->
-    <script>
-        var sessionFirstName = sessionStorage.getItem('firstName');
-        var sessionLastName = sessionStorage.getItem('lastName');
-        var sessionEmail = sessionStorage.getItem('email');
-        var sessionTokens = sessionStorage.getItem('tokens');
-        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
-            window.location.replace('signin.html');
-        }
-    </script>
 </head>
 
 <body>
@@ -51,28 +41,28 @@
                 <li>
                     <a href="#poi" data-transition="slide">
                         <img src="../assets/common/images/bookclub.jpeg" />
-                        <h2>Book Store 1</h2>
+                        <h2>Iron Giant Books</h2>
                         <p><span>40, Ribagorca Ave, Sunnyvale</span></p>
                     </a>
                 </li>
                 <li>
                     <a href="#poi" data-transition="slide">
                         <img src="../assets/common/images/bookclub.jpeg" />
-                        <h2>Book Store 2</h2>
+                        <h2>Riley's Bookshop</h2>
                         <p><span>32, Kerouac Way, Sunnyvale</span></p>
                     </a>
                 </li>
                 <li>
                     <a href="#poi" data-transition="slide">
                         <img src="../assets/common/images/bookclub.jpeg" />
-                        <h2>Book Store 3</h2>
+                        <h2>Ivasaras Bookshop</h2>
                         <p><span>20/2, Rua Ruiz, Plotilla</span></p>
                     </a>
                 </li>
                 <li>
                     <a href="#poi" data-transition="slide">
                         <img src="../assets/common/images/bookclub.jpeg" />
-                        <h2>Book Store 4</h2>
+                        <h2>Buck's Book Stop</h2>
                         <p><span>3, Dawnwall Road, Clestin</span></p>
                     </a>
                 </li>
@@ -92,7 +82,7 @@
         <!-- Page Header -->
         <div data-role="header">
             <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
-            <h1>POI: Book Store 1</h1>
+            <h1>POI: Iron Giant Books</h1>
         </div>
         <!-- Page Header -->
 
@@ -101,9 +91,9 @@
             <div class="limit-image center-content">
                 <img class="fill-width" src="../assets/common/images/bookclub.jpeg" alt="Event Image" class="event-image">
             </div>
-            <h2 class="narrow-margin center-content">Book Store 1</h2>
+            <h2 class="narrow-margin center-content">Iron Giant Books</h2>
             <p class="narrow-margin center-content">40, Ribagorca Ave, Sunnyvale</p>
-            <button class="ui-btn center-content ui-icon-delete ui-btn-icon-left ui-btn-centered">Add to Favourites</button>
+            <button class="ui-btn center-content ui-icon-heart ui-btn-icon-left ui-btn-centered">Add to Favourites</button>
             <div class="ui-body ui-body-a">
                 <div class="card">
                     In tristique massa feugiat, scelerisque mi convallis, feugiat ante. Maecenas sit amet quam diam.
