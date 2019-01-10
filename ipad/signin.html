@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPad CSS -->
+    <link rel="stylesheet" href="../assets/ipad/css/ipad.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/ipad/js/load_panels.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        var sessionFirstName = sessionStorage.getItem('firstName');
+        var sessionLastName = sessionStorage.getItem('lastName');
+        var sessionEmail = sessionStorage.getItem('email');
+        var sessionTokens = sessionStorage.getItem('tokens');
+        if (sessionFirstName && sessionLastName && sessionEmail && sessionTokens) {
+            window.location.replace('account.html');
+        }
+    </script>
+
+
+    <style>
+        @media all and (min-width: 1024px){
+            .signInLeftContainer {
+                width: 22% !important;
+            }
+
+            .signInContainer {
+                width: 55% !important;
+            }
+
+            .signInRightContainer {
+                width: 50% !important;
+            }
+        }
+
+        @media all and (min-width: 1366px){
+            .signInLeftContainer {
+                width: 25% !important;
+            }
+
+            .signInContainer {
+                width: 49% !important;
+            }
+
+            .signInRightContainer {
+                width: 50% !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page -->
+    <div data-role="page">
+
+        <!-- Page Header -->
+        <div id="external_header_ipad"></div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-grid-b ui-content">
+                <div class="ui-block-a signInLeftContainer"></div>
+
+                <div class="ui-block-b signInContainer">
+                    <h1 class="center-content narrow-margin">Sign In</h1>
+                    <hr />
+                    <div class="ui-body ui-body-a ui-corner-all card">
+                        <form>
+                            <label for="email">Email Address:</label>
+                            <input type="text" name="email" id="email">
+                            <br />
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password">
+                        </form>
+                        <br />
+                        <button onclick="signIn()">Sign In</button>
+                    </div>
+                    <h3 class="center-content">Do not have an account? <a href="signup.html" data-ajax="false" style="color: #7d003e;">Sign Up</a></h3>
+                    <br /><br /><br /><br /><br /><br />
+                </div>
+
+                <div class="ui-block-c signInRightContainer"></div>
+
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer_ipad"></div>
+        <!-- Page Footer -->
+
+    </div>
+    <!-- Page -->
+</body>
+
+<script>
+    function signIn() {
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+        if (email && password) {
+            JsonServer.get("users?email=" + email + "&password=" + password, function (data, status) {
+                if (status === "success") {
+                    if (data.length === 1) {
+                        var user = data[0];
+                        sessionStorage.setItem('firstName', user.firstName);
+                        sessionStorage.setItem('lastName', user.lastName);
+                        sessionStorage.setItem('email', user.email);
+                        sessionStorage.setItem('tokens', user.tokens);
+                        sessionStorage.setItem('favourites', user.favourites);
+                        sessionStorage.setItem('bookings', user.bookings);
+                        window.location.replace('account.html');
+                    } else {
+                        console.error("No Such Account Found");
+                    }
+                } else {
+                    console.error("Error Occurred");
+                }
+            });
+        } else {
+            console.log("No data entered");
+        }
+    }
+</script>
+
+</html>
