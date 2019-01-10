@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Points of Interest</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
+    <link rel="stylesheet" href="../assets/iphone/css/community.css">
+    <link rel="stylesheet" href="../assets/iphone/css/confirm_booking.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/iphone/js/load_panels.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        var sessionFirstName = sessionStorage.getItem('firstName');
+        var sessionLastName = sessionStorage.getItem('lastName');
+        var sessionEmail = sessionStorage.getItem('email');
+        var sessionTokens = sessionStorage.getItem('tokens');
+        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
+            window.location.replace('signin.html');
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Page -->
+    <div data-role="page">
+
+        <!-- Navigation Panel -->
+        <div id="external_navbar"></div>
+        <!-- Navigation Panel -->
+
+        <!-- Page Header -->
+        <div id="external_header"></div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-grid-solo filter-has-margins">
+            <ul class="sharp-corners" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search Points of Interest...">
+                <li>
+                    <a href="#poi" data-transition="slide">
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Book Store 1</h2>
+                        <p><span>40, Ribagorca Ave, Sunnyvale</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#poi" data-transition="slide">
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Book Store 2</h2>
+                        <p><span>32, Kerouac Way, Sunnyvale</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#poi" data-transition="slide">
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Book Store 3</h2>
+                        <p><span>20/2, Rua Ruiz, Plotilla</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#poi" data-transition="slide">
+                        <img src="../assets/common/images/bookclub.jpeg" />
+                        <h2>Book Store 4</h2>
+                        <p><span>3, Dawnwall Road, Clestin</span></p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer"></div>
+        <!-- Page Footer -->
+
+    </div>
+    <!-- Page -->
+
+    <!-- Page -->
+    <div data-role="page" id="poi">
+        <!-- Page Header -->
+        <div data-role="header">
+            <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
+            <h1>POI: Book Store 1</h1>
+        </div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-content">
+            <div class="limit-image center-content">
+                <img class="fill-width" src="../assets/common/images/bookclub.jpeg" alt="Event Image" class="event-image">
+            </div>
+            <h2 class="narrow-margin center-content">Book Store 1</h2>
+            <p class="narrow-margin center-content">40, Ribagorca Ave, Sunnyvale</p>
+            <button class="ui-btn center-content ui-icon-delete ui-btn-icon-left ui-btn-centered">Add to Favourites</button>
+            <div class="ui-body ui-body-a">
+                <div class="card">
+                    In tristique massa feugiat, scelerisque mi convallis, feugiat ante. Maecenas sit amet quam diam.
+                    Nulla sapien augue, molestie at sem id, accumsan sagittis erat. Ut rhoncus euismod nunc, eget
+                    consectetur velit iaculis ut. Nam eget mi ante. Pellentesque sodales urna quis elit venenatis
+                    pretium sed sit amet turpis. Nullam tincidunt malesuada porta. Etiam sollicitudin, felis in
+                    bibendum ultrices, metus ipsum mattis purus, in mollis risus arcu sed neque. Cras et augue non
+                    risus eleifend lobortis eu blandit lorem. Sed eu ornare dolor. Cras aliquam sagittis nisi eu
+                    aliquet.
+                </div>
+            </div>
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Informatics%20Institute%20of%20Technology&t=&z=19&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+                <style>
+                    .mapouter {
+                        text-align: right;
+                        height: 500px;
+                        width: 100%;
+                        margin: 0 auto;
+                    }
+
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        height: 500px;
+                        width: 100%;
+                    }
+                </style>
+            </div>
+        </div>
+        <!-- Page Content -->
+    </div>
+    <!-- Page -->
+
+</body>
+
+</html>
