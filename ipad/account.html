@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/ipad/css/ipad.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/ipad/js/load_panels.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        var sessionFirstName = sessionStorage.getItem('firstName');
+        var sessionLastName = sessionStorage.getItem('lastName');
+        var sessionEmail = sessionStorage.getItem('email');
+        var sessionTokens = sessionStorage.getItem('tokens');
+        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
+            window.location.replace('signin.html');
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Page -->
+    <div data-role="page">
+
+        <!-- Page Header -->
+        <div id="external_header_ipad"></div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-content">
+            <h1 class="center-content narrow-margin">Your Account</h1>
+            <hr />
+            <div class="ui-corner-all custom-corners">
+                <div class="ui-bar ui-bar-a center-content">
+                    <h1>Edit Profile</h1>
+                </div>
+                <div class="ui-body ui-body-a card">
+                    <div data-role="collapsibleset" data-iconpos="right" data-collapsed-icon="carat-d">
+                        <div data-role="collapsible">
+                            <h2>User Information</h2>
+                            <form>
+                                <label for="firstName">First Name:</label>
+                                <input type="text" id="firstName" name="firstName" />
+                                <br />
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" id="lastName" name="lastName" />
+                            </form>
+                        </div>
+                        <div data-role="collapsible">
+                            <h2>Email</h2>
+                            <form>
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" name="email" />
+                            </form>
+                        </div>
+                        <div data-role="collapsible">
+                            <h2>Password</h2>
+                            <form>
+                                <label for="currentPassword">Current Password:</label>
+                                <input type="password" id="currentPassword" name="currentPassword" />
+                                <br />
+                                <label for="newPassword">New Password:</label>
+                                <input type="password" id="newPassword" name="newPassword" />
+                                <br />
+                                <label for="confirmNewPassword">Confirm New Password:</label>
+                                <input type="password" id="confirmNewPassword" name="confirmNewPassword" />
+                            </form>
+                        </div>
+                    </div>
+                    <br />
+                    <button id="saveChanges" onclick="saveChanges()">Save Changes</button>
+                </div>
+            </div>
+            <br />
+            <div class="ui-corner-all custom-corners">
+                <div class="ui-bar ui-bar-a center-content">
+                    <h1>Bookings</h1>
+                </div>
+                <div class="ui-body ui-body-a card">
+                    <ul data-role="listview" data-inset="true">
+                        <li>No Bookings Made</li>
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div class="ui-corner-all custom-corners">
+                <div class="ui-bar ui-bar-a center-content">
+                    <h1>Rewards</h1>
+                </div>
+                <div class="ui-body ui-body-a card">
+                    <p><strong>Token Amount: </strong><span id="tokens">0</span></p>
+                </div>
+            </div>
+            <hr />
+            <button onclick="signOut()">Sign Out</button>
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer_ipad"></div>
+        <!-- Page Footer -->
+
+    </div>
+    <!-- Page -->
+</body>
+
+<script>
+    $(document).ready(function () {
+        $('#firstName').val(sessionStorage.getItem('firstName'));
+        $('#lastName').val(sessionStorage.getItem('lastName'));
+        $('#email').val(sessionStorage.getItem('email'));
+        $('#tokens').html(sessionStorage.getItem('tokens'));
+
+        // $('input').change(function () {
+        //     $('#saveChanges').attr('disabled', false);
+        // });
+    });
+
+    function saveChanges() {
+        console.log('save changes does nothing');
+    }
+
+    function signOut() {
+        sessionStorage.clear();
+        window.location.replace('signin.html');
+    }
+</script>
+
+</html>

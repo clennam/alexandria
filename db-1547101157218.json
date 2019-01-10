@@ -13,18 +13,10 @@
     {
       "firstName": "Aishcharya",
       "lastName": "Kahandawala",
-      "email": "aishcharya.2015034@iit.ac.lk",
+      "email": "aishcharya.2015033@iit.ac.lk",
       "password": "password",
       "tokens": "0",
       "id": 2
-    },
-    {
-      "firstName": "Isira",
-      "lastName": "Kandanearachchi",
-      "email": "isira.2015098@iit.ac.lk",
-      "password": "burgerkingfootlettuce",
-      "tokens": "0",
-      "id": 3
     }
   ],
   "books": [
