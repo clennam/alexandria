@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
     <!-- iPhone CSS -->
     <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
+    <link rel="stylesheet" href="../assets/iphone/css/community.css">
+    <link rel="stylesheet" href="../assets/iphone/css/confirm_booking.css">
     <!-- Javascript Libraries -->
     <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -37,6 +39,25 @@
         <div role="main" class="ui-content">
             <h1 class="narrow-margin center-content">Books</h1>
             <hr />
+            <div class="ui-content" data-role="collapsibleset" data-iconpos="right" data-collapsed-icon="carat-d"
+                data-expanded-icon="carat-u">
+                <div data-role="collapsible">
+                    <h2 class="sharp-corners">Filter Books</h2>
+                    <form>
+                        <label for="distance">Price(LKR):</label>
+                        <input data-theme="b" type="range" name="distance" id="distance" value="200" min="100" max="5000"
+                            step="100" data-highlight="true">
+                        <br />
+                        <select name="country" id="country" data-native-menu="false">
+                            <option value="choose-one" data-placeholder="true">--Genre--</option>
+                            <option value="1">Horror/Thriller</option>
+                            <option value="2">Comedy</option>
+                            <option value="3">Fantasy</option>
+                            <option value="4">Nonfiction</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
             <ul data-role="listview" data-filter="true" data-filter-placeholder="Search Books...">
                 <li data-role="list-divider">A</li>
                 <li>
@@ -168,11 +189,13 @@
             <ul data-role="listview" class="review-list">
                 <li>
                     <h1>Moiz Mansoor Ali</h1>
-                    <p>This is an amazing book and I would love to read it again awd awdaw waaw aawdaw awawdaw awdawdaw dawaw dawaw awda wdwa awda wdawdawd wadawdaw dawd awdawd awd dwa dawdawd a</p>
+                    <p>This is an amazing book and I would love to read it again awd awdaw waaw aawdaw awawdaw awdawdaw
+                        dawaw dawaw awda wdwa awda wdawdawd wadawdaw dawd awdawd awd dwa dawdawd a</p>
                 </li>
                 <li>
                     <h1>Aishcharya Kahandawala</h1>
-                    <p>awda wd awda awawdaw awdaw dawdaw daaw dawad awda wd awd awdaw awdawdawsrgsrgdg ddrgdgrdg dgdrg dgd rdrgdrg dgdrgdrg dgdrgd rgdrgd rgdrgdrg dgdrg dg dr</p>
+                    <p>awda wd awda awawdaw awdaw dawdaw daaw dawad awda wd awd awdaw awdawdawsrgsrgdg ddrgdgrdg dgdrg
+                        dgd rdrgdrg dgdrgdrg dgdrgd rgdrgd rgdrgdrg dgdrg dg dr</p>
                 </li>
             </ul>
         </div>

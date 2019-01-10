@@ -1,0 +1,68 @@
+<!-- Page Header -->
+<div data-role="header" data-position="absolute" data-theme="a">  
+
+	<div class="ui-grid-b">
+		<div class="ui-block-a" onclick="window.location.replace('home.html');">
+			<img src="../assets/common/images/alexandria-logo-white.svg" style="width: 2.3em;height: 2.3em;margin:0.7em 0.1em 0em 0.7em;">
+			<span style="font-size: 2em">Alexandria</span>		
+		</div>
+		
+		<div class="ui-block-b">
+			<form class="ui-filterable">
+				<input id="autocomplete-input-main" data-type="search" placeholder="Search...">
+			</form>
+			<ul data-role="listview" data-filter="true" data-filter-reveal="true" data-input="#autocomplete-input-main" data-inset="true">
+				<li>ACluiche na Corónach</li>
+				<li>Gradovi na papiru</li>
+				<li>Lovac na zmajeve</li>
+				<li>Lov na vatru (Igre gladi, #2)</li>
+				<li>Na Natureza Selvagem</li>
+				<li>Na ni ya Zhuan qi: neng yan ma yu nan hai </li>
+				<li>Na větrné hůrce</li>
+				<li>Na vine sú hviezdy</li>				
+			</ul>
+		</div>
+		
+		<div class="ui-block-c" style="margin-left:100px;">	
+			<div class="ui-grid-a" id="userStatus">
+				   
+			</div>		
+
+			<div id="menu" data-role="popup">
+				<ul data-role="listview" data-inset="true">
+					<li><a href="account.html">My Account</a></li>
+					<li><a href="favourites.html">Favourites</a></li>
+					<li><a href="bookings.html">Bookings</a></li>
+					<li><a href="javascript:logout();">Logout</a></li>
+				</ul>
+			</div>			
+		</div>
+	</div><!-- /grid-b -->
+	
+	<div class="ui-grid-c">
+		<div class="ui-block-a">
+		</div>
+		<div class="ui-block-b">
+			<div data-role="navbar">
+				<ul>
+				  <li class="tab"><a href="books.html">Books</a>
+				  </li>
+				  <li class="tab"><a href="events.html">Events</a>
+				  </li>
+				  <li class="tab"><a href="news.html">News</a>
+				  </li>
+				  <li class="tab"><a href="poi.html">POI</a>
+				  </li>
+				  <li class="tab"><a href="about.html">About Us</a>
+				  </li>        
+				</ul>
+			</div>
+			<!-- /navbar -->
+		</div>
+		<div class="ui-block-c">
+			<img src="https://img.icons8.com/ios/50/000000/qr-code-filled.png" style="width: 2.8em;height: 2.8em;margin-left:3em;border:1px solid #ac5c84;" onclick="window.location.replace('qrscan.html');">
+		</div>
+	</div><!-- /grid-c -->
+	
+</div>
+<!-- Page Header -->

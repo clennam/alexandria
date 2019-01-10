@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPad CSS -->
+    <link rel="stylesheet" href="../assets/ipad/css/ipad.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/ipad/js/load_panels.js"></script>
+</head>
+
+<body>
+    <!-- Book List Page -->
+    <div data-role="page">
+	
+        <!-- Page Header -->
+        <div id="external_header_ipad"></div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-content">
+            <div class="ui-grid-b">
+				<div class="ui-block-a">
+					 <form style="max-width:325px;">
+                       
+                        <select name="genre" id="genre" data-native-menu="false">
+                            <option value="1" data-placeholder="true">Genre</option>
+                        </select>
+                        <select name="newReleases" id="newReleases" data-native-menu="false">
+                            <option value="1" data-placeholder="true">New Releases</option>
+                        </select>
+                        <select name="author" id="author" data-native-menu="false">
+                            <option value="1" data-placeholder="true">Author</option>
+                        </select>
+						 <select name="bookSeries" id="bookSeries" data-native-menu="false">
+                            <option value="1" data-placeholder="true">Book Series</option>
+                        </select>
+                        <select name="language" id="language" data-native-menu="false">
+                            <option value="1" data-placeholder="true">Language</option>
+                        </select>
+						<div class="ui-bar ui-btn ui-bar-a center-content">
+							<h1>Avg. Customer Review</h1>
+						</div>
+						<img src="../assets/ipad/images/star.jpeg" style="width: 20.5em;height: 21.3em;">
+						
+						 <label for="price">Price(Rs.):</label>
+                        <input data-theme="b" type="range" name="price" id="price" value="1000" min="100" max="5000"
+                            step="5" data-highlight="true">
+                        <br />
+                    </form>
+				</div>
+				<div class="bookList ui-block-b">
+					<div class="ui-grid-b" style="margin-left:15px;">
+						<div class="ui-block-a">
+							<a href="#book" data-transition="slide">
+								<img src="http://wp.production.patheos.com/blogs/crywoof/files/2015/03/TheAnubisGates.png" style="width: 9em;height: 11em;"/>
+								<p>The Anubis Gates<br>
+								Tim Powers<br>Rs. 1100</p>
+							</a>
+						</div>
+						<div class="ui-block-b">
+							 <a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Wolfgang Amadeus<br>
+								Phoenix<br>Rs. 1200</p>
+							</a>
+						</div>
+						<div class="ui-block-c">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Harry Potter<br>
+								J. K. Rowling<br>Rs. 1220</p>
+							</a>
+						</div>
+						<div class="ui-block-a">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Harry Potter<br>
+								J. K. Rowling<br>Rs. 1250</p>
+							</a>
+						</div>
+						<div class="ui-block-b">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Wolfgang Amadeus<br>
+								Phoenix<br>Rs. 1300</p>
+							</a>
+						</div>
+						<div class="ui-block-c">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Harry Potter<br>
+								J. K. Rowling<br>Rs. 1375</p>
+							</a>
+						</div>
+						<div class="ui-block-a">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Harry Potter<br>
+								J. K. Rowling<br>Rs. 1500</p>
+							</a>
+						</div>
+						<div class="ui-block-b">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Harry Potter<br>
+								J. K. Rowling<br>Rs. 1800</p>
+							</a>
+						</div>
+						<div class="ui-block-c">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Harry Potter<br>
+								J. K. Rowling<br>Rs. 2000</p>
+							</a>
+						</div>
+						<div class="ui-block-a">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Harry Potter<br>
+								J. K. Rowling<br>Rs. 2500</p>
+							</a>
+						</div>
+						<div class="ui-block-b">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Wolfgang Amadeus<br>
+								Phoenix<br>Rs. 3000</p>
+							</a>
+						</div>
+						<div class="ui-block-c">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Wolfgang Amadeus<br>
+								Phoenix<br>Rs. 3500</p>
+							</a>
+						</div>
+						<div class="ui-block-a">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Harry Potter<br>
+								J. K. Rowling<br>Rs. 3700</p>
+							</a>
+						</div>
+						<div class="ui-block-b">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Wolfgang Amadeus<br>
+								Phoenix<br>Rs. 3800</p>
+							</a>
+						</div>
+						<div class="ui-block-c">
+							<a href="#book" data-transition="slide">
+								<img src="../assets/common/images/hpfs.jpg" style="width: 9em;height: 11em;"/>
+								<p>Wolfgang Amadeus<br>
+								Phoenix<br>Rs. 4000</p>
+							</a>
+						</div>
+						
+						
+					</div>
+					<a class="ui-btn-right" style="top:93em;">1 | 2 | 3 | 4 | ></a>
+				</div>
+				
+			</div>
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer_ipad"></div>
+        <!-- Page Footer -->
+
+    </div>
+    <!-- Book List Page -->
+
+    <!-- Book Page -->
+    <div data-role="page" id="book">
+
+        <!-- Page Header -->
+        <div data-role="header">
+            <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
+            <h1>Alexandria</h1>
+        </div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-content">
+			<div class="ui-grid-b center-content">
+				<div class="ui-block-a">	
+					<div class="center-content">
+						<img src="http://wp.production.patheos.com/blogs/crywoof/files/2015/03/TheAnubisGates.png" alt="Book Image" class="book-image">
+					</div>
+					<h2 class="narrow-margin center-content">The Anubis Gates</h2>
+					<h3 class="center-content">Tim Powers</h3>
+					<h3 class="center-content">Rs. 1100</h3>
+				</div>
+				<div class="ui-block-b">
+					<div class="ui-corner-all custom-corners">
+						<div class="ui-bar ui-bar-a center-content">
+							<h1>Synopsis</h1>
+						</div>
+						<div class="ui-body ui-body-a card">
+							<p class="justify-content">
+								Brendan Doyle, a specialist in the work of the early-nineteenth century poet William Ashbless, reluctantly accepts an invitation from a millionaire to act as a guide to time-travelling tourists. But while attending a lecture given by Samuel Taylor Coleridge in 1810, he becomes marooned in Regency London, where dark and dangerous forces know about the gates in time. Caught up in the intrigue between rival bands of beggars, pursued by Egyptian sorcerers, befriended by Coleridge, Doyle somehow survives. And learns more about the mysterious Ashbless than he could ever have imagined possible.
+								(Source - <a href="#">Wikipedia</a>).
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="ui-grid-b">
+				<div class="ui-block-a bookBtn">
+					<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-comment">Write A Review</button>					
+				</div>
+				<div class="ui-block-b bookBtn">
+					<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location ">Locate Nearest Store</button>
+				</div>
+				<div class="ui-block-c bookBtn">
+					<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Add To Favourites</button>
+				</div>
+			</div>	
+					<br />
+					
+					<hr />
+					<h2 class="center-content">Book Reviews</h2>
+					<br />
+					<ul data-role="listview" class="review-list">
+						<li>
+							<img src="http://www.theworksoftimpowers.com/images/horrabin01.jpg" style="width: 2.8em;height: 4.8em;margin:0.5em;border:1px solid #ac5c84;">
+							<h1>Thushini Ranasinghe rated it</h1><img src="../assets/ipad/images/rate.svg" style="width: 9em;height: 2em;"/>
+							<p>A fairly common mistake made by authors is failing to be familiar with their genre. They end up retreading old ground and relying on long-dead cliches because they aren't aware of what's already been done. So, it behooves an author to get some familiarity with the genre he intends to work in, to ensure that he isn't just writing the same old story over again.In that spirit, I thought I'd check out this award-winning early piece of Steampunk. It was a rough start. </p>
+						</li>
+						<li>
+							<img src="http://www.theworksoftimpowers.com/images/horrabin01.jpg" style="width: 2.8em;height: 4.8em;margin:0.5em;border:1px solid #ac5c84;">
+							<h1>Aishcharya Kahandawala rated it</h1><img src="../assets/ipad/images/rate.svg" style="width: 9em;height: 2em;"/>
+							<p>More time travel than steampunk, although it has been categorized as the latter, Tim Powers' The Anubis Gates is fun, but it leaves one feeling a little short changed.The problem is that Powers' story has the narrative scope of Neal Stephenson's Baroque Cycle, but it is packed into a mere 380-ish pages. Beggar's guilds, Egyptian wizards, Romantic poets, business magnates, and prize fighters mix with cross dressing vengeance seekers, mad clowns, body snatchers, fire elementals and gypsies.</p>
+						</li>
+					</ul>
+        </div>
+        <!-- Page Content -->
+
+    </div>
+    <!-- Book Page -->
+</body>
+
+</html>

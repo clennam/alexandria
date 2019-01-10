@@ -95,6 +95,11 @@ hr {
     border-color: #7d003e !important;
 }
 
+.ui-btn-centered {
+    width: fit-content !important;
+    margin: 0.5em auto;
+}
+
 .tabview-scroll {
     height: 20em;
     overflow: scroll;
@@ -106,4 +111,8 @@ hr {
 
 .nomargin {
     margin: 0 !important;
+}
+
+.filter-has-margins .ui-filterable {
+    margin: 0.5em;
 }
