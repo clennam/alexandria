@@ -78,10 +78,14 @@ hr {
     border-radius: 0;
 }
 
-.ui-slider-handle {
-    border-radius: 50%;
+.text-fuchsia {
+    color: #ac5c84;
 }
 
-.ui-collapsible-heading .ui-btn {
-    text-align: center;
+.text-purple {
+    color: #7d003e;
+}
+
+.ui-btn-outline {
+    border-color: #7d003e !important;
 }
