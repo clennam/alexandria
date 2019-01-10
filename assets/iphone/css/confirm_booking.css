@@ -1,0 +1,21 @@
+.limit-image {
+    margin: 0 38%;
+}
+.form-margins {
+    padding: 0 10%;
+}
+
+.checkout-btn {
+    width: fit-content;
+    margin: 0 auto 1em;
+}
+
+@media all and (max-width: 376px) {
+	.stack-portrait {
+		width: 100% !important;
+		float: none;
+    }
+    .limit-image {
+        margin: 0 4.5em;
+    }
+}

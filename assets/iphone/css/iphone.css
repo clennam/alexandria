@@ -70,6 +70,10 @@ hr {
     width: 100vw;
 }
 
+.fill-width {
+    width: 100%;
+}
+
 .hide {
     display: none;
 }
