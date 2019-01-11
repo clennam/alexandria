@@ -21,6 +21,8 @@
     <script src="../assets/common/database/json_server.js"></script>
     <!-- Panel Loader Script -->
     <script src="../assets/iphone/js/load_panels.js"></script>
+    <!-- Book Filters Script -->
+    <script src="../assets/iphone/js/filter_books.js"></script>
 </head>
 
 <body>
@@ -44,95 +46,20 @@
                 <div data-role="collapsible">
                     <h2 class="sharp-corners">Filter Books</h2>
                     <form>
-                        <label for="distance">Price(LKR):</label>
-                        <input data-theme="b" type="range" name="distance" id="distance" value="200" min="100" max="5000"
+                        <label for="price">Price(LKR):</label>
+                        <input data-theme="b" type="range" name="price" id="price" value="3000" min="100" max="5000"
                             step="100" data-highlight="true">
                         <br />
-                        <select name="country" id="country" data-native-menu="false">
-                            <option value="choose-one" data-placeholder="true">--Genre--</option>
-                            <option value="1">Horror/Thriller</option>
-                            <option value="2">Comedy</option>
-                            <option value="3">Fantasy</option>
-                            <option value="4">Nonfiction</option>
+                        <select name="genre" id="genre" data-native-menu="false">
+                            <option value="all-genres">All Genres</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="classic">Classic</option>
+                            <option value="nonfiction">Nonfiction</option>
                         </select>
                     </form>
                 </div>
             </div>
-            <ul data-role="listview" data-filter="true" data-filter-placeholder="Search Books...">
-                <li data-role="list-divider">A</li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Harry Potter and the Philosopher's Stone</h2>
-                        <p>J. K. Rowling</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Tender Is the Night</h2>
-                        <p>F. Scott Fitzgerald</p>
-                    </a>
-                </li>
-                <li data-role="list-divider">B</li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Tom Jones</h2>
-                        <p>Henry Fielding</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Every Breath</h2>
-                        <p>Nicholas Sparks</p>
-                    </a>
-                </li>
-                <li data-role="list-divider">C</li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>The Daily Stoic</h2>
-                        <p>Ryan Holiday & Stephen Hanselman</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Farsighted</h2>
-                        <p>Steven Johnson</p>
-                    </a>
-                </li>
-                <li data-role="list-divider">D</li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>An American Marriage</h2>
-                        <p>Tayari Jones</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Exit Row</h2>
-                        <p>Judi Culbertson</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Sapiens</h2>
-                        <p>Yuval Noah Harari</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#book" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Citadel</h2>
-                        <p>Kate Mosse</p>
-                    </a>
-                </li>
+            <ul id="booklist" data-role="listview" data-filter="true" data-filter-placeholder="Search Books..." data-autodividers="true">
             </ul>
         </div>
         <!-- Page Content -->
