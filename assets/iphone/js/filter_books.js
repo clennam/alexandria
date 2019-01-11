@@ -24,7 +24,7 @@ function sortBooks(books) {
 }
 
 $(function () {
-    // TODO: replace this and assign actually data retrieved from the backend
+    // TODO: replace this and assign actual data retrieved from the backend
     const books = [
         {
             "id": 1,
@@ -70,7 +70,6 @@ $(function () {
 
     $("#price").on("slidestop", function () {
         var sortedBooks = sortBooks(books);
-        console.log(sortedBooks);
         refreshBookList(sortedBooks);
     })
 
