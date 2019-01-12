@@ -5,30 +5,20 @@
       "lastName": "Mansoor Ali",
       "email": "moiz.2015033@iit.ac.lk",
       "tokens": "250",
-      "favourites": "{\"books\":[], \"events\":[], \"pois\":[], \"news\":[], \"teamMembers\":[]}",
+      "favourites": "{\"books\":[1],\"events\":[1],\"pois\":[1],\"news\":[1],\"teamMembers\":[1]}",
       "bookings": "[]",
       "password": "Yahyee",
       "id": 1
     },
     {
-      "firstName": "Aishcharya",
-      "lastName": "Kahandawala",
-      "email": "aishcharya.2015034@iit.ac.lk",
-      "favourites": "{\"books\":[], \"events\":[], \"pois\":[], \"news\":[], \"teamMembers\":[]}",
-      "bookings": "[]",
-      "password": "password",
+      "firstName": "awd",
+      "lastName": "awd",
+      "email": "awd",
       "tokens": "0",
+      "favourites": "{\"books\":[],\"events\":[],\"pois\":[],\"news\":[],\"teamMembers\":[]}",
+      "bookings": "[]",
+      "password": "awd",
       "id": 2
-    },
-    {
-      "firstName": "Isira",
-      "lastName": "Kandanearachchi",
-      "email": "isira.2015098@iit.ac.lk",
-      "password": "burgerkingfootlettuce",
-      "favourites": "{\"books\":[], \"events\":[], \"pois\":[], \"news\":[], \"teamMembers\":[]}",
-      "bookings": "[]",
-      "tokens": "0",
-      "id": 3
     }
   ],
   "books": [
@@ -63,11 +53,12 @@
   "events": [
     {
       "id": 1,
-      "name": "Christmas Book Club",
-      "organizer": "Jobless Peopple",
-      "image": "poster.png",
+      "name": "Christmas Book Club Meeting",
+      "date": "16th December",
+      "location": "British Council",
+      "image": "../assets/common/images/hpfs.jpg",
       "description": "",
-      "price": "10.00USD"
+      "price": "1000"
     }
   ],
   "pois": [
@@ -75,27 +66,26 @@
       "id": 1,
       "name": "Random Bookshop",
       "address": "123 Street at ABC",
-      "image": "poster.png",
-      "description": "",
-      "location": "google map location"
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": ""
     }
   ],
   "news": [
     {
       "id": 1,
       "headline": "Trump Assassinated",
+      "about": "It's Finally Happened",
       "author": "Obama",
-      "image": "poster.png",
       "content": ""
     }
   ],
   "teamMembers": [
     {
       "id": 1,
-      "headline": "Trump Assassinated",
-      "author": "Obama",
-      "image": "poster.png",
-      "content": ""
+      "name": "Moiz Mansoor Ali",
+      "title": "Manager - Duh",
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": ""
     }
   ]
 }

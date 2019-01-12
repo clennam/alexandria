@@ -181,8 +181,8 @@
                             sessionStorage.setItem("lastName", lastName);
                             sessionStorage.setItem("email", email);
                             sessionStorage.setItem("tokens", 0);
-                            sessionStorage.setItem("favourites", []);
-                            sessionStorage.setItem("bookings", []);
+                            sessionStorage.setItem("favourites", "{\"books\":[], \"events\":[], \"pois\":[], \"news\":[], \"teamMembers\":[]}");
+                            sessionStorage.setItem("bookings", "[]");
                             window.location.replace("account.html");
                         }
                     });

@@ -91,7 +91,7 @@
                 <h2 class="narrow-margin center-content" id="bookTitle">Title</h2>
                 <h3 class="center-content" id="bookAuthor">Author</h3>
                 <hr />
-                <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Add To Favourites</button>
+                <button onclick="addToFavourites()" id="favouritesButton" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Favourites</button>
                 <a href="#locationPopup" data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location"
                     data-transition="pop">Locate Nearest Store</a>
                 <div data-role="popup" id="locationPopup" data-theme="a" class="ui-corner-all">
@@ -142,12 +142,16 @@
                 <br />
                 <ul data-role="listview" class="review-list" id="reviewList">
                     <li>
-                        <h1>Moiz Mansoor Ali</h1>
-                        <p class="max-width">This is an amazing book and I would love to read it again</p>
+                        <h1>Tom</h1>
+                        <p class="max-width">This is an amazing book and I would love to read it again.</p>
                     </li>
                     <li>
-                        <h1>Aishcharya Kahandawala</h1>
-                        <p class="max-width">awda wd awda</p>
+                        <h1>Dick</h1>
+                        <p class="max-width">It was ok, nothing to get too excited about.</p>
+                    </li>
+                    <li>
+                        <h1>Harry</h1>
+                        <p class="max-width">Utter Rubbish, do not recommend.</p>
                     </li>
                 </ul>
             </div>
@@ -159,8 +163,11 @@
 </body>
 
 <script>
+    var bookId = 0;
+
     function listClick(n) {
-        JsonServer.get('books/' + n, function (data, status) {
+        bookId = n;
+        JsonServer.get('books/' + bookId, function (data, status) {
             if (status == 'success') {
                 $('#bookTitle').html(data.title);
                 $('#bookAuthor').html(data.author);
@@ -169,16 +176,65 @@
                 console.error('Internal Server Error, GET Request Failed');
             }
         });
-        var favourites = sessionStorage.getItem('favourites');
-        if (favourites instanceof Array) {
-            favourites.forEach(function (favourite) {
-                console.log(favourite);
-            });
+        var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+        if (favourites) {
+            if (favourites.books.indexOf(bookId) !== -1) {
+                $('#favouritesButton').html('Remove From Favourites');
+            } else {
+                $('#favouritesButton').html('Add To Favourites');
+            }
+        } else {
+            $('#favouritesButton').html('Add To Favourites');
         }
     }
 
     function addToFavourites() {
-        //TODO complete
+        var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+        if (favourites) {
+            if (favourites.books.indexOf(bookId) == -1) {
+                favourites.books.push(bookId);
+            } else {
+                favourites.books.splice(favourites.books.indexOf(bookId), 1);
+            }
+
+            var firstName = sessionStorage.getItem('firstName');
+            var lastName = sessionStorage.getItem('lastName');
+            var email = sessionStorage.getItem('email');
+            var tokens = sessionStorage.getItem('tokens');
+            var bookings = sessionStorage.getItem('bookings');
+
+            var values = {
+                "firstName": firstName,
+                "lastName": lastName,
+                "email": email,
+                "tokens": tokens,
+                "favourites": JSON.stringify(favourites),
+                "bookings": bookings
+            };
+            
+            JsonServer.get('users?email=' + email, function(data, status) {
+                if (status == 'success') {
+                    var userId = data[0].id;
+                    values.password = data[0].password;
+                    JsonServer.put('users/' + userId, values, function(data, status) {
+                        if (status == 'success') {
+                            sessionStorage.setItem('favourites', JSON.stringify(favourites));
+                            if ($('#favouritesButton').html() == 'Add To Favourites') {
+                                $('#favouritesButton').html('Remove From Favourites');
+                            } else {
+                                $('#favouritesButton').html('Add To Favourites');
+                            }
+                        } else {
+                            console.error('Internal Error Occurred, PUT Request Failed');
+                        }
+                    });
+                } else {
+                    console.error('Internal Error Occurred, GET Request Failed');
+                }
+            });
+        } else {
+            window.location.replace('signin.html');
+        }
     }
 
     function submitReview() {
@@ -189,7 +245,7 @@
             if (bookReview) {
                 var fullName = firstName + ' ' + lastName;
                 $('#reviewList').append('<li class="ui-li-static ui-body-inherit ui-last-child"><h1>' + fullName + '</h1><p class="max-width">' + bookReview + '</p></li>');
-                //todo add tokens for submitting review
+                //TODO add tokens for submitting review
             }
             $('#bookReview').val('');
             $('#reviewPopup').popup('close');
