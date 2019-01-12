@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
     <!-- iPhone CSS -->
     <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
-    <link rel="stylesheet" href="../assets/iphone/css/community.css">
+    <link rel="stylesheet" href="../assets/iphone/css/books.css">
     <link rel="stylesheet" href="../assets/iphone/css/confirm_booking.css">
     <!-- Javascript Libraries -->
     <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
@@ -59,7 +59,8 @@
                     </form>
                 </div>
             </div>
-            <ul id="booklist" data-role="listview" data-filter="true" data-filter-placeholder="Search Books..." data-autodividers="true">
+            <ul id="booklist" data-role="listview" data-filter="true" data-filter-placeholder="Search Books..."
+                data-autodividers="true">
             </ul>
         </div>
         <!-- Page Content -->
@@ -83,53 +84,119 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <div class="center-content">
-                <img src="../assets/common/images/hpfs.jpg" alt="Book Image" class="book-image">
-            </div>
-            <h2 class="narrow-margin center-content">Harry Potter And The Philosopher's Stone</h2>
-            <h3 class="center-content">J.K. Rowling</h3>
-            <hr />
-            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Add To Favourites</button>
-            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location">Locate Nearest Store</button>
-            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-comment">Write A Review</button>
-            <br />
-            <div class="ui-corner-all custom-corners">
-                <div class="ui-bar ui-bar-a center-content">
-                    <h1>Synopsis</h1>
+            <div class="center-container">
+                <div class="center-content">
+                    <img src="../assets/common/images/hpfs.jpg" alt="Book Image" class="book-image">
                 </div>
-                <div class="ui-body ui-body-a card">
-                    <p class="justify-content">
-                        Harry Potter and the Philosopher's Stone is a fantasy novel written by
-                        British author J. K. Rowling. The first novel in the Harry Potter series and Rowling's
-                        debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on
-                        his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft
-                        and Wizardry. Harry makes close friends and a few enemies during his first year at the school,
-                        and with the help of his friends, Harry faces an attempted comeback by the dark wizard Lord
-                        Voldemort, who killed Harry's parents, but failed to kill Harry when he was just 15 months old
-                        (Source - <a href="#">Wikipedia</a>).
-                    </p>
+                <h2 class="narrow-margin center-content" id="bookTitle">Title</h2>
+                <h3 class="center-content" id="bookAuthor">Author</h3>
+                <hr />
+                <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Add To Favourites</button>
+                <a href="#locationPopup" data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location"
+                    data-transition="pop">Locate Nearest Store</a>
+                <div data-role="popup" id="locationPopup" data-theme="a" class="ui-corner-all">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <div class="mapouter">
+                        <div class="gmap_canvas"><iframe width="100%" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=Informatics%20Institute%20of%20Technology&t=&z=19&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+                        <style>
+                            .mapouter {
+                                text-align: right;
+                                height: 250px;
+                                width: 100%;
+                                margin: 0 auto;
+                            }
+
+                            .gmap_canvas {
+                                overflow: hidden;
+                                background: none !important;
+                                height: 250px;
+                                width: 100%;
+                            }
+                        </style>
+                    </div>
                 </div>
+                <a href="#reviewPopup" data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-comment"
+                    data-transition="pop">Write A Review</a>
+                <div data-role="popup" id="reviewPopup" data-theme="a" class="ui-corner-all">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <div class="card">
+                        <h2 class="center-content narrow-margin">Write A Review</h2>
+                        <hr />
+                        <textarea name="bookReview" id="bookReview" cols="30" rows="10"></textarea>
+                        <button onclick="submitReview()">Submit</button>
+                    </div>
+                </div>
+
+                <br />
+                <div class="ui-corner-all custom-corners">
+                    <div class="ui-bar ui-bar-a center-content">
+                        <h1>Synopsis</h1>
+                    </div>
+                    <div class="ui-body ui-body-a card">
+                        <p class="justify-content max-width" id="bookDescription">Synopsis</p>
+                    </div>
+                </div>
+                <hr />
+                <h2 class="center-content">Book Reviews</h2>
+                <br />
+                <ul data-role="listview" class="review-list" id="reviewList">
+                    <li>
+                        <h1>Moiz Mansoor Ali</h1>
+                        <p class="max-width">This is an amazing book and I would love to read it again</p>
+                    </li>
+                    <li>
+                        <h1>Aishcharya Kahandawala</h1>
+                        <p class="max-width">awda wd awda</p>
+                    </li>
+                </ul>
             </div>
-            <hr />
-            <h2 class="center-content">Book Reviews</h2>
-            <br />
-            <ul data-role="listview" class="review-list">
-                <li>
-                    <h1>Moiz Mansoor Ali</h1>
-                    <p>This is an amazing book and I would love to read it again awd awdaw waaw aawdaw awawdaw awdawdaw
-                        dawaw dawaw awda wdwa awda wdawdawd wadawdaw dawd awdawd awd dwa dawdawd a</p>
-                </li>
-                <li>
-                    <h1>Aishcharya Kahandawala</h1>
-                    <p>awda wd awda awawdaw awdaw dawdaw daaw dawad awda wd awd awdaw awdawdawsrgsrgdg ddrgdgrdg dgdrg
-                        dgd rdrgdrg dgdrgdrg dgdrgd rgdrgd rgdrgdrg dgdrg dg dr</p>
-                </li>
-            </ul>
         </div>
         <!-- Page Content -->
 
     </div>
     <!-- Book Page -->
 </body>
+
+<script>
+    function listClick(n) {
+        JsonServer.get('books/' + n, function (data, status) {
+            if (status == 'success') {
+                $('#bookTitle').html(data.title);
+                $('#bookAuthor').html(data.author);
+                $('#bookDescription').html(data.description);
+            } else {
+                console.error('Internal Server Error, GET Request Failed');
+            }
+        });
+        var favourites = sessionStorage.getItem('favourites');
+        if (favourites instanceof Array) {
+            favourites.forEach(function (favourite) {
+                console.log(favourite);
+            });
+        }
+    }
+
+    function addToFavourites() {
+        //TODO complete
+    }
+
+    function submitReview() {
+        var bookReview = $('#bookReview').val();
+        var firstName = sessionStorage.getItem('firstName');
+        var lastName = sessionStorage.getItem('lastName');
+        if (firstName && lastName) {
+            if (bookReview) {
+                var fullName = firstName + ' ' + lastName;
+                $('#reviewList').append('<li class="ui-li-static ui-body-inherit ui-last-child"><h1>' + fullName + '</h1><p class="max-width">' + bookReview + '</p></li>');
+                //todo add tokens for submitting review
+            }
+            $('#bookReview').val('');
+            $('#reviewPopup').popup('close');
+        } else {
+            window.location.replace('signin.html');
+        }
+    }
+</script>
 
 </html>

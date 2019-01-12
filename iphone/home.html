@@ -36,87 +36,63 @@
 
         <!-- Page Content -->
         <div role="main">
-            <div style="text-align: center;background-image: url(../assets/common/images/bookshome.jpg);min-height: 15em;background-size: 100% 100%;color: #dddddd;border-bottom: 5px solid #7d003e;">
-                <h1 class="center-content nomargin" style="padding: 0.2em;">Welcome to Sri Lanka's Largest Online
-                    Booking Community</h1>
-                <br />
-                <button style="max-width: 12em;display: inline-block;border: 3px solid #7d003e;;color: #7d003e;">Get Started</button>
+            <div class="hero-section">
+                <h1 class="center-content nomargin hero-heading">Welcome to Sri Lanka's Largest Online Book Community</h1>
+                <a href="signin.html" data-ajax="false" class="ui-btn ui-btn-a get-started-button">Get Started</a>
                 <br />
                 <br />
             </div>
             <div class="ui-content" style="padding-top: 0.2em;">
-                <h3 class="center-content">Watch the Following Video To Get Started</h3>
+                <h3 class="center-content narrow-margin-bottom">Watch the Following Video To Get Started</h3>
                 <iframe style="width: 100%;height: 13em; max-width: 40em;" src="https://www.youtube.com/embed/cWvzghn2HBk"
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
                 <hr />
                 <h2 class="center-content narrow-margin">What's Trending</h2>
-
                 <!-- Slideshow container -->
                 <div class="slideshow-container">
-                    <!-- Full-width images with number and caption text -->
                     <div class="mySlides fade">
-                        <div class="numbertext">1 / 3</div>
                         <img src="../assets/common/images/hpfs.jpg" style="width: 100%;height: 25em;" alt="Image">
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">2 / 3</div>
                         <img src="../assets/common/images/hpfs.jpg" style="width: 100%;height: 25em;" alt="Image">
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">3 / 3</div>
                         <img src="../assets/common/images/hpfs.jpg" style="width: 100%;height: 25em;" alt="Image">
                     </div>
-                    <!-- Next and previous buttons -->
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </div>
-
-
+                <!-- Slideshow container -->
                 <hr />
-
-                <h1 class="center-content">Latest News</h1>
-
+                <h1 class="center-content narrow-margin">Latest News</h1>
                 <div class="ui-corner-all custom-corners">
                     <div class="ui-bar ui-bar-a center-content">
                         <h1>Interview with Sarah Jessica Parker</h1>
                     </div>
                     <div class="ui-body ui-body-a card center-content">
-                        <p class="justify-content">
+                        <p class="justify-content narrow-margin-top">
                             I describe 99 Percent Mine as The Hating Game's sexy, rebellious older sister," says author
-                            Sally
-                            Thorne of her latest contemporary romance. In it, readers are introduced to Darcy Barrett,
-                            a badass
-                            heroine who's a bit of a fixer-upper, especially when it comes to her love life. Darcy's
-                            also
-                            perfectly aware of her own shortcomings, thank you very much. Her overbearing twin brother,
-                            Jamie,
-                            reminds her of them all the time.<br /><br />
-
-                            Things take a turn when she runs into Tom Valeska, a childhood sweetheart who happens to be
-                            managing the renovation of her grandmother's house. He may be the man of Darcy's dreams,
-                            but he's
-                            also Thorne's alternative take on the alpha male character. "My personal catnip is a guy
-                            with a
-                            body like an alpha who is as tender as a kitten," says Thorne.<br /><br />
-
-                            Darcy wants nothing more than to make Tom 100 percent hers. The problem? He's also Jamie's
-                            best
-                            friend—and the twins were never good at sharing. Here Thorne dives into what makes the
-                            heart of her
-                            newest rom-com tick, including twists on beloved tropes, outrageous sibling rivalry, and
-                            more.
+                            Sally Thorne of her latest contemporary romance. In it, readers are introduced to Darcy Barrett,
+                            a badass heroine who's a bit of a fixer-upper, especially when it comes to her love life. Darcy's
+                            also perfectly aware of her own shortcomings, thank you very much. Her overbearing twin brother,
+                            Jamie, reminds her of them all the time.<br /><br />Things take a turn when she runs into Tom Valeska, 
+                            a childhood sweetheart who happens to be managing the renovation of her grandmother's house. 
+                            He may be the man of Darcy's dreams, but he's also Thorne's alternative take on the alpha 
+                            male character. "My personal catnip is a guy with a body like an alpha who is as tender as 
+                            a kitten," says Thorne.<br /><br /> Darcy wants nothing more than to make Tom 100 percent 
+                            hers. The problem? He's also Jamie's best friend—and the twins were never good at sharing. 
+                            Here Thorne dives into what makes the heart of her newest rom-com tick, including twists 
+                            on beloved tropes, outrageous sibling rivalry, and more.
                         </p>
-                        <a href="#">Show More...</a>
+                        <a href="news.html" data-ajax="false" class="important-link">Show More...</a>
                     </div>
-
                     <hr />
                     <h2 class="center-content narrow-margin-bottom">Want to Know More?</h2>
                     <h2 class="center-content narrow-margin-top">Subscribe to Our Mailing List</h2>
                     <input type="text" placeholder="Email Address...">
                     <button style="border: 2px solid #7d003e;">Subscribe</button>
                 </div>
-
             </div>
         </div>
         <!-- Page Content -->
@@ -133,12 +109,10 @@
     var slideIndex = 1;
     showSlides(slideIndex);
 
-    // Next/previous controls
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
 
-    // Thumbnail image controls
     function currentSlide(n) {
         showSlides(slideIndex = n);
     }
@@ -146,17 +120,18 @@
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
+
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
+
         slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
     }
 </script>
 
