@@ -9,16 +9,6 @@
       "bookings": "[]",
       "password": "Yahyee",
       "id": 1
-    },
-    {
-      "firstName": "awd",
-      "lastName": "awd",
-      "email": "awd",
-      "tokens": "0",
-      "favourites": "{\"books\":[],\"events\":[],\"pois\":[],\"news\":[],\"teamMembers\":[]}",
-      "bookings": "[]",
-      "password": "awd",
-      "id": 2
     }
   ],
   "books": [
