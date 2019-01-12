@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
       "firstName": "Moiz",
       "lastName": "Mansoor Ali",
       "email": "moiz.2015033@iit.ac.lk",
+      "tokens": "250",
+      "favourites": "",
+      "bookings": "",
       "password": "Yahyee",
-      "tokens": 250,
-      "favourites": [],
-      "bookings": []
+      "id": 1
     },
     {
       "firstName": "Aishcharya",

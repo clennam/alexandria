@@ -12,6 +12,15 @@ class JSONServer {
         $.post(this.baseURL + url, values, callback);
     }
 
+    put(url, values, callback) {
+        $.ajax({
+            url: this.baseURL + url,
+            type: 'PUT',
+            data: values,
+            success: callback
+        });
+    }
+
 }
 
 let JsonServer = new JSONServer("http://localhost:3000/");

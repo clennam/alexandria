@@ -45,71 +45,73 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <h1 class="center-content narrow-margin">Your Account</h1>
-            <hr />
-            <div class="ui-corner-all custom-corners">
-                <div class="ui-bar ui-bar-a center-content">
-                    <h1>Edit Profile</h1>
-                </div>
-                <div class="ui-body ui-body-a card">
-                    <div data-role="collapsibleset" data-iconpos="right" data-collapsed-icon="carat-d">
-                        <div data-role="collapsible">
-                            <h2>User Information</h2>
-                            <form>
-                                <label for="firstName">First Name:</label>
-                                <input type="text" id="firstName" name="firstName" />
-                                <br />
-                                <label for="lastName">Last Name:</label>
-                                <input type="text" id="lastName" name="lastName" />
-                            </form>
-                        </div>
-                        <div data-role="collapsible">
-                            <h2>Email</h2>
-                            <form>
-                                <label for="email">Email:</label>
-                                <input type="text" id="email" name="email" />
-                            </form>
-                        </div>
-                        <div data-role="collapsible">
-                            <h2>Password</h2>
-                            <form>
-                                <label for="currentPassword">Current Password:</label>
-                                <input type="password" id="currentPassword" name="currentPassword" />
-                                <br />
-                                <label for="newPassword">New Password:</label>
-                                <input type="password" id="newPassword" name="newPassword" />
-                                <br />
-                                <label for="confirmNewPassword">Confirm New Password:</label>
-                                <input type="password" id="confirmNewPassword" name="confirmNewPassword" />
-                            </form>
-                        </div>
+            <div class="center-container">
+                <h1 class="center-content narrow-margin">Your Account</h1>
+                <hr />
+                <div class="ui-corner-all custom-corners">
+                    <div class="ui-bar ui-bar-a center-content">
+                        <h1>Edit Profile</h1>
                     </div>
-                    <br />
-                    <button id="saveChanges" onclick="saveChanges()">Save Changes</button>
+                    <div class="ui-body ui-body-a card">
+                        <div data-role="collapsibleset" data-iconpos="right" data-collapsed-icon="carat-d">
+                            <div data-role="collapsible">
+                                <h2>User Information</h2>
+                                <form>
+                                    <label for="firstName">First Name:</label>
+                                    <input type="text" id="firstName" name="firstName" />
+                                    <br />
+                                    <label for="lastName">Last Name:</label>
+                                    <input type="text" id="lastName" name="lastName" />
+                                </form>
+                            </div>
+                            <div data-role="collapsible">
+                                <h2>Email</h2>
+                                <form>
+                                    <label for="email">Email:</label>
+                                    <input type="text" id="email" name="email" />
+                                </form>
+                            </div>
+                            <div data-role="collapsible">
+                                <h2>Password</h2>
+                                <form>
+                                    <label for="currentPassword">Current Password:</label>
+                                    <input type="password" id="currentPassword" name="currentPassword" />
+                                    <br />
+                                    <label for="newPassword">New Password:</label>
+                                    <input type="password" id="newPassword" name="newPassword" />
+                                    <br />
+                                    <label for="confirmNewPassword">Confirm New Password:</label>
+                                    <input type="password" id="confirmNewPassword" name="confirmNewPassword" />
+                                </form>
+                            </div>
+                        </div>
+                        <br />
+                        <button disabled="true" id="saveChanges" onclick="saveChanges()">Save Changes</button>
+                    </div>
                 </div>
+                <br />
+                <div class="ui-corner-all custom-corners">
+                    <div class="ui-bar ui-bar-a center-content">
+                        <h1>Bookings</h1>
+                    </div>
+                    <div class="ui-body ui-body-a card">
+                        <ul data-role="listview" data-inset="true">
+                            <li>No Bookings Made</li>
+                        </ul>
+                    </div>
+                </div>
+                <br />
+                <div class="ui-corner-all custom-corners">
+                    <div class="ui-bar ui-bar-a center-content">
+                        <h1>Rewards</h1>
+                    </div>
+                    <div class="ui-body ui-body-a card">
+                        <p><strong>Token Amount: </strong><span id="tokens">0</span></p>
+                    </div>
+                </div>
+                <hr />
+                <button onclick="signOut()">Sign Out</button>
             </div>
-            <br />
-            <div class="ui-corner-all custom-corners">
-                <div class="ui-bar ui-bar-a center-content">
-                    <h1>Bookings</h1>
-                </div>
-                <div class="ui-body ui-body-a card">
-                    <ul data-role="listview" data-inset="true">
-                        <li>No Bookings Made</li>
-                    </ul>
-                </div>
-            </div>
-            <br />
-            <div class="ui-corner-all custom-corners">
-                <div class="ui-bar ui-bar-a center-content">
-                    <h1>Rewards</h1>
-                </div>
-                <div class="ui-body ui-body-a card">
-                    <p><strong>Token Amount: </strong><span id="tokens">0</span></p>
-                </div>
-            </div>
-            <hr />
-            <button onclick="signOut()">Sign Out</button>
         </div>
         <!-- Page Content -->
 
@@ -119,6 +121,12 @@
 
     </div>
     <!-- Page -->
+
+    <!-- Popup -->
+    <div data-role="popup" data-theme="a" data-overlay-theme="b" id="popup">
+        <p>Empty Popup</p>
+    </div>
+    <!-- Popup -->
 </body>
 
 <script>
@@ -128,13 +136,112 @@
         $('#email').val(sessionStorage.getItem('email'));
         $('#tokens').html(sessionStorage.getItem('tokens'));
 
-        // $('input').change(function () {
-        //     $('#saveChanges').attr('disabled', false);
-        // });
+        $('#firstName').on('change keyup keydown paste', function () {
+            if ($('#firstName').val()) {
+                $('#saveChanges').attr('disabled', false);
+            } else {
+                $('#saveChanges').attr('disabled', true);
+            }
+        });
+        $('#lastName').on('change keyup keydown paste', function () {
+            if ($('#lastName').val()) {
+                $('#saveChanges').attr('disabled', false);
+            } else {
+                $('#saveChanges').attr('disabled', true);
+            }
+        });
+        $('#email').on('change keyup keydown paste', function () {
+            if ($('#email').val()) {
+                $('#saveChanges').attr('disabled', false);
+            } else {
+                $('#saveChanges').attr('disabled', true);
+            }
+        });
+        $('#currentPassword').on('change keyup keydown paste', function () {
+            if ($('#currentPassword').val()) {
+                $('#saveChanges').attr('disabled', false);
+            }
+        });
+        $('#newPassword').on('change keyup keydown paste', function () {
+            if ($('#newPassword').val()) {
+                $('#saveChanges').attr('disabled', false);
+            }
+        });
+        $('#confirmNewPassword').on('change keyup keydown paste', function () {
+            if ($('#confirmNewPassword').val()) {
+                $('#saveChanges').attr('disabled', false);
+            }
+        });
     });
 
     function saveChanges() {
-        console.log('save changes does nothing');
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+        var email = $('#email').val();
+        var currentPassword = $('#currentPassword').val();
+        var newPassword = $('#newPassword').val();
+        var confirmNewPassword = $('#confirmNewPassword').val();
+
+        if (firstName && lastName && email) {
+            var oldEmail = sessionStorage.getItem('email');
+            var tokens = sessionStorage.getItem('tokens');
+            var favourites = sessionStorage.getItem('favourites');
+            var bookings = sessionStorage.getItem('bookings');
+
+            var values = {
+                'firstName': firstName,
+                'lastName': lastName,
+                'email': email,
+                'tokens': tokens,
+                'favourites': favourites,
+                'bookings': bookings
+            };
+
+            JsonServer.get('users?email=' + oldEmail, function (data, status) {
+                if (status == 'success') {
+                    var id = data[0].id;
+                    var oldPassword = data[0].password;
+                    if (currentPassword && newPassword && confirmNewPassword) {
+                        if ((currentPassword === oldPassword) && (newPassword === confirmNewPassword)) {
+                            values.password = newPassword;
+                        } else {
+                            $('#popop').html('<p>Data Has Been Updated Successfully</p>');
+                            $('#popop').popup();
+                            $('#popop').popup('open');
+                            values.password = oldPassword;
+                        }
+                    } else {
+                        values.password = oldPassword;
+                    }
+                    JsonServer.put('users/' + id, values, function (data, status) {
+                        if (status == 'success') {
+                            sessionStorage.setItem('firstName', values.firstName);
+                            sessionStorage.setItem('lastName', values.lastName);
+                            sessionStorage.setItem('email', values.email);
+                            sessionStorage.setItem('tokens', values.tokens);
+                            sessionStorage.setItem('favourites', values.favourites);
+                            sessionStorage.setItem('bookings', values.bookings);
+                            $('#saveChanges').attr('disabled', true);
+                            $('#popop').html('<p>Data Has Been Updated Successfully</p>');
+                            $('#popop').popup();
+                            $('#popop').popup('open');
+                        } else {
+                            $('#popop').html('<p class="error">Internal Server Error, PUT Request Failed</p>');
+                            $('#popop').popup();
+                            $('#popop').popup('open');
+                        }
+                    });
+                } else {
+                    $('#popop').html('<p class="error">Internal Server Error, GET Request Failed</p>');
+                    $('#popop').popup();
+                    $('#popop').popup('open');
+                }
+            });
+        }
+
+        $('#currentPassword').val('');
+        $('#newPassword').val('');
+        $('#confirmNewPassword').val('');
     }
 
     function signOut() {
