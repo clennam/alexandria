@@ -1,64 +1,6 @@
-.ui-header .ui-grid-b .ui-block-a{
-	width: 30%;
-}
-
-.ui-header .ui-grid-b .ui-block-b{
-	width: 40%;
-}
-
-.ui-header .ui-grid-b .ui-block-c{
-	width: 20%;
-}
-
-.ui-content .ui-grid-b .ui-block-b{
-	width: 66%;
-}
-
-.bookList .ui-grid-b .ui-block-b{
-	width: 33.33%;
-}
-
 .bookBtn{
 	width: 30% !important;
 	margin: 15px;
-}
-
-.ui-header .ui-grid-a .ui-block-a{
-	width: 50%;
-}
-
-.ui-header .ui-grid-c .ui-block-a{
-	width: 12%;
-}
-
-.ui-header .ui-grid-c .ui-block-b{
-	width: 76%;
-}
-
-.ui-header .ui-grid-c .ui-block-c{
-	width: 12%;
-}
-
-.ui-btn{
-	background: #ac5c84 !important;
-	border: none;
-	color: white !important;
-	font-size: 0.93em !important;
-	
-}
-
-.ui-listview{
-	position: absolute;
-	z-index: 11;
-	
-}
-
-.ui-popup-container{
-	top : 48px !important;
-}
-
-.ui-block-a .ui-btn-icon-right{
-	padding-right : 1.3em;
 }
 
 .tab {
