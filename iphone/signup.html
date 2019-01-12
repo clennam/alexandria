@@ -45,32 +45,42 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <h1 class="center-content narrow-margin">Create New Account</h1>
-            <hr />
-            <div class="ui-body ui-body-a ui-corner-all card">
-                <form>
-                    <label for="firstName">First Name:</label>
-                    <input type="text" name="firstName" id="firstName" />
+            <div class="center-container">
+                <h1 class="center-content narrow-margin">Create New Account</h1>
+                <hr />
+                <div class="ui-body ui-body-a ui-corner-all card">
+                    <form>
+                        <label for="firstName">First Name: <span id="firstNameError" class="error hide">Please Enter
+                                Your First Name</span></label>
+                        <input type="text" name="firstName" id="firstName" />
+                        <br />
+                        <label for="lastName">Last Name: <span id="lastNameError" class="error hide">Please Enter Your
+                                Last Name</span></label>
+                        <input type="text" name="lastName" id="lastName" />
+                        <br />
+                        <label for="email">Email Address: <span id="emailError" class="error hide">Please Enter Your
+                                Email Address</span></label>
+                        <input type="text" name="email" id="email" />
+                        <br />
+                        <label for="password">Password: <span id="passwordError" class="error hide">Please Enter Your
+                                Password</span></label>
+                        <input type="password" name="password" id="password" />
+                        <br />
+                        <label for="confirmPassword">Confirm Password: <span id="confirmPasswordError" class="error hide">Please
+                                Confirm Your Password</span></label>
+                        <input type="password" name="confirmPassword" id="confirmPassword" />
+                        <br />
+                        <span id="termsAndConditionsError" class="error hide">Please Tick The Following Checkbox</span>
+                        <input type="checkbox" name="termsAndConditions" id="termsAndConditions" />
+                        <label for="termsAndConditions">I agree to the given <a href="#">terms and conditions</a></label>
+                    </form>
                     <br />
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" name="lastName" id="lastName" />
-                    <br />
-                    <label for="email">Email Address:</label>
-                    <input type="text" name="email" id="email" />
-                    <br />
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" />
-                    <br />
-                    <label for="confirmPassword">Confirm Password:</label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" />
-                    <br />
-                    <input type="checkbox" name="termsAndConditions" id="termsAndConditions" />
-                    <label for="termsAndConditions">I agree to the given <a href="#">terms and conditions</a></label>
-                </form>
-                <br />
-                <button onclick="createNewAccount()">Create Account</button>
+                    <button onclick="createNewAccount()">Create Account</button>
+                </div>
+                <h3 style="text-align: center">Already have an account? 
+                    <a href="signin.html" data-ajax="false" style="color: #7d003e;">Sign In</a>
+                </h3>
             </div>
-            <h3 style="text-align: center">Already have an account? <a href="signin.html" data-ajax="false"  style="color: #7d003e;">Sign In</a></h3>
         </div>
         <!-- Page Content -->
 
@@ -80,6 +90,12 @@
 
     </div>
     <!-- Page -->
+
+    <!-- Popup -->
+    <div data-role="popup" data-theme="a" data-overlay-theme="b" id="popup">
+        <p>Empty Popup</p>
+    </div>
+    <!-- Popup -->
 </body>
 
 <script>
@@ -96,13 +112,45 @@
                 if (termsAndConditions) {
                     createAccount(firstName, lastName, email, password);
                 } else {
+                    $('#termsAndConditionsError').show();
                     console.log("not checked");
                 }
             } else {
-                console.log("passwords dont match");
+                $('#popup').html('<p>The Two Entered Passwords Do Not Match</p>');
+                $('#popup').popup();
+                $('#popup').popup('open');
             }
         } else {
-            console.log("Form incomplete");
+            if (!firstName) {
+                $('#firstNameError').show();
+            } else {
+                $('#firstNameError').hide();
+
+            }
+            if (!lastName) {
+                $('#lastNameError').show();
+            } else {
+                $('#lastNameError').hide();
+
+            }
+            if (!email) {
+                $('#emailError').show();
+            } else {
+                $('#emailError').hide();
+
+            }
+            if (!password) {
+                $('#passwordError').show();
+            } else {
+                $('#passwordError').hide();
+
+            }
+            if (!confirmPassword) {
+                $('#confirmPasswordError').show();
+            } else {
+                $('#confirmPasswordError').hide();
+
+            }
         }
     }
 
