@@ -5,3 +5,7 @@
 .ui-collapsible-heading .ui-btn {
     text-align: center;
 }
+
+.max-width {
+    width: 100% !important;
+}

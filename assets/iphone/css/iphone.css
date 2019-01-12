@@ -138,3 +138,7 @@ hr {
         margin: auto;
     }
 }
+
+.important-link {
+    color: #7d003e !important;
+}

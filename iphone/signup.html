@@ -78,7 +78,7 @@
                     <button onclick="createNewAccount()">Create Account</button>
                 </div>
                 <h3 style="text-align: center">Already have an account?
-                    <a href="signin.html" data-ajax="false" style="color: #7d003e;">Sign In</a>
+                    <a href="signin.html" data-ajax="false" class="important-link">Sign In</a>
                 </h3>
             </div>
         </div>
@@ -167,8 +167,8 @@
                         "email": email,
                         "password": password,
                         "tokens": 0,
-                        "favourites": [],
-                        "bookings": []
+                        "favourites": "{\"books\":[], \"events\":[], \"pois\":[], \"news\":[], \"teamMembers\":[]}",
+                        "bookings": "[]"
                     };
                     JsonServer.post("users", user, function (requestData, requestStatus) {
                         if (requestStatus !== "success") {

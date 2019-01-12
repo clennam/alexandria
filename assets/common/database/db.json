@@ -5,8 +5,8 @@
       "lastName": "Mansoor Ali",
       "email": "moiz.2015033@iit.ac.lk",
       "tokens": "250",
-      "favourites": "",
-      "bookings": "",
+      "favourites": "{\"books\":[], \"events\":[], \"pois\":[], \"news\":[], \"teamMembers\":[]}",
+      "bookings": "[]",
       "password": "Yahyee",
       "id": 1
     },
@@ -14,6 +14,8 @@
       "firstName": "Aishcharya",
       "lastName": "Kahandawala",
       "email": "aishcharya.2015034@iit.ac.lk",
+      "favourites": "{\"books\":[], \"events\":[], \"pois\":[], \"news\":[], \"teamMembers\":[]}",
+      "bookings": "[]",
       "password": "password",
       "tokens": "1",
       "id": 2
@@ -23,6 +25,8 @@
       "lastName": "Kandanearachchi",
       "email": "isira.2015098@iit.ac.lk",
       "password": "burgerkingfootlettuce",
+      "favourites": "{\"books\":[], \"events\":[], \"pois\":[], \"news\":[], \"teamMembers\":[]}",
+      "bookings": "[]",
       "tokens": "0",
       "id": 3
     }
@@ -30,11 +34,30 @@
   "books": [
     {
       "id": 1,
-      "title": "Harry Potter",
-      "author": "J.K Rowling",
-      "image": "poster.png",
-      "description": "",
-      "price": "10.00USD"
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J. K. Rowling",
+      "image": "../assets/common/images/hpfs.jpg",
+      "genre": "fantasy",
+      "description": "Description 1",
+      "price": "1614.34"
+    },
+    {
+      "id": 2,
+      "title": "Tender Is The Night",
+      "author": "F. Scott Fitzgerald",
+      "image": "../assets/common/images/hpfs.jpg",
+      "genre": "classic",
+      "description": "Description 2",
+      "price": "1977.47"
+    },
+    {
+      "id": 3,
+      "title": "The Daily Stoic",
+      "author": "Ryan Holiday & Stephen Hanselman",
+      "image": "../assets/common/images/hpfs.jpg",
+      "genre": "nonfiction",
+      "description": "Description 3",
+      "price": "2728.80"
     }
   ],
   "events": [
@@ -58,6 +81,15 @@
     }
   ],
   "news": [
+    {
+      "id": 1,
+      "headline": "Trump Assassinated",
+      "author": "Obama",
+      "image": "poster.png",
+      "content": ""
+    }
+  ],
+  "teamMembers": [
     {
       "id": 1,
       "headline": "Trump Assassinated",
