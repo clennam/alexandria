@@ -21,6 +21,8 @@
     <script src="../assets/common/database/json_server.js"></script>
     <!-- Panel Loader Script -->
     <script src="../assets/iphone/js/load_panels.js"></script>
+    <!-- Payment Script -->
+    <script src="../assets/iphone/js/load_event.js"></script>
 </head>
 
 <body>
@@ -37,7 +39,8 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-grid-solo filter-has-margins">
-            <ul class="sharp-corners" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search Events...">
+            <ul id="eventlist" class="sharp-corners" data-role="listview" data-inset="true" data-filter="true"
+                data-filter-placeholder="Search Events...">
                 <li>
                     <a href="#event" data-transition="slide">
                         <img src="../assets/common/images/bookclub.jpeg" />
@@ -89,18 +92,19 @@
         <!-- Page Header -->
         <div data-role="header">
             <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
-            <h1>Christmas Book Club</h1>
+            <h1 id="title">Christmas Book Club</h1>
         </div>
         <!-- Page Header -->
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
             <div class="limit-image center-content">
-                <img class="fill-width" src="../assets/common/images/bookclub.jpeg" alt="Event Image" class="event-image">
+                <img id="eventImg" class="fill-width event-image" src="../assets/common/images/bookclub.jpeg" alt="Event Image" />
             </div>
-            <h2 class="narrow-margin center-content">Christmas Book Club</h2>
-            <p class="narrow-margin center-content">16th December | British Council</p>
-            <a href="confirm_booking.html" data-ajax="false" class="ui-btn ui-btn-outline ui-corner-all checkout-btn">Buy
+            <h2 id="eventName" class="narrow-margin center-content">Christmas Book Club</h2>
+            <p class="narrow-margin center-content"><span id="eventDate">16th December</span> | <span id="eventLocation">British
+                    Council</span></p>
+            <a href="confirm_booking.html" onclick="goToBooking()" data-ajax="false" class="ui-btn ui-btn-outline ui-corner-all checkout-btn">Buy
                 Tickets</a>
             <form class="center-content">
                 <fieldset data-role="controlgroup" data-type="horizontal">
@@ -113,7 +117,7 @@
                     <input type="radio" name="eventAttending" id="eventAttendingMaybe" value="maybe">
                 </fieldset>
             </form>
-            <div class="ui-body ui-body-a">
+            <div id="eventDescription" class="ui-body ui-body-a">
                 Welcome to introvert happy hour! Looking for a great book club read to round out your year, or some
                 great friends to celebrate Christmas with? Drop by the next Christmas Book Club meeting, and you just
                 might find both!

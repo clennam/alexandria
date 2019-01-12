@@ -20,6 +20,8 @@
     <script src="../assets/common/database/json_server.js"></script>
     <!-- Panel Loader Script -->
     <script src="../assets/iphone/js/load_panels.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/iphone/js/payment.js"></script>
     <!-- Pre-render Script -->
     <script>
         var sessionFirstName = sessionStorage.getItem('firstName');
@@ -47,35 +49,35 @@
         <!-- Page Content -->
         <div role="main" class="ui-content">
             <h2 class="narrow-margin center-content">Credit Card Payment</h2>
-            <form class="ui-body ui-body-a card">
+            <form name="paymentDetails" class="ui-body ui-body-a card">
                 <div class="ui-grid-a">
                     <h3 class="narrow-margin">Card Details</h3>
                     <div class="stack-portrait ui-block-a form-margins">
                         <label for="paymentFirstName">First Name:</label>
-                        <input type="text" name="paymentFirstName" id="paymentFirstName" value="">
+                        <input type="text" name="paymentFirstName" id="paymentFirstName" value="" required>
                     </div>
                     <div class="stack-portrait ui-block-b form-margins">
                         <label for="paymentLastName">Last Name:</label>
-                        <input type="text" name="paymentLastName" id="paymentLastName" value="">
+                        <input type="text" name="paymentLastName" id="paymentLastName" value="" required>
                     </div>
                     <div class="stack-portrait ui-block-a form-margins">
                         <label for="paymentCardNumber">Card Number:</label>
-                        <input type="text" name="paymentCardNumber" id="paymentCardNumber" value="">
+                        <input type="number" name="paymentCardNumber" id="paymentCardNumber" value="" required>
                     </div>
                     <div class="stack-portrait ui-block-b form-margins">
                         <label for="paymentCVV">CVV:</label>
-                        <input type="text" name="paymentCVV" id="paymentCVV" value="">
+                        <input type="number" name="paymentCVV" id="paymentCVV" value="" required>
                     </div>
                     <div class="stack-portrait ui-block-a form-margins">
                         <label for="paymentExpyDate">Expiry Date:</label>
-                        <input type="date" name="paymentExpyDate" id="paymentExpyDate" value="">
+                        <input type="date" name="paymentExpyDate" id="paymentExpyDate" value="" required>
                     </div>
                 </div>
                 <div class="ui-grid-a">
                     <h3 class="narrow-margin">Billing Address</h3>
                     <div class="stack-portrait ui-block-a form-margins">
                         <label for="paymentAddress1">Address Line 1:</label>
-                        <input type="text" name="paymentAddress1" id="paymentAddress1" value="">
+                        <input type="text" name="paymentAddress1" id="paymentAddress1" value="" required>
                     </div>
                     <div class="stack-portrait ui-block-b form-margins">
                         <label for="paymentAddress2">Address Line 2:</label>
@@ -83,19 +85,19 @@
                     </div>
                     <div class="stack-portrait ui-block-a form-margins">
                         <label for="paymentCity">City:</label>
-                        <input type="text" name="paymentCity" id="paymentCity" value="">
+                        <input type="text" name="paymentCity" id="paymentCity" value="" required>
                     </div>
                     <div class="stack-portrait ui-block-b form-margins">
                         <label for="paymentState">State/Province:</label>
-                        <input type="text" name="paymentState" id="paymentState" value="">
+                        <input type="text" name="paymentState" id="paymentState" value="" required>
                     </div>
                     <div class="stack-portrait ui-block-a form-margins">
                         <label for="paymentZIPCode">Postal/ZIP Code:</label>
-                        <input type="number" name="paymentZIPCode" id="paymentZIPCode" value="">
+                        <input type="number" name="paymentZIPCode" id="paymentZIPCode" value="" required>
                     </div>
                     <div class="stack-portrait ui-block-a form-margins ui-field-contain">
                         <p><label for="paymentCountry">Country:</label></p>
-                        <select name="paymentCountry" id="paymentCountry">
+                        <select name="paymentCountry" id="paymentCountry" required>
                             <option value="1">Sri Lanka</option>
                             <option value="2">India</option>
                             <option value="3">United Kingdom</option>
@@ -104,7 +106,8 @@
                     </div>
                 </div>
                 <!-- TODO: Redirect to correct page -->
-                <a href="payment_success.html" data-ajax="false" class="ui-btn ui-btn-outline ui-corner-all checkout-btn">Checkout</a>
+                <a id="submitDetails" type="button" data-ajax="false" data-rel="popup" data-theme="a"
+                    data-overlay-theme="b" data-transition="slideup" class="ui-btn ui-btn-outline ui-corner-all checkout-btn">Checkout</a>
             </form>
         </div>
         <!-- Page Content -->
@@ -115,6 +118,11 @@
 
     </div>
     <!-- Page -->
+
+    <div data-role="popup" data-theme="a" data-overlay-theme="b" id="formInvalidPopup">
+        <h2 class="center-content">There was an error.<span class="ui-icon ui-icon-alert"></span></h2>
+        <p class="center-content">Please fill out all the required fields.</p>
+    </div>
 </body>
 
 </html>
