@@ -120,3 +120,21 @@ hr {
 .normal-whitespace {
     white-space: normal !important;
 }
+
+.error {
+    color: red;
+}
+
+@media all and (min-width: 375px){
+    .center-container {
+        width: 100% !important;
+        margin: 0;
+    }
+}
+
+@media all and (min-width: 667px){
+    .center-container {
+        width: 70% !important;
+        margin: auto;
+    }
+}

@@ -45,21 +45,27 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <h1 class="center-content narrow-margin">Sign In</h1>
-            <hr />
-            <div class="ui-body ui-body-a ui-corner-all card">
-                <form>
-                    <label for="email">Email Address:</label>
-                    <input type="text" name="email" id="email">
+            <div class="center-container">
+                <h1 class="center-content narrow-margin">Sign In</h1>
+                <hr />
+                <div class="ui-body ui-body-a ui-corner-all card">
+                    <form>
+                        <label for="email">Email Address: <span id="emailError" class="error hide">Please Enter Your
+                                Email
+                                Address</span></label>
+                        <input type="text" name="email" id="email">
+                        <br />
+                        <label for="password">Password: <span id="passwordError" class="error hide">Please Enter Your
+                                Password</span></label>
+                        <input type="password" name="password" id="password">
+                    </form>
                     <br />
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password">
-                </form>
-                <br />
-                <button onclick="signIn()">Sign In</button>
+                    <button onclick="signIn()">Sign In</button>
+                </div>
+                <h3 class="center-content">Do not have an account? <a href="signup.html" data-ajax="false" style="color: #7d003e;">Sign
+                        Up</a></h3>
+                <br /><br /><br /><br /><br /><br />
             </div>
-            <h3 class="center-content">Do not have an account? <a href="signup.html" data-ajax="false" style="color: #7d003e;">Sign Up</a></h3>
-            <br /><br /><br /><br /><br /><br />
         </div>
         <!-- Page Content -->
 
@@ -69,6 +75,12 @@
 
     </div>
     <!-- Page -->
+
+    <!-- Popup -->
+    <div data-role="popup" data-theme="a" data-overlay-theme="b" id="popup">
+        <p>Empty Popup</p>
+    </div>
+    <!-- Popup -->
 </body>
 
 <script>
@@ -89,14 +101,27 @@
                         sessionStorage.setItem('bookings', user.bookings);
                         window.location.replace('account.html');
                     } else {
-                        console.error("No Such Account Found");
+                        $('#popup').html('<p>Invalid Account Information, Please Try Again</p>');
+                        $('#popup').popup();
+                        $('#popup').popup('open');
                     }
                 } else {
-                    console.error("Error Occurred");
+                    $('#popup').html('<p>Internal Server Error Occurred, Please Try Again</p>');
+                    $('#popup').popup();
+                    $('#popup').popup('open');
                 }
             });
         } else {
-            console.log("No data entered");
+            if (!email) {
+                $('#emailError').show();
+            } else {
+                $('#emailError').hide();
+            }
+            if (!password) {
+                $('#passwordError').show();
+            } else {
+                $('#passwordError').hide();
+            }
         }
     }
 </script>
