@@ -37,13 +37,15 @@
         <!-- Page Content -->
         <div role="main">
             <div class="hero-section">
-                <h1 class="center-content nomargin hero-heading">Welcome to Sri Lanka's Largest Online Book Community</h1>
-                <a href="signin.html" data-ajax="false" class="ui-btn ui-btn-a get-started-button">Get Started</a>
+                <h1 class="center-content nomargin hero-heading">Welcome to<br />Sri Lanka's<br />Largest Online Book
+                    Community</h1>
+                <a id="startBtn" href="signin.html" data-ajax="false" class="ui-btn ui-btn-a get-started-button">Get
+                    Started</a>
                 <br />
                 <br />
             </div>
             <div class="ui-content" style="padding-top: 0.2em;">
-                <h3 class="center-content narrow-margin-bottom">Watch the Following Video To Get Started</h3>
+                <h3 class="center-content">Introduction to the Site:</h3>
                 <iframe style="width: 100%;height: 13em; max-width: 40em;" src="https://www.youtube.com/embed/cWvzghn2HBk"
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
@@ -52,13 +54,16 @@
                 <!-- Slideshow container -->
                 <div class="slideshow-container">
                     <div class="mySlides fade">
-                        <img src="../assets/common/images/hpfs.jpg" style="width: 100%;height: 25em;" alt="Image">
+                        <img src="../assets/common/images/hpfs.jpg" style="width: 100%;box-shadow: 0px 3px 15px rgba(0,0,0,0.8);"
+                            alt="Image">
                     </div>
                     <div class="mySlides fade">
-                        <img src="../assets/common/images/hpfs.jpg" style="width: 100%;height: 25em;" alt="Image">
+                        <img src="../assets/common/images/hpfs.jpg" style="width: 100%;box-shadow: 0px 3px 15px rgba(0,0,0,0.8);"
+                            alt="Image">
                     </div>
                     <div class="mySlides fade">
-                        <img src="../assets/common/images/hpfs.jpg" style="width: 100%;height: 25em;" alt="Image">
+                        <img src="../assets/common/images/hpfs.jpg" style="width: 100%;box-shadow: 0px 3px 15px rgba(0,0,0,0.8);"
+                            alt="Image">
                     </div>
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -73,23 +78,22 @@
                     <div class="ui-body ui-body-a card center-content">
                         <p class="justify-content narrow-margin-top">
                             I describe 99 Percent Mine as The Hating Game's sexy, rebellious older sister," says author
-                            Sally Thorne of her latest contemporary romance. In it, readers are introduced to Darcy Barrett,
-                            a badass heroine who's a bit of a fixer-upper, especially when it comes to her love life. Darcy's
-                            also perfectly aware of her own shortcomings, thank you very much. Her overbearing twin brother,
-                            Jamie, reminds her of them all the time.<br /><br />Things take a turn when she runs into Tom Valeska, 
-                            a childhood sweetheart who happens to be managing the renovation of her grandmother's house. 
-                            He may be the man of Darcy's dreams, but he's also Thorne's alternative take on the alpha 
-                            male character. "My personal catnip is a guy with a body like an alpha who is as tender as 
-                            a kitten," says Thorne.<br /><br /> Darcy wants nothing more than to make Tom 100 percent 
-                            hers. The problem? He's also Jamie's best friend—and the twins were never good at sharing. 
-                            Here Thorne dives into what makes the heart of her newest rom-com tick, including twists 
-                            on beloved tropes, outrageous sibling rivalry, and more.
+                            Sally Thorne of her latest contemporary romance. In it, readers are introduced to Darcy
+                            Barrett,
+                            a badass heroine who's a bit of a fixer-upper, especially when it comes to her love life.
+                            Darcy's
+                            also perfectly aware of her own shortcomings, thank you very much. Her overbearing twin
+                            brother,
+                            Jamie, reminds her of them all the time.<br /><br />Things take a turn when she runs into
+                            Tom Valeska,
+                            a childhood sweetheart who happens to be managing the renovation of her grandmother's
+                            house...
                         </p>
                         <a href="news.html" data-ajax="false" class="important-link">Show More...</a>
                     </div>
                     <hr />
                     <h2 class="center-content narrow-margin-bottom">Want to Know More?</h2>
-                    <h2 class="center-content narrow-margin-top">Subscribe to Our Mailing List</h2>
+                    <h2 class="center-content narrow-margin-top">Subscribe to our<br />Mailing List!</h2>
                     <input type="text" placeholder="Email Address...">
                     <button style="border: 2px solid #7d003e;">Subscribe</button>
                 </div>
@@ -106,6 +110,18 @@
 </body>
 
 <script>
+    $(window).on("orientationchange", function (event) {
+        if (event.orientation == 'landscape') {
+            $(".slideshow-container").css("max-width", "16.5em");
+        }
+        else {
+            $(".slideshow-container").css("max-width", "1000px");
+        }
+    });
+    if (sessionStorage.getItem('email')) {
+        $("#startBtn").html("My Account")
+    } else $("#startBtn").html("Get Started")
+
     var slideIndex = 1;
     showSlides(slideIndex);
 
