@@ -40,7 +40,9 @@ function makePayment() {
             "lastName": sessionStorage.getItem('lastName'),
             "email": sessionStorage.getItem('email'),
             "tokens": sessionStorage.getItem('tokens') - JSON.parse(sessionStorage.getItem('order')).tokensRedeemed,
-            "bookings": JSON.stringify(bookings)
+            "favourites": sessionStorage.getItem('favourites'),
+            "bookings": JSON.stringify(bookings),
+            "password": data[0].password
         }
         console.log(user.tokens);
         console.log(user.bookings);
