@@ -67,10 +67,6 @@
   animation-duration: 1.5s;
 }
 
-input, button{
-    margin:0;
-}
-
 @-webkit-keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
