@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/ipad/css/ipad.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/ipad/js/load_panels.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        var sessionFirstName = sessionStorage.getItem('firstName');
+        var sessionLastName = sessionStorage.getItem('lastName');
+        var sessionEmail = sessionStorage.getItem('email');
+        var sessionTokens = sessionStorage.getItem('tokens');
+        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
+            window.location.replace('signin.html');
+        }
+    </script>
+
+    <style>
+
+        @media all and (min-width: 1366px) {
+            .bookingSummary {
+                width: 50%;
+                margin: auto;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Page -->
+    <div data-role="page">
+
+        <!-- Page Header -->
+        <div id="external_header_ipad"></div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main" class="ui-content">
+            <h2 class="narrow-margin center-content">Payment Successful</h2>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <p class="center-content text-fuchsia">Your booking was successful. Please find your booking
+                        details below:</p>
+                </div>
+                <div class="card bookingSummary">
+                    <div class="ui-bar ui-bar-a center-content">
+                        <h1>Booking Details</h1>
+                    </div>
+                    <div class="ui-body ui-body-a center-content">
+                        <h3>Price: <span class="text-fuchsia">Rs.10</span></h3>
+                        <h3>Quantity: <span class="text-fuchsia">1</span></h3>
+                        <h3>Tokens Redeemed: <span class="text-fuchsia">0</span></h3>
+                        <h3>Discount: <span class="text-fuchsia">Rs.10</span></h3>
+                        <h2 class="text-purple">Total Amount: <span>Rs.10</span></h2>
+                    </div>
+                </div>
+                <a href="home.html" data-ajax="false" class="ui-btn ui-btn-outline ui-corner-all bookingSummary">Back To Home</a>
+            </div>
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer_ipad"></div>
+        <!-- Page Footer -->
+
+    </div>
+    <!-- Page -->
+</body>
+
+</html>

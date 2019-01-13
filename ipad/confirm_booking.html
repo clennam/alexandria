@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Page Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/ipad/css/ipad.css">
+    <link rel="stylesheet" href="../assets/ipad/css/confirm_booking.css">
+    <!-- Javascript Libraries -->
+    <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- JSON Server Script -->
+    <script src="../assets/common/database/json_server.js"></script>
+    <!-- Panel Loader Script -->
+    <script src="../assets/ipad/js/load_panels.js"></script>
+    <!-- Data preload Script -->
+    <script src="../assets/ipad/js/confirm_ticket.js"></script>
+    <!-- Pre-render Script -->
+    <script>
+        var sessionFirstName = sessionStorage.getItem('firstName');
+        var sessionLastName = sessionStorage.getItem('lastName');
+        var sessionEmail = sessionStorage.getItem('email');
+        var sessionTokens = sessionStorage.getItem('tokens');
+        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
+            window.location.replace('signin.html');
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Page -->
+    <div data-role="page">
+        <!-- Page Header -->
+        <div id="external_header_ipad"></div>
+        <!-- Page Header -->
+
+        <!-- Page Content -->
+        <div role="main">
+            <h2 class="center-content">Confirm Booking</h2>
+            <hr>
+            <h2 id="eventName" class="narrow-margin center-content">Christmas Book Club</h2>
+
+            <p class="narrow-margin center-content"><span id="eventDate">16th December</span> | <span id="eventLocation">British
+                    Council</span></p>
+            <div class="ui-grid-a">
+                <div class="ui-block-a eventImageHolder">
+                    <div id="eventImageHolder" class="center-content">
+                        <img alt="Event Image" id="eventImg" class="eventImage" src="../assets/common/images/bookclub.jpeg" />
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <form class="ui-grid-a">
+                        <div class="stack-portrait ui-block-a form-margins center-content">
+                            <label for="bookingQty">Quantity:</label>
+                            <input type="number" name="bookingQty" min="0" pattern="[0-9]*" id="bookingQty" value="">
+                        </div>
+                        <div class="stack-portrait ui-block-b form-margins center-content">
+                            <label for="bookingTokens">Redeem Tokens:</label>
+                            <input type="number" name="bookingTokens" min="0" pattern="[0-9]*" id="bookingTokens" value="">
+                        </div>
+                    </form>
+                    <div class="ui-content form-margins">
+                        <button onclick="calculate()" class="ui-btn ui-btn-a ui-corner-all" value="Apply">Apply</button>
+                    </div>
+                    <div class="card">
+                        <div class="ui-bar ui-bar-a center-content">
+                            <h1>Booking Summary</h1>
+                        </div>
+                        <div class="ui-body ui-body-a center-content">
+                            <h3>Price: <span class="text-fuchsia">Rs.<span id="ticketPrice">350</span></span></h3>
+                            <h3>Quantity: <span id="ticketQty" class="text-fuchsia"></span></h3>
+                            <h3>Tokens Redeemed: <span id="tokensRedeemed" class="text-fuchsia"></span></h3>
+                            <h3>Discount: <span class="text-fuchsia">Rs.<span id="ticketDiscount"></span></span></h3>
+                            <h2 class="text-purple">Total Amount: <span>Rs.<span id="ticketPriceFinal"></span></span></h2>
+                        </div>
+                    </div>
+                    <div class="ui-content form-margins">
+                        <button onclick="goToPayment()" data-ajax="false" class="ui-btn ui-btn-outline ui-corner-all checkout-btn">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer_ipad"></div>
+        <!-- Page Footer -->
+
+    </div>
+    <!-- Page -->
+
+    <!-- Popup -->
+    <div data-role="popup" data-theme="a" data-overlay-theme="b" id="errorPopup">
+        <h2 class="center-content">There was an error.</h2>
+        <p class="center-content"></p>
+    </div>
+    <!-- Popup -->
+</body>
+
+</html>

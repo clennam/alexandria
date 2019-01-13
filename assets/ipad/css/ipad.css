@@ -101,3 +101,20 @@ hr {
 .eventImage {
     width: 100%;
 }
+
+.eventStatus legend {
+    font-size: 22px;
+}
+
+.eventStatus label {
+    font-size: 20px;
+}
+
+.eventDescription {
+    font-size: 24px;
+    text-align: justify;
+}
+
+.eventImageHolder {
+    padding: 0 1em;
+}
