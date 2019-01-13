@@ -47,8 +47,18 @@
         <div role="main" class="ui-content" style="text-align: center;">
             <h1 class="narrow-margin center-content">Favourites</h1>
             <hr />
-            <button class="ui-btn ui-icon-mail ui-btn-icon-left" style="max-width: 20em;display: inline-block;">Email
+            <button id="emailFavourites" onclick="emailFavourites()" class="ui-btn ui-icon-mail ui-btn-icon-left" style="max-width: 20em;display: inline-block;">Email
                 Favourites</button>
+            <!-- Popup -->
+            <div data-role="popup" id="emailFavouritesPopup" data-theme="a" class="ui-corner-all">
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <div class="card">
+                    <h2 id="popupHeading" class="center-content narrow-margin">Favourites Emailed</h2>
+                    <hr />
+                    <p id="popupMessage" class="center-content">Your Favourites list has been emailed to <a href="#" id="favouritesEmail">email</a></p>
+                </div>
+            </div>
+            <!-- Popup -->
             <br />
             <ul id="favouritesList" data-role="listview" data-filter="true" data-filter-placeholder="Search Favourites...">
             </ul>
@@ -64,6 +74,12 @@
 </body>
 
 <script>
+    function emailFavourites() {
+        $('#favouritesEmail').html(sessionStorage.getItem('email'));
+        $('#emailFavouritesPopup').popup();
+        $('#emailFavouritesPopup').popup('open');
+    }
+
     $(document).ready(function () {
         var email = sessionStorage.getItem('email');
         JsonServer.get('users?email=' + email, function (data, status) {
@@ -71,10 +87,10 @@
                 var user = data[0];
                 var favourites = JSON.parse(user.favourites);
 
-                // TODO - Have to show an initial message if favourites list is empty
-                // if (!favourites.books && !favourites.events && !favourites.news && !favourites.pois && !favourites.teamMembers) {
-                //     $('#favouritesList').html('<li class="ui-li-static ui-body-inherit ui-first-child ui-last-child center-content">No Items Have Been Added To The Favourites List</li>');
-                // }
+                if (!(favourites.books[0] || favourites.events[0] || favourites.news[0] || favourites.pois[0] || favourites.teamMembers[0])) {
+                    $('#favouritesList').html('<li class="ui-li-static ui-body-inherit ui-first-child ui-last-child center-content">No Items Have Been Added To The Favourites List</li>');
+                    $('#emailFavourites').attr('disabled', true);
+                }
 
                 if (favourites.books) {
                     favourites.books.forEach(function (bookId) {
