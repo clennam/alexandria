@@ -60,6 +60,56 @@ $(function () {
             console.error('Internal Server Error, GET Request Failed');
         }
     });
+
+    var eventAttending;
+    $("[data-role='controlgroup']").on("change", function () {
+        if (eventAttending != undefined) {
+            switch (eventAttending) {
+                case 'yes':
+                    $("#tabYes ul li:last-child").remove();
+                    break;
+
+                case 'no':
+                    $("#tabNo ul li:last-child").remove();
+                    break;
+
+                case 'maybe':
+                    $("#tabMaybe ul li:last-child").remove();
+                    break;
+
+                default:
+                    break;
+            }
+            eventAttending = undefined;
+        }
+        if (eventAttending == undefined) {
+            var radiobtns = $("input", this)
+            radiobtns.each(function () {
+                if ($(this).is(":checked")) {
+                    eventAttending = $(this).val();
+                }
+            });
+            switch (eventAttending) {
+                case 'yes':
+                    $("#tabYes ul").append("<li><h2>" + sessionStorage.getItem('firstName') + ' ' + sessionStorage.getItem('lastName') + "</h2></li>")
+                    $("#tabYes ul").listview(); $("#tabYes ul").listview("refresh");
+                    break;
+
+                case 'no':
+                    $("#tabNo ul").append("<li><h2>" + sessionStorage.getItem('firstName') + ' ' + sessionStorage.getItem('lastName') + "</h2></li>")
+                    $("#tabNo ul").listview(); $("#tabNo ul").listview("refresh");
+                    break;
+
+                case 'maybe':
+                    $("#tabMaybe ul").append("<li><h2>" + sessionStorage.getItem('firstName') + ' ' + sessionStorage.getItem('lastName') + "</h2></li>")
+                    $("#tabMaybe ul").listview(); $("#tabMaybe ul").listview("refresh");
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    });
 });
 
 var eventId = 0;
