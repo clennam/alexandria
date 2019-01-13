@@ -4,10 +4,8 @@
       "firstName": "Moiz",
       "lastName": "Mansoor Ali",
       "email": "moiz.2015033@iit.ac.lk",
-      "tokens": "250",
-      "favourites": "{\"books\":[1],\"events\":[1],\"pois\":[1],\"news\":[1],\"teamMembers\":[1]}",
-      "bookings": "[]",
-      "password": "Yahyee",
+      "tokens": "240",
+      "bookings": "[{\"eventName\":\"Colombo Comic Expo\",\"ticketQty\":\"2\"}]",
       "id": 1
     }
   ],

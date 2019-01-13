@@ -51,10 +51,11 @@ function goToPayment() {
         var order = {
             ticketPrice: $("#ticketPrice").text(),
             ticketQty: $("#ticketQty").text(),
-            tokensRedeemed: $("tokensRedeemed").text(),
-            ticketDiscount: $("ticketDiscount").text(),
-            ticketPriceFinal: $("ticketPriceFinal").text()
+            tokensRedeemed: $("#tokensRedeemed").text(),
+            ticketDiscount: $("#ticketDiscount").text(),
+            ticketPriceFinal: $("#ticketPriceFinal").text()
         }
+        console.log(order);
         sessionStorage.setItem('order', JSON.stringify(order));
         window.location.replace('payment_details.html');
     }

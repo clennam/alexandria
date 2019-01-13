@@ -11,7 +11,51 @@ function verifyForm() {
             }
         }
     });
-    if (!error) { window.location.replace('payment_success.html'); }
+    if (!error) { makePayment() }
+}
+
+function makePayment() {
+    var booking = {
+        eventName: JSON.parse(sessionStorage.getItem('loadedEvent')).name,
+        ticketQty: JSON.parse(sessionStorage.getItem('order')).ticketQty
+    }
+    var bookings;
+    if ((sessionStorage.getItem('bookings') == "") || (sessionStorage.getItem('bookings') == "undefined")) {
+        bookings = [booking];
+    } else {
+        bookings = JSON.parse(sessionStorage.getItem('bookings'));
+        bookings.push(booking);
+    }
+    var user_id;
+    JsonServer.get("users?email=" + sessionStorage.getItem('email'), function (data, status) {
+        console.log("users?email=" + sessionStorage.getItem('email'));
+        console.log(data); console.log(status);
+        if (status === "success") {
+            if (data.length === 1) {
+                user_id = data[0].id;
+            }
+        }
+        var user = {
+            "firstName": sessionStorage.getItem('firstName'),
+            "lastName": sessionStorage.getItem('lastName'),
+            "email": sessionStorage.getItem('email'),
+            "tokens": sessionStorage.getItem('tokens') - JSON.parse(sessionStorage.getItem('order')).tokensRedeemed,
+            "bookings": JSON.stringify(bookings)
+        }
+        console.log(user.tokens);
+        console.log(user.bookings);
+        JsonServer.put("users/" + user_id, user, function (requestData, requestStatus) {
+            if (requestStatus != "success") {
+                $('#formInvalidPopup p').html('There was an error with your transaction, please try again.');
+                $('#formInvalidPopup').popup();
+                $('#formInvalidPopup').popup('open');
+            } else {
+                sessionStorage.setItem("tokens", user.tokens);
+                sessionStorage.setItem("bookings", user.bookings);
+                window.location.replace('payment_success.html');
+            }
+        });
+    });
 }
 
 $(function () {

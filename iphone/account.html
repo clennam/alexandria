@@ -95,7 +95,7 @@
                         <h1>Bookings</h1>
                     </div>
                     <div class="ui-body ui-body-a card">
-                        <ul data-role="listview" data-inset="true">
+                        <ul id="bookingsList" data-role="listview" data-inset="true">
                             <li>No Bookings Made</li>
                         </ul>
                     </div>
@@ -131,6 +131,15 @@
 
 <script>
     $(document).ready(function () {
+        var bookings = JSON.parse(sessionStorage.getItem('bookings'));
+        if ((bookings != undefined) && (bookings.length > 0)){
+            $("#bookingsList").html('');
+            bookings.forEach(function (booking) {
+                $("#bookingsList").append('<li><h2>' + booking.eventName + '</h2><p>Tickets:' + booking.ticketQty + '</p></li>');
+            });
+            $("#bookingsList").listview().listview("refresh");
+        }
+
         $('#firstName').val(sessionStorage.getItem('firstName'));
         $('#lastName').val(sessionStorage.getItem('lastName'));
         $('#email').val(sessionStorage.getItem('email'));
