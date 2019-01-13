@@ -5,7 +5,7 @@
       "lastName": "Mansoor Ali",
       "email": "moiz.2015033@iit.ac.lk",
       "tokens": "250",
-      "favourites": "{\"books\":[1],\"events\":[1],\"pois\":[1],\"news\":[1],\"teamMembers\":[1]}",
+      "favourites": "{\"books\":[1],\"events\":[1],\"pois\":[1,2,3],\"news\":[1],\"teamMembers\":[1]}",
       "bookings": "[]",
       "password": "Yahyee",
       "id": 1
@@ -57,7 +57,21 @@
       "name": "Random Bookshop",
       "address": "123 Street at ABC",
       "image": "../assets/common/images/hpfs.jpg",
-      "description": ""
+      "description": "Description 1"
+    },
+    {
+      "id": 2,
+      "name": "Random Bookshop",
+      "address": "123 Street at ABC",
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": "Description 2"
+    },
+    {
+      "id": 3,
+      "name": "Random Bookshop",
+      "address": "123 Street at ABC",
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": "Description 3"
     }
   ],
   "news": [

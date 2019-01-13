@@ -5,7 +5,7 @@
     <!-- Page Data -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Points of Interest</title>
+    <title>Alexandria</title>
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
     <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <!-- Page -->
+    <!-- POI List Page -->
     <div data-role="page">
 
         <!-- Navigation Panel -->
@@ -36,9 +36,11 @@
         <!-- Page Header -->
 
         <!-- Page Content -->
-        <div role="main" class="ui-grid-solo filter-has-margins">
-            <ul class="sharp-corners" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search Points of Interest...">
-                <li>
+        <div role="main" class="ui-content">
+            <h1 class="center-content narrow-margin">Points of Interest</h1>
+            <hr />
+            <ul id="poiList" class="sharp-corners" data-role="listview" data-filter="true" data-filter-placeholder="Search Points of Interest...">
+                <!-- <li>
                     <a href="#poi" data-transition="slide">
                         <img src="../assets/common/images/bookclub.jpeg" />
                         <h2>Iron Giant Books</h2>
@@ -65,7 +67,7 @@
                         <h2>Buck's Book Stop</h2>
                         <p><span>3, Dawnwall Road, Clestin</span></p>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
         <!-- Page Content -->
@@ -75,60 +77,154 @@
         <!-- Page Footer -->
 
     </div>
-    <!-- Page -->
+    <!-- POI List Page -->
 
-    <!-- Page -->
+    <!-- POI Page -->
     <div data-role="page" id="poi">
+
         <!-- Page Header -->
         <div data-role="header">
             <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
-            <h1>POI: Iron Giant Books</h1>
+            <h1 id="header">Point of Interest</h1>
         </div>
         <!-- Page Header -->
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <div class="limit-image center-content">
-                <img class="fill-width" src="../assets/common/images/bookclub.jpeg" alt="Event Image" class="event-image">
+            <div class="center-content">
+                <img id="image" class="book-image" src="" alt="POI Image" />
             </div>
-            <h2 class="narrow-margin center-content">Iron Giant Books</h2>
-            <p class="narrow-margin center-content">40, Ribagorca Ave, Sunnyvale</p>
-            <button class="ui-btn center-content ui-icon-heart ui-btn-icon-left ui-btn-centered">Add to Favourites</button>
-            <div class="ui-body ui-body-a">
-                <div class="card">
-                    In tristique massa feugiat, scelerisque mi convallis, feugiat ante. Maecenas sit amet quam diam.
-                    Nulla sapien augue, molestie at sem id, accumsan sagittis erat. Ut rhoncus euismod nunc, eget
-                    consectetur velit iaculis ut. Nam eget mi ante. Pellentesque sodales urna quis elit venenatis
-                    pretium sed sit amet turpis. Nullam tincidunt malesuada porta. Etiam sollicitudin, felis in
-                    bibendum ultrices, metus ipsum mattis purus, in mollis risus arcu sed neque. Cras et augue non
-                    risus eleifend lobortis eu blandit lorem. Sed eu ornare dolor. Cras aliquam sagittis nisi eu
-                    aliquet.
-                </div>
-            </div>
-            <div class="mapouter">
-                <div class="gmap_canvas"><iframe width="100%" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=Informatics%20Institute%20of%20Technology&t=&z=19&ie=UTF8&iwloc=&output=embed"
-                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
-                <style>
-                    .mapouter {
-                        text-align: right;
-                        height: 250px;
-                        width: 100%;
-                        margin: 0 auto;
-                    }
+            <h2 id="name" class="narrow-margin center-content">Name</h2>
+            <p id="address" class="narrow-margin center-content">Address</p>
+            <button id="favouritesButton" onclick="addToFavourites()" class="ui-btn center-content ui-icon-heart ui-btn-icon-left ui-btn-centered">Favourites</button>
+            <div class="ui-body ui-body-a ui-corner-all card">
+                <p id="description" class="justify-content">Description</p>
+                <p><strong>The location can be found here:</strong></p>
+                <div class="mapouter">
+                    <div class="gmap_canvas"><iframe width="100%" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=Informatics%20Institute%20of%20Technology&t=&z=19&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+                    <style>
+                        .mapouter {
+                            text-align: right;
+                            height: 250px;
+                            width: 100%;
+                            margin: 0 auto;
+                        }
 
-                    .gmap_canvas {
-                        overflow: hidden;
-                        background: none !important;
-                        height: 250px;
-                        width: 100%;
-                    }
-                </style>
+                        .gmap_canvas {
+                            overflow: hidden;
+                            background: none !important;
+                            height: 250px;
+                            width: 100%;
+                        }
+                    </style>
+                </div>
             </div>
         </div>
         <!-- Page Content -->
+
     </div>
-    <!-- Page -->
+    <!-- POI Page -->
 
 </body>
+
+<script>
+    $(document).ready(function () {
+        JsonServer.get('pois', function (pois, status) {
+            if (status == 'success') {
+                $('#poiList').listview();
+                var n = 1;
+                pois.forEach(function(poi) {
+                    $('#poiList').append('<li>' +
+                    '<a onclick="listClick('+n+')" href="#poi" data-transition="slide">' +
+                    '<img style="width:10em;" src="' + poi.image + '" alt="POI Image" />' +
+                    '<h2>' + poi.name + '</h2>' +
+                    '<p>' + poi.address + '</p>' +
+                    '</a></li>'
+                    );
+                    n++;
+                });
+                $('#poiList').listview('refresh');
+            } else {
+                console.error('Internal Server Error, GET Request Failed');
+            }
+        });
+    });
+
+    var poiId = 0;
+    function listClick(n) {
+        poiId = n;
+        JsonServer.get('pois/' + poiId, function (poi, status) {
+            if (status == 'success') {
+                $('#header').html(poi.name);
+                $('#name').html(poi.name);
+                $('#address').html(poi.address);
+                $('#image').attr('src', poi.image);
+                $('#description').html(poi.description);
+            } else {
+                console.error('Internal Server Error, GET Request Failed');
+            }
+        });
+        var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+        if (favourites) {
+            if (favourites.pois.indexOf(poiId) !== -1) {
+                $('#favouritesButton').html('Remove From Favourites');
+            } else {
+                $('#favouritesButton').html('Add To Favourites');
+            }
+        } else {
+            $('#favouritesButton').html('Add To Favourites');
+        }
+    }
+
+    function addToFavourites() {
+        var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+        if (favourites) {
+            if (favourites.pois.indexOf(poiId) == -1) {
+                favourites.pois.push(poiId);
+            } else {
+                favourites.pois.splice(favourites.pois.indexOf(poiId), 1);
+            }
+
+            var firstName = sessionStorage.getItem('firstName');
+            var lastName = sessionStorage.getItem('lastName');
+            var email = sessionStorage.getItem('email');
+            var tokens = sessionStorage.getItem('tokens');
+            var bookings = sessionStorage.getItem('bookings');
+
+            var values = {
+                "firstName": firstName,
+                "lastName": lastName,
+                "email": email,
+                "tokens": tokens,
+                "favourites": JSON.stringify(favourites),
+                "bookings": bookings
+            };
+            
+            JsonServer.get('users?email=' + email, function(data, status) {
+                if (status == 'success') {
+                    var userId = data[0].id;
+                    values.password = data[0].password;
+                    JsonServer.put('users/' + userId, values, function(data, status) {
+                        if (status == 'success') {
+                            sessionStorage.setItem('favourites', JSON.stringify(favourites));
+                            if ($('#favouritesButton').html() == 'Add To Favourites') {
+                                $('#favouritesButton').html('Remove From Favourites');
+                            } else {
+                                $('#favouritesButton').html('Add To Favourites');
+                            }
+                        } else {
+                            console.error('Internal Error Occurred, PUT Request Failed');
+                        }
+                    });
+                } else {
+                    console.error('Internal Error Occurred, GET Request Failed');
+                }
+            });
+        } else {
+            window.location.replace('signin.html');
+        }
+    }
+</script>
 
 </html>
