@@ -73,9 +73,38 @@
     {
       "id": 1,
       "name": "Moiz Mansoor Ali",
+      "email": "moiz.2015033@iit.ac.lk",
+      "age": "21",
       "title": "Manager - Duh",
       "image": "../assets/common/images/hpfs.jpg",
-      "description": ""
+      "description": "Description 1"
+    },
+    {
+      "id": 2,
+      "name": "Aishcharya Kahandawala",
+      "email": "moiz.2015033@iit.ac.lk",
+      "age": "21",
+      "title": "Manager - Duh",
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": "Description 2"
+    },
+    {
+      "id": 3,
+      "name": "Thushini Ranasinghe",
+      "email": "moiz.2015033@iit.ac.lk",
+      "age": "21",
+      "title": "Manager - Duh",
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": "Description 3"
+    },
+    {
+      "id": 4,
+      "name": "Isira Kandanearachchi",
+      "email": "moiz.2015033@iit.ac.lk",
+      "age": "21",
+      "title": "Manager - Duh",
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": "Description 4"
     }
   ]
 }

@@ -35,39 +35,7 @@
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <h1 class="narrow-margin center-content">Our Team</h1>
-            <hr />
-            <div class="ui-body ui-body-a ui-corner-all card center-content">
-                <img src="../assets/common/images/hpfs.jpg" class="member-image" alt="Moiz Mansoor Ali" />
-                <h2 class="narrow-margin">Moiz Mansoor Ali</h2>
-                <p>Manager - Wellawatte Branch</p>
-                <button class="ui-btn ui-icon-heart ui-btn-icon-left">Add To Favourites</button>
-                <a href="#teamMember" class="ui-btn ui-icon-info ui-btn-icon-left">About Member</a>
-            </div>
-            <br />
-            <div class="ui-body ui-body-a ui-corner-all card center-content">
-                <img src="../assets/common/images/aishcharyakahandawala.jpg" class="member-image" alt="Aishcharya Kahandawala" />
-                <h2 class="narrow-margin">Aishcharya Kahandawala</h2>
-                <p>Developer</p>
-                <button class="ui-btn ui-icon-heart ui-btn-icon-left">Add To Favourites</button>
-                <a href="#teamMember" class="ui-btn ui-icon-info ui-btn-icon-left">About Member</a>
-            </div>
-            <br />
-            <div class="ui-body ui-body-a ui-corner-all card center-content">
-                <img src="../assets/common/images/hpfs.jpg" class="member-image" alt="Thushini Ranasinghe" />
-                <h2 class="narrow-margin">Thushini Ranasinghe</h2>
-                <p>Chief of Staff</p>
-                <button class="ui-btn ui-icon-heart ui-btn-icon-left">Add To Favourites</button>
-                <a href="#teamMember" class="ui-btn ui-icon-info ui-btn-icon-left">About Member</a>
-            </div>
-            <br />
-            <div class="ui-body ui-body-a ui-corner-all card center-content">
-                <img src="../assets/common/images/hpfs.jpg" class="member-image" alt="Isira Kandanearachchi" />
-                <h2 class="narrow-margin">Isira Kandanearachchi</h2>
-                <p>Chief of Staff</p>
-                <button class="ui-btn ui-icon-heart ui-btn-icon-left">Add To Favourites</button>
-                <a href="#teamMember" class="ui-btn ui-icon-info ui-btn-icon-left">About Member</a>
-            </div>
+            <div class="center-container" id="pageContent"></div>
         </div>
         <!-- Page Content -->
 
@@ -90,42 +58,24 @@
 
         <!-- Page Content -->
         <div data-role="main" class="ui-content">
-            <div class="center-content">
-                <img src="../assets/common/images/hpfs.jpg" class="member-image" alt="Moiz Mansoor Ali">
-            </div>
-            <h1 class="center-content narrow-margin-top">Moiz Mansoor Ali</h1>
-            <button class="ui-btn ui-icon-heart ui-btn-icon-left">Add To Favourites</button>
-            <hr />
-            <div class="ui-corner-all custom-corners">
-                <div class="ui-bar ui-bar-a center-content">
-                    <h1>About Moiz</h1>
+            <div class="center-container">
+                <div class="center-content">
+                    <img id="memberImage" src="" class="member-image" alt="Team Member" />
                 </div>
-                <div class="ui-body ui-body-a card">
-                    <p><strong>Age: </strong>21</p>
-                    <p><strong>Post: </strong>Manager - Wellawatte Branch</p>
-                    <p><strong>Email: </strong><a href="#">moiz.2015033@iit.ac.lk</a></p>
-                    <hr />
-                    <p class="justify-content">
-                        Lorem ipsum dolor sit amet, est brute harum id, no diam vitae graeci vel, 
-                        posse utroque elaboraret vis ut. Te mea labore elaboraret. Perpetua praesent ne usu, 
-                        atqui perfecto eos id. Vis fierent singulis id, vel no eius conceptam. Usu an civibus dignissim.
-                        Id dicta probatus explicari mel, vel harum viris eu. Dicant aeterno corpora vix no, 
-                        ad nec nullam consequuntur, qui et alienum vituperata cotidieque. Est quis salutatus 
-                        maiestatis ad, sed at petentium conclusionemque. Mel blandit tacimates nominati ea, i
-                        mpetus praesent ne his. Detraxit erroribus adversarium usu ne, ne natum rebum per, pro 
-                        id senserit aliquando interpretaris.
-                        Nam te aliquam gloriatur, per graeci petentium ne. Sed scripta adolescens at, est partem 
-                        expetenda ei, te vitae aperiri sed. Maiestatis reprimique eu ius, id melius iuvaret disput
-                        ationi per. Vim ad duis instructior. Ei efficiantur definitiones vis, ne cum augue viris t
-                        ollit, ad euismod fabulas mea. Vix ne paulo essent gubergren, an nam voluptatum constituam.
-                        Solet commune appareat ut sit. Mel diam novum democritum et. At imperdiet splendide similique
-                         mea, nam ad diceret persecuti, fabellas tacimates ex eos. Adhuc tincidunt et mel, laoreet m
-                         inimum consequat qui te. Vix eros voluptua an, tation iuvaret conceptam per ea. Solum conc
-                         lusionemque mea in, impedit epicurei id sea, id laudem mandamus mel. Mei clita tollit partiendo ex
-                        Tota petentium cotidieque ea eum. Mea ex mandamus mnesarchum vituperata, vitae fierent at vis. 
-                        Ut homero audire sed. Unum delicatissimi duo id. Iuvaret denique usu in, omnes vivendum eu mel,
-                         vis an odio vide.
-                    </p>
+                <h1 id="memberName" class="center-content narrow-margin-top">Name</h1>
+                <button id="favouritesButton" onclick="addToFavourites()" class="ui-btn ui-icon-heart ui-btn-icon-left">Favourites</button>
+                <hr />
+                <div class="ui-corner-all custom-corners">
+                    <div class="ui-bar ui-bar-a center-content">
+                        <h1>About <span id="memberCardName">Name</span></h1>
+                    </div>
+                    <div class="ui-body ui-body-a card">
+                        <p><strong>Age: </strong><span id="memberAge">age</span></p>
+                        <p><strong>Post: </strong><span id="memberTitle">Title</span></p>
+                        <p><strong>Email: </strong><a href="#" id="memberEmail">Email</a></p>
+                        <hr />
+                        <p class="justify-content" id="memberDescription">Description</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,5 +84,106 @@
     </div>
     <!-- Team Member Page -->
 </body>
+
+<script>
+    $(document).ready(function () {
+        $('#pageContent').append('<h1 class="narrow-margin center-content">Our Team</h1><hr />');
+        JsonServer.get('teamMembers', function (teamMembers, status) {
+            if (status == 'success') {
+                var n = 1;
+                teamMembers.forEach(function (teamMember) {
+                    $('#pageContent').append('<div class="ui-body ui-body-a ui-corner-all card center-content">' +
+                        '<img src="' + teamMember.image + '" class="member-image" alt="' + teamMember.name + '" />' +
+                        '<h2 class="narrow-margin">' + teamMember.name + '</h2>' +
+                        '<p>' + teamMember.title + '</p>' +
+                        '<a onclick="linkClick(' + n + ')" href="#teamMember" class="ui-btn ui-icon-info ui-btn-icon-left">About Member</a>' +
+                        '</div><br />'
+                    );
+                    n++;
+                });
+            } else {
+                console.error('Internal Server Error, GET Request Failed');
+            }
+        });
+
+    });
+
+    var memberId = 0;
+    function linkClick(n) {
+        memberId = n;
+        JsonServer.get('teamMembers/' + memberId, function (teamMember, status) {
+            if (status == 'success') {
+                $('#memberImage').attr('src', teamMember.image);
+                $('#memberName').html(teamMember.name);
+                $('#memberCardName').html(teamMember.name);
+                $('#memberAge').html(teamMember.age);
+                $('#memberTitle').html(teamMember.title);
+                $('#memberEmail').html(teamMember.email);
+                $('#memberDescription').html(teamMember.description);
+            } else {
+                console.error('Internal Server Error, GET Request Failed');
+            }
+        });
+        var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+        if (favourites) {
+            if (favourites.teamMembers.indexOf(memberId) !== -1) {
+                $('#favouritesButton').html('Remove From Favourites');
+            } else {
+                $('#favouritesButton').html('Add To Favourites');
+            }
+        } else {
+            $('#favouritesButton').html('Add To Favourites');
+        }
+    }
+
+    function addToFavourites() {
+        var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+        if (favourites) {
+            if (favourites.teamMembers.indexOf(memberId) == -1) {
+                favourites.teamMembers.push(memberId);
+            } else {
+                favourites.teamMembers.splice(favourites.teamMembers.indexOf(memberId), 1);
+            }
+
+            var firstName = sessionStorage.getItem('firstName');
+            var lastName = sessionStorage.getItem('lastName');
+            var email = sessionStorage.getItem('email');
+            var tokens = sessionStorage.getItem('tokens');
+            var bookings = sessionStorage.getItem('bookings');
+
+            var values = {
+                "firstName": firstName,
+                "lastName": lastName,
+                "email": email,
+                "tokens": tokens,
+                "favourites": JSON.stringify(favourites),
+                "bookings": bookings
+            };
+
+            JsonServer.get('users?email=' + email, function (data, status) {
+                if (status == 'success') {
+                    var userId = data[0].id;
+                    values.password = data[0].password;
+                    JsonServer.put('users/' + userId, values, function (data, status) {
+                        if (status == 'success') {
+                            sessionStorage.setItem('favourites', JSON.stringify(favourites));
+                            if ($('#favouritesButton').html() == 'Add To Favourites') {
+                                $('#favouritesButton').html('Remove From Favourites');
+                            } else {
+                                $('#favouritesButton').html('Add To Favourites');
+                            }
+                        } else {
+                            console.error('Internal Server Error, PUT Request Failed');
+                        }
+                    });
+                } else {
+                    console.error('Internal Server Error, GET Request Failed');
+                }
+            });
+        } else {
+            window.location.replace('signin.html');
+        }
+    }
+</script>
 
 </html>
