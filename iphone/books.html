@@ -86,7 +86,7 @@
         <div role="main" class="ui-content">
             <div class="center-container">
                 <div class="center-content">
-                    <img src="../assets/common/images/hpfs.jpg" alt="Book Image" class="book-image">
+                    <img id="bookImage" src="" alt="Book Image" class="book-image" />
                 </div>
                 <h2 class="narrow-margin center-content" id="bookTitle">Title</h2>
                 <h3 class="center-content" id="bookAuthor">Author</h3>
@@ -172,6 +172,7 @@
                 $('#bookTitle').html(data.title);
                 $('#bookAuthor').html(data.author);
                 $('#bookDescription').html(data.description);
+                $('#bookImage').attr('src', data.image);
             } else {
                 console.error('Internal Server Error, GET Request Failed');
             }
@@ -211,12 +212,12 @@
                 "favourites": JSON.stringify(favourites),
                 "bookings": bookings
             };
-            
-            JsonServer.get('users?email=' + email, function(data, status) {
+
+            JsonServer.get('users?email=' + email, function (data, status) {
                 if (status == 'success') {
                     var userId = data[0].id;
                     values.password = data[0].password;
-                    JsonServer.put('users/' + userId, values, function(data, status) {
+                    JsonServer.put('users/' + userId, values, function (data, status) {
                         if (status == 'success') {
                             sessionStorage.setItem('favourites', JSON.stringify(favourites));
                             if ($('#favouritesButton').html() == 'Add To Favourites') {
@@ -245,13 +246,31 @@
             if (bookReview) {
                 var fullName = firstName + ' ' + lastName;
                 $('#reviewList').append('<li class="ui-li-static ui-body-inherit ui-last-child"><h1>' + fullName + '</h1><p class="max-width">' + bookReview + '</p></li>');
-                //TODO add tokens for submitting review
+                updateTokens();
             }
             $('#bookReview').val('');
             $('#reviewPopup').popup('close');
         } else {
             window.location.replace('signin.html');
         }
+    }
+
+    function updateTokens() {
+        JsonServer.get('users?email=' + sessionStorage.getItem('email'), function (data, status) {
+            if (status == 'success') {
+                var user = data[0];
+                user.tokens = parseInt(user.tokens) + 40;
+                JsonServer.put('users/' + user.id, user, function (data, status) {
+                    if (status == 'success') {
+                        sessionStorage.setItem('tokens', user.tokens);
+                    } else {
+                        console.error('Internal Server Error, PUT Request Failed');
+                    }
+                });
+            } else {
+                console.error('Internal Server Error, GET Request Failed');
+            }
+        });
     }
 </script>
 
