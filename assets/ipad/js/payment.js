@@ -1,5 +1,50 @@
+var stripe = Stripe('pk_test_4igOTjtQxqsoqiX5D3iIVWCN');
+var elements = stripe.elements();
+
+$(function () {
+    // Custom styling can be passed to options when creating an Element.
+    var style = {
+        base: {
+            // Add your base input styles here. For example:
+            fontSize: '20px',
+            color: "#000"
+        }
+    };
+    // Create an instance of the card Element.
+    var card = elements.create('card', {style: style});
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
+
+    card.addEventListener('change', function (event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+
+    // Create a token or display an error when the form is submitted.
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        stripe.createToken(card).then(function (result) {
+            if (result.error) {
+                // Inform the customer that there was an error.
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = result.error.message;
+            } else {
+                // Send the token to your server.
+                verifyForm();
+            }
+        });
+    });
+});
+
 function verifyForm() {
-    var requiredFields = ["FirstName", "LastName", "CardNumber", "CVV", "ExpyDate", "Address1", "Address2", "City", "State", "ZIPCode", "Country"];
+    var requiredFields = ["Address1", "Address2", "City", "State", "ZIPCode", "Country"];
     error = false;
     requiredFields.forEach(function (field) {
         if (error == false) {
@@ -11,7 +56,9 @@ function verifyForm() {
             }
         }
     });
-    if (!error) { makePayment() }
+    if (!error) {
+        makePayment();
+    }
 }
 
 function makePayment() {
@@ -29,7 +76,8 @@ function makePayment() {
     var user_id;
     JsonServer.get("users?email=" + sessionStorage.getItem('email'), function (data, status) {
         console.log("users?email=" + sessionStorage.getItem('email'));
-        console.log(data); console.log(status);
+        console.log(data);
+        console.log(status);
         if (status === "success") {
             if (data.length === 1) {
                 user_id = data[0].id;
@@ -61,8 +109,4 @@ function makePayment() {
 }
 
 $(function () {
-
-    $("#submitDetails").click(function () {
-        verifyForm();
-    });
 });

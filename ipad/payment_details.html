@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alexandria</title>
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
-    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css"/>
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
     <!-- iPhone CSS -->
     <link rel="stylesheet" href="../assets/ipad/css/ipad.css">
     <link rel="stylesheet" href="../assets/ipad/css/payment_details.css">
@@ -21,6 +21,8 @@
     <!-- Panel Loader Script -->
     <script src="../assets/ipad/js/load_panels.js"></script>
     <!-- Panel Loader Script -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!--Stripe Script-->
     <script src="../assets/ipad/js/payment.js"></script>
     <!-- Pre-render Script -->
     <script>
@@ -35,89 +37,80 @@
 </head>
 
 <body>
-    <!-- Page -->
-    <div data-role="page">
-        <!-- Page Header -->
-        <div id="external_header_ipad"></div>
-        <!-- Page Header -->
+<!-- Page -->
+<div data-role="page">
+    <!-- Page Header -->
+    <div id="external_header_ipad"></div>
+    <!-- Page Header -->
 
-        <!-- Page Content -->
-        <div role="main" class="ui-content">
-            <h2 class="narrow-margin center-content">Credit Card Payment</h2>
-            <form name="paymentDetails" class="ui-body ui-body-a card">
-                <div class="ui-grid-a">
-                    <h3 class="narrow-margin">Card Details</h3>
-                    <div class="stack-portrait ui-block-a form-margins">
-                        <label for="paymentFirstName">First Name:</label>
-                        <input type="text" name="paymentFirstName" id="paymentFirstName" value="" required>
+    <!-- Page Content -->
+    <div role="main" class="ui-content">
+        <h2 class="narrow-margin center-content">Credit Card Payment</h2>
+        <form id="payment-form" name="paymentDetails" class="ui-body ui-body-a card">
+            <div class="ui-grid-a">
+                <h3 class="narrow-margin">Card Details</h3>
+                <div class="stack-portrait ui-block-a form-margins">
+
+                    <div id="card-element">
+                        <!-- A Stripe Element will be inserted here. -->
                     </div>
-                    <div class="stack-portrait ui-block-b form-margins">
-                        <label for="paymentLastName">Last Name:</label>
-                        <input type="text" name="paymentLastName" id="paymentLastName" value="" required>
-                    </div>
-                    <div class="stack-portrait ui-block-a form-margins">
-                        <label for="paymentCardNumber">Card Number:</label>
-                        <input type="number" name="paymentCardNumber" id="paymentCardNumber" value="" required>
-                    </div>
-                    <div class="stack-portrait ui-block-b form-margins">
-                        <label for="paymentCVV">CVV:</label>
-                        <input type="number" name="paymentCVV" id="paymentCVV" value="" required>
-                    </div>
-                    <div class="stack-portrait ui-block-a form-margins">
-                        <label for="paymentExpyDate">Expiry Date:</label>
-                        <input type="date" name="paymentExpyDate" id="paymentExpyDate" value="" required>
-                    </div>
+
+                    <!-- Used to display form errors. -->
+                    <div id="card-errors" role="alert"></div>
                 </div>
-                <div class="ui-grid-a">
-                    <h3 class="narrow-margin">Billing Address</h3>
-                    <div class="stack-portrait ui-block-a form-margins">
-                        <label for="paymentAddress1">Address Line 1:</label>
-                        <input type="text" name="paymentAddress1" id="paymentAddress1" value="" required>
-                    </div>
-                    <div class="stack-portrait ui-block-b form-margins">
-                        <label for="paymentAddress2">Address Line 2:</label>
-                        <input type="text" name="paymentAddress2" id="paymentAddress2" value="">
-                    </div>
-                    <div class="stack-portrait ui-block-a form-margins">
-                        <label for="paymentCity">City:</label>
-                        <input type="text" name="paymentCity" id="paymentCity" value="" required>
-                    </div>
-                    <div class="stack-portrait ui-block-b form-margins">
-                        <label for="paymentState">State/Province:</label>
-                        <input type="text" name="paymentState" id="paymentState" value="" required>
-                    </div>
-                    <div class="stack-portrait ui-block-a form-margins">
-                        <label for="paymentZIPCode">Postal/ZIP Code:</label>
-                        <input type="number" name="paymentZIPCode" id="paymentZIPCode" value="" required>
-                    </div>
-                    <div class="stack-portrait ui-block-b form-margins ui-field-contain">
-                        <p><label for="paymentCountry">Country:</label></p>
-                        <select name="paymentCountry" id="paymentCountry" required>
-                            <option value="1">Sri Lanka</option>
-                            <option value="2">India</option>
-                            <option value="3">United Kingdom</option>
-                            <option value="4">Australia</option>
-                        </select>
-                    </div>
+
+            </div>
+            <div class="ui-grid-a">
+                <h3 class="narrow-margin">Billing Address</h3>
+                <div class="stack-portrait ui-block-a form-margins">
+                    <label for="paymentAddress1">Address Line 1:</label>
+                    <input type="text" name="paymentAddress1" id="paymentAddress1" value="" required>
                 </div>
-                <!-- TODO: Redirect to correct page -->
-                <a id="submitDetails" type="button" data-ajax="false" data-rel="popup" data-theme="a"
-                    data-overlay-theme="b" data-transition="slideup" class="ui-btn ui-btn-outline ui-corner-all checkout-btn">Checkout</a>
-            </form>
-        </div>
-        <!-- Page Content -->
-
-        <!-- Page Footer -->
-        <div id="external_footer_ipad"></div>
-        <!-- Page Footer -->
-
+                <div class="stack-portrait ui-block-b form-margins">
+                    <label for="paymentAddress2">Address Line 2:</label>
+                    <input type="text" name="paymentAddress2" id="paymentAddress2" value="">
+                </div>
+                <div class="stack-portrait ui-block-a form-margins">
+                    <label for="paymentCity">City:</label>
+                    <input type="text" name="paymentCity" id="paymentCity" value="" required>
+                </div>
+                <div class="stack-portrait ui-block-b form-margins">
+                    <label for="paymentState">State/Province:</label>
+                    <input type="text" name="paymentState" id="paymentState" value="" required>
+                </div>
+                <div class="stack-portrait ui-block-a form-margins">
+                    <label for="paymentZIPCode">Postal/ZIP Code:</label>
+                    <input type="number" name="paymentZIPCode" id="paymentZIPCode" value="" required>
+                </div>
+                <div class="stack-portrait ui-block-b form-margins ui-field-contain">
+                    <p><label for="paymentCountry">Country:</label></p>
+                    <select name="paymentCountry" id="paymentCountry" required>
+                        <option value="1">Sri Lanka</option>
+                        <option value="2">India</option>
+                        <option value="3">United Kingdom</option>
+                        <option value="4">Australia</option>
+                    </select>
+                </div>
+            </div>
+            <button id="submitDetails" data-ajax="false" data-rel="popup" data-theme="a"
+                    data-overlay-theme="b" data-transition="slideup"
+                    class="ui-btn ui-btn-outline ui-corner-all checkout-btn">Checkout
+            </button>
+        </form>
     </div>
-    <!-- Page -->
+    <!-- Page Content -->
 
-    <div data-role="popup" data-theme="a" data-overlay-theme="b" id="formInvalidPopup">
-        <h2 class="center-content">There was an error.<span class="ui-icon ui-icon-alert"></span></h2>
-        <p class="center-content">Please fill out all the required fields.</p>
-    </div>
+    <!-- Page Footer -->
+    <div id="external_footer_ipad"></div>
+    <!-- Page Footer -->
+
+</div>
+<!-- Page -->
+
+<div data-role="popup" data-theme="a" data-overlay-theme="b" id="formInvalidPopup">
+    <h2 class="center-content">There was an error.<span class="ui-icon ui-icon-alert"></span></h2>
+    <p class="center-content">Please fill out all the required fields.</p>
+</div>
 </body>
 
 </html>
