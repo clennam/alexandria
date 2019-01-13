@@ -2,15 +2,17 @@
 <html lang="en">
 
 <head>
+    <!-- Page Data -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alexandria</title>
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css"/>
-    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css"/>
-    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
-    <!-- iPhone CSS -->
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- iPad CSS -->
     <link rel="stylesheet" href="../assets/ipad/css/ipad.css">
+	 <link rel="stylesheet" href="../assets/ipad/css/homePage.css">
     <!-- Javascript Libraries -->
     <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -20,30 +22,182 @@
     <script src="../assets/ipad/js/load_panels.js"></script>
 </head>
 
+
 <body>
-<!-- Page -->
-<div data-role="page">
+    <!-- Page -->
+    <div data-role="page">
 
-    <!-- Navigation Panel -->
-    <div id="external_navbar"></div>
-    <!-- Navigation Panel -->
+        <!-- Page Header -->
+        <div id="external_header_ipad"></div>
+        <!-- Page Header -->
 
-    <!-- Page Header -->
-    <div id="external_header"></div>
-    <!-- Page Header -->
+        <!-- Page Content -->
+        <div role="main">
+            <div class="hero-section">
+                <h1 class="hero-header">Welcome to Sri Lanka's Largest Online Book Community</h1>
+                <a href="signin.html" data-ajax="false" class="ui-btn ui-btn-a getStarted-btn">Get Started</a>
+                <br />
+                <br />
+            </div>
+            <div class="ui-content" style="padding-top: 0.2em;">
+				<!-- Youtube video -->
+                <h3 class="center-content narrow-margin-bottom">Watch the Following Video To Get Started</h3>
+                <iframe style="width: 100%;height: 23em;" src="https://www.youtube.com/embed/cWvzghn2HBk"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <hr />
+				<!-- Latest books -->
+                <h2 class="center-content narrow-margin">What's Trending</h2>
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+                    <div class="bookSlides fade center-content">
+                        <img src="../assets/common/images/hpfs.jpg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/hpfs.jpg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/hpfs.jpg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+                    </div>
+                    <div class="bookSlides fade center-content">
+                        <img src="../assets/common/images/hpfs.jpg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/hpfs.jpg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/hpfs.jpg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+                    </div>
+                    <div class="bookSlides fade center-content">
+                        <img src="../assets/common/images/hpfs.jpg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/hpfs.jpg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/hpfs.jpg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+                    </div>
+                    <a class="prev" onclick="plusBookSlide(-1)">&#10094;</a>
+                    <a class="next" onclick="plusBookSlide(1)">&#10095;</a>
+                </div>
+				<hr />
+				<!--Upcoming events -->
+				<h2 class="center-content narrow-margin">Upcoming Events</h2>
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+                    <div class="eventSlides fade center-content">
+                        <img src="../assets/common/images/bookclub.jpeg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/bookclub.jpeg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/bookclub.jpeg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+                    </div>
+                    <div class="eventSlides fade center-content">
+                        <img src="../assets/common/images/bookclub.jpeg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/bookclub.jpeg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/bookclub.jpeg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+                    </div>
+                    <div class="eventSlides fade center-content">
+                        <img src="../assets/common/images/bookclub.jpeg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/bookclub.jpeg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+						<img src="../assets/common/images/bookclub.jpeg" style="width: 25%;height: 15em;margin:1.5em;" alt="Image">
+                    </div>
+                    <a class="prev" onclick="plusEventSlide(-1)">&#10094;</a>
+                    <a class="next" onclick="plusEventSlide(1)">&#10095;</a>
+                </div>
+                <!-- Slideshow container -->
+                <hr />
+                <h1 class="center-content narrow-margin">Latest News</h1>
+                <div class="ui-corner-all custom-corners">
+                    <div class="ui-bar ui-bar-a center-content">
+                        <h1>Natalia Sylvester’s Immigrant Song</h1>
+                    </div>
+                    <div class="ui-body ui-body-a card center-content">
+                        <p class="justify-content narrow-margin-top">
+                           When I ask Natalia Sylvester why her family chose to immigrate from Lima, Peru, to Miami in 1988, the 34-year-old writer laughs. The reason, she says, “changes depending on who you ask in my family.” Sylvester was four years old when her mother and father (a medical administrator and a doctor, respectively) chose to leave with Natalia and her older sister. Her mother has always been vague about why they immigrated, suggesting, in some ways, a question that is impossible to answer.						   
+                        </p>
+						<p class="justify-content narrow-margin-top">
+							This same silence would help to inspire Sylvester’s first novel, Chasing the Sun, which follows the disruption of one man’s unhappy marriage after his wife has been kidnapped and held for ransom. Sylvester’s own grandfather, a successful businessman, was kidnapped shortly before her family left for Miami, but she didn’t learn of the abduction until she was twelve years old. It was a jarring revelation for Sylvester, even though the rest of her family seemed to know. “Everyone I asked, like my mom and my dad, would say, ‘Oh yeah, we kind of talk about it, but not really.’ ” Chasing the Sun would go on to be named the Best Debut Book of 2014 by Latinidad, and would be chosen as Book of the Month by the National Latino Book Club.
+						</p>
+						<p class="justify-content narrow-margin-top">
+							Sylvester recently published her second novel, Everyone Knows You Go Home, which traces the trauma several generations of a Mexican American family face as they try to cross the border and settle into comfortable lives. When Martin and Isabel decide to get married on Día de los Muertos, Isabel knows his family history is fraught. But the appearance of Martin’s deceased father, Omar, and arrival of Martin’s teenage nephew from across the border help the family reconcile with their past. The premise, of a spirit helping to shed light on lost history, has been compared to that of Coco, but Sylvester’s work is less interested in revelations and happy endings. Her characters are marked by happenstance and ignorance, a testament to the devastating effects arbitrary laws can have on the lives of everyday people. The novel has been hailed as timely in the wake of increased anti-immigrant rhetoric, commentary Sylvester has explicitly rejected as well-intentioned but flattening. Like her parent's reasons for immigrating, Everyone Knows You Go Home revels in uncertainty and refuses easy answers.
 
-    <!-- Page Content -->
-    <div role="main" class="ui-content">
-        <h1>Home Page</h1>
+						</p>
+                        <a href="news.html" data-ajax="false" class="important-link">Show More...</a>
+                    </div>
+                    <hr />
+					<div class="center-content">
+						<h2 class="center-content narrow-margin-bottom">Want to Know More?</h2>
+						<h2 class="center-content narrow-margin-top">Subscribe to Our Mailing List</h2>
+						<div class="ui-grid-solo" style="margin:0em 8em 0em 8em;">							
+								<input type="text" id="newsLetterEmail" placeholder="Enter Your Email">
+						</div>						
+						<button style="border: 2px solid #7d003e;" data-inline="true" onclick="subscribe()">Subscribe</button>					
+					</div>
+					 <!-- Popup -->
+					<div data-role="popup" id="emailNewsLetterPopup" data-theme="a" class="ui-corner-all">
+						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+						<div class="card">
+							<h2 id="popupHeading" class="center-content narrow-margin">News Letter Emailed</h2>
+							<hr />
+							<p id="popupMessage" class="center-content">News Letter has been emailed to <a href="#" id="newsEmail"></a></p>
+						</div>
+					</div>
+					<!-- Popup -->
+            </div>
+        </div>
+        <!-- Page Content -->
+
+        <!-- Page Footer -->
+        <div id="external_footer_ipad"></div>
+        <!-- Page Footer -->
+
     </div>
-    <!-- Page Content -->
-
-    <!-- Page Footer -->
-    <div id="external_footer"></div>
-    <!-- Page Footer -->
-
-</div>
-<!-- Page -->
+    <!-- Page -->
 </body>
+
+<script>
+    var slideBookIndex = 1;
+	var slideEventIndex = 1;
+    showSlides(slideBookIndex,true);
+	showSlides(slideEventIndex,false);
+
+    function plusBookSlide(n) {
+        showSlides(slideBookIndex += n,true);
+    }
+	
+	function plusEventSlide(n) {
+        showSlides(slideEventIndex += n,false);
+    }
+
+    function showSlides(n,isBook) {
+        var i;
+		var slides;
+		if(isBook){
+			slides = document.getElementsByClassName("bookSlides");
+			
+			if (n > slides.length) {
+				slideBookIndex = 1
+			}
+			if (n < 1) {
+				slideBookIndex = slides.length
+			}
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+
+			slides[slideBookIndex - 1].style.display = "block";
+		}else{
+			slides = document.getElementsByClassName("eventSlides");
+			
+			if (n > slides.length) {
+				slideEventIndex = 1
+			}
+			if (n < 1) {
+				slideEventIndex = slides.length
+			}
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+
+			slides[slideEventIndex - 1].style.display = "block";
+			}       
+			
+    }
+	
+	function subscribe(){
+			var email = $('#newsLetterEmail').val();
+			$('#newsEmail').html(email);
+			$('#emailNewsLetterPopup').popup();
+			$('#emailNewsLetterPopup').popup('open');
+			
+	}
+</script>
 
 </html>
