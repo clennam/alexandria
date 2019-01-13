@@ -19,6 +19,7 @@ function refreshEventList(events) {
 }
 
 function loadEvent(eventNo) {
+    eventId = eventNo + 1;
     event = events[eventNo];
     $("#eventImg").attr("src", event.image);
     $("#title, #eventName").text(event.name);
@@ -26,6 +27,17 @@ function loadEvent(eventNo) {
     $("#eventLocation").text(event.location);
     $("#eventDescription").text(event.description);
     sessionStorage.setItem('loadedEvent', JSON.stringify(event));
+
+    var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+    if (favourites) {
+        if (favourites.events.indexOf(eventId) !== -1) {
+            $('#favouritesButton').html('Remove From Favourites');
+        } else {
+            $('#favouritesButton').html('Add To Favourites');
+        }
+    } else {
+        $('#favouritesButton').html('Add To Favourites');
+    }
 }
 function loadEventFromStorage() {
     event = JSON.parse(sessionStorage.getItem('loadedEvent'));
@@ -49,3 +61,53 @@ $(function () {
         }
     });
 });
+
+var eventId = 0;
+function addToFavourites() {
+    var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+    if (favourites) {
+        if (favourites.events.indexOf(eventId) == -1) {
+            favourites.events.push(eventId);
+        } else {
+            favourites.events.splice(favourites.events.indexOf(eventId), 1);
+        }
+
+        var firstName = sessionStorage.getItem('firstName');
+        var lastName = sessionStorage.getItem('lastName');
+        var email = sessionStorage.getItem('email');
+        var tokens = sessionStorage.getItem('tokens');
+        var bookings = sessionStorage.getItem('bookings');
+
+        var values = {
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "tokens": tokens,
+            "favourites": JSON.stringify(favourites),
+            "bookings": bookings
+        };
+
+        JsonServer.get('users?email=' + email, function (data, status) {
+            if (status == 'success') {
+                var userId = data[0].id;
+                values.password = data[0].password;
+                JsonServer.put('users/' + userId, values, function (data, status) {
+                    if (status == 'success') {
+                        sessionStorage.setItem('favourites', JSON.stringify(favourites));
+                        if ($('#favouritesButton').html() == 'Add To Favourites') {
+                            $('#favouritesButton').html('Remove From Favourites');
+                        } else {
+                            $('#favouritesButton').html('Add To Favourites');
+                        }
+                    } else {
+                        console.error('Internal Error Occurred, PUT Request Failed');
+                    }
+                });
+            } else {
+                console.error('Internal Error Occurred, GET Request Failed');
+            }
+        });
+    } else {
+        window.location.replace('signin.html');
+    }
+}
