@@ -14,50 +14,113 @@
   "books": [
     {
       "id": 1,
+      "title": "Bootleg",
+      "author": "Alex Shearer",
+      "image": "../assets/common/images/bootleg.jpg",
+      "genre": "fantasy",
+      "description": "No more chocolate! What? It is the new century and the government in power is called the Good For You Party. Do they really know best when it comes to health policies, closing down all the burger bars and chip shops in the country? Through the introduction of so-called healthy snacks and re-education programmes, the Good For You Party is striving to build a happier and healthier population. But when it comes to banning chocolate it seems they may have gone a step too far, and Huntly and his friend Smudger find it hard to abide by the new laws. Together with local shopkeeper Mrs. Bubby, the boys devise a cunning plan to restore freedom, justice and chocolate for all ... with amazing results! (Source - Goodreads)",
+      "price": "1200"
+    },
+    {
+      "id": 2,
       "title": "Harry Potter and the Philosopher's Stone",
       "author": "J. K. Rowling",
       "image": "../assets/common/images/hpfs.jpg",
       "genre": "fantasy",
-      "description": "Description 1",
-      "price": "1614.34"
-    },
-    {
-      "id": 2,
-      "title": "Tender Is The Night",
-      "author": "F. Scott Fitzgerald",
-      "image": "../assets/common/images/hpfs.jpg",
-      "genre": "classic",
-      "description": "Description 2",
-      "price": "1977.47"
+      "description": "Harry Potter and the Philosopher's Stone is a fantasy novel written by British author J. K. Rowling. The first novel in the Harry Potter series and Rowling's debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry makes close friends and a few enemies during his first year at the school, and with the help of his friends, Harry faces an attempted comeback by the dark wizard Lord Voldemort, who killed Harry's parents, but failed to kill Harry when he was just 15 months old.(Source - Wikipedia)",
+      "price": "1500"
     },
     {
       "id": 3,
+      "title": "Jumanji",
+      "author": "Chris Van Allsburg",
+      "image": "../assets/common/images/jumanji.jpg",
+      "genre": "fantasy",
+      "description": "Left on their own for an afternoon, two bored and restless children find more excitement than they bargained for in a mysterious and mystical jungle-adventure board game. 'Mr. Van Allsburg's illustrations have a beautiful simplicity of de-sign, balance, texture, and a subtle intelligence beyond the call of illustration.' -- New York Times Book Review (Source - Goodreads)",
+      "price": "3000"
+    },
+    {
+      "id": 4,
+      "title": "Tender Is The Night",
+      "author": "F. Scott Fitzgerald",
+      "image": "../assets/common/images/titn.jpg",
+      "genre": "classic",
+      "description": "Tender Is the Night is the fourth and final novel completed by American writer F. Scott Fitzgerald. It was first published in Scribner's Magazine between January and April 1934 in four issues. The title is taken from the poem 'Ode to a Nightingale' by John Keats. In 1932, Fitzgerald's wife Zelda Sayre Fitzgerald was hospitalized for schizophrenia in Baltimore, Maryland. The author rented the La Paix estate in the suburb of Towson to write this story of the rise and fall of Dick Diver, a promising young psychiatrist, and his wife, Nicole, who is also one of his patients. It was Fitzgerald's first novel in nine years and the last that he would complete. The early 1930s, when Fitzgerald conceived the book, were the darkest years of his life, and the novel's bleakness reflects his own experiences. The novel almost mirrors the events of Fitzgerald and Zelda's lives, as characters are pulled and put back into mental care, and the male figure, Dick Diver, starts his descent into alcoholism. While working on the book, Fitzgerald was beset with financial difficulties. He borrowed money from both his editor and his agent and wrote short stories for commercial magazines.(Source - Wikipedia)",
+      "price": "800"
+    },
+    {
+      "id": 5,
       "title": "The Daily Stoic",
       "author": "Ryan Holiday & Stephen Hanselman",
-      "image": "../assets/common/images/hpfs.jpg",
+      "image": "../assets/common/images/tds.jpg",
       "genre": "nonfiction",
-      "description": "Description 3",
-      "price": "2728.80"
+      "description": "The Daily Stoic is an original translation of selections from several stoic philosophers including Epictetus, Marcus Aurelius, Seneca, Musonius Rufus, Zeno and others. It aims to provide lessons about personal growth, life management and practicing mindfulness. The book is intended to be read one page per day with each page featuring a quote from a stoic philosopher along with commentary. It is organized temporally and thematically across the twelve months of the year. The audiobook version of The Daily Stoic was published by Tim Ferriss.(Source - Wikipedia)",
+      "price": "2800"
+    },
+    {
+      "id": 6,
+      "title": "The Last Book in the Universe",
+      "author": "Rodman Philbrick",
+      "image": "../assets/common/images/tlbitu.jpg",
+      "genre": "fantasy",
+      "description": "This fast-paced action novel is set in a future where the world has been almost destroyed. Like the award-winning novel Freak the Mighty, this is Philbrick at his very best. It's the story of an epileptic teenager nicknamed Spaz, who begins the heroic fight to bring human intelligence back to the planet. In a world where most people are plugged into brain-drain entertainment systems, Spaz is the rare human being who can see life as it really is. When he meets an old man called Ryter, he begins to learn about Earth and its past. With Ryter as his companion, Spaz sets off an unlikely quest to save his dying sister -- and in the process, perhaps the world. (Source - Goodreads)",
+      "price": "500"
     }
   ],
   "events": [
     {
       "id": 1,
-      "name": "Christmas Book Club Meeting",
-      "date": "16th December",
-      "location": "British Council",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 01",
-      "price": "1000"
+      "name": "Intro to Writing Picture Books",
+      "date": "February 03, 2019",
+      "location": "Liberty Station, San Diego Writers Ink suite, 2370 Historic Decatur Rd., San Diego, CA, US",
+      "image": "../assets/common/images/itwpb.jpg",
+      "description": "Either from our childhood memories, or more recent readings to our own children, we’ve experienced the joy of sharing enduring picture books like Madeline, Corduroy, Where the Wild Things Are, I Want My Hat Back, Green Eggs and Ham, Curious George, Interrupting Chicken, Olivia, and A Sick Day for Amos McGee. Thanks to picture books, we now know what happens if you give a mouse a cookie. But, what happens if you give a writer an idea for a picture book? Well, that depends on whether they understand the intricacies of that unique art form. There’s a significant amount of craft that goes into creating an endearing picture book. This course provides an introduction to the key components of picture book writing*, including: structure, plot, character development, word choice, rhyme, pacing, themes, humor, and layout. (Source - Goodreads)",
+      "price": "1200"
     },
     {
       "id": 2,
-      "name": "Christmas Book Club Meeting 2",
-      "date": "20th December",
-      "location": "British Council",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 02",
+      "name": "January 2019 AG Recommended Readings Book Talk",
+      "date": "January 31, 2019",
+      "location": "Tattered Cover Aspen Grove, 7301 South Santa Fe Drive Unit 240, LITTLETON, CO, US",
+      "image": "../assets/common/images/arrbt.jpg",
+      "description": "A monthly presentation of AG bookseller's recent reads/recommends. As well as taking home a list of potential new titles, this talk also involves give-aways/ raffles, discounted titles, and of course free snacks and drinks. RSVP is NOT required to attend. (Source - Goodreads)",
       "price": "1000"
+    },
+    {
+      "id": 3,
+      "name": "Literary Ink Tattoo Convention",
+      "date": "February 01, 2019",
+      "location": "Chattanooga Convention Center, Chattanooga, TN, US",
+      "image": "../assets/common/images/litc.jpg",
+      "description": "The Literary Ink Convention of Secrets is a unique event that brings together Literary fantasy and artistic magic. Tattoo artists will be converging on Chattanooga to tattoo clients with images that represent their favorite fantasy fiction adventures. (Source - Goodreads)",
+      "price": "3000"
+    },
+    {
+      "id": 4,
+      "name": "Public Speaking Super Powers Book Launch Party",
+      "date": "January 14, 2019",
+      "location": "The Historic Firehouse, 5373 E. 2nd St., Long Beach, CA, US",
+      "image": "../assets/common/images/psspblp.jpg",
+      "description": "Help celebrate the release of Public Speaking Super Powers by Carma Spence and ... Carma Spence will share her Writing Superhero's Journey and behind the scenes information about the creation of Public Speaking Super Powers. You'll have the opportunity to practice your impromptu speaking skills by answering either writing-related or general topic questions for 1-2 minutes. A variety of prizes are being donated to this event. Come wearing a Superhero T-Shirt and receive one entry in the prize drawings. Additional entries are $1 and benefit the Rough Writers Toastmasters Club, a 501(c)(3) organization. Members of Rough Writers Toastmasters are both aspiring and experienced authors, as well as people working on improving their speaking and leadership skills. A Superhero Cityscape backdrop complete with props will be available for photo opportunities. Get your purchased copy of the book custom signed by the Author. Both paperback and hardcover copies of Public Speaking Super Powers will be available for sale and Carma will personally sign your copy. Refreshments will be provided. (Source - Goodreads)",
+      "price": "1700"
+    },
+    {
+      "id": 5,
+      "name": "February 2019 AG Recommended Readings Book Talk",
+      "date": "February 28, 2019",
+      "location": "Tattered Cover Aspen Grove, 7301 South Santa Fe Drive Unit 240, LITTLETON, CO, US",
+      "image": "../assets/common/images/arrbt.jpg",
+      "description": "A monthly presentation of AG bookseller's recent reads/recommends. As well as taking home a list of potential new titles, this talk also involves give-aways/ raffles, discounted titles, and of course free snacks and drinks. RSVP is NOT required to attend. (Source - Goodreads)",
+      "price": "1000"
+    },
+    {
+      "id": 6,
+      "name": "STOKER Book Signing",
+      "date": "January 26, 2019",
+      "location": "2nd & Chalres Bookstore Augusta, 2834 Washington Road, Augusta, GA, US",
+      "image": "../assets/common/images/sbs.jpg",
+      "description": "Come join me at the 2nd & Charles in Augusta as I discuss my novel with other horror fans and sign copies for those interested! (Source - Goodreads)",
+      "price": "800"
     }
   ],
   "pois": [
@@ -77,6 +140,27 @@
     },
     {
       "id": 3,
+      "name": "Random Bookshop",
+      "address": "123 Street at ABC",
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": "Description 3"
+    },
+    {
+      "id": 4,
+      "name": "Random Bookshop",
+      "address": "123 Street at ABC",
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": "Description 1"
+    },
+    {
+      "id": 5,
+      "name": "Random Bookshop",
+      "address": "123 Street at ABC",
+      "image": "../assets/common/images/hpfs.jpg",
+      "description": "Description 2"
+    },
+    {
+      "id": 6,
       "name": "Random Bookshop",
       "address": "123 Street at ABC",
       "image": "../assets/common/images/hpfs.jpg",
@@ -101,6 +185,24 @@
       "headline": "Trump Assassinated",
       "about": "It's Finally Happened",
       "content": "News Content 3"
+    },
+    {
+      "id": 4,
+      "headline": "Trump Assassinated",
+      "about": "It's Finally Happened",
+      "content": "News Content 1"
+    },
+    {
+      "id": 5,
+      "headline": "Trump Assassinated",
+      "about": "It's Finally Happened",
+      "content": "News Content 2"
+    },
+    {
+      "id": 6,
+      "headline": "Trump Assassinated",
+      "about": "It's Finally Happened",
+      "content": "News Content 3"
     }
   ],
   "teamMembers": [
@@ -108,37 +210,37 @@
       "id": 1,
       "name": "Moiz Mansoor Ali",
       "email": "moiz.2015033@iit.ac.lk",
-      "age": "21",
-      "title": "Manager - Duh",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 1"
+      "age": "20",
+      "title": "Sales Manager",
+      "image": "../assets/common/images/moizmansoorali.jpg",
+      "description": "TODO"
     },
     {
       "id": 2,
       "name": "Aishcharya Kahandawala",
-      "email": "moiz.2015033@iit.ac.lk",
-      "age": "21",
-      "title": "Manager - Duh",
-      "image": "../assets/common/images/hpfs.jpg",
+      "email": "aishcharya.2015034@iit.ac.lk",
+      "age": "20",
+      "title": "Accounts Manager",
+      "image": "../assets/common/images/aishcharyakahandawala.jpg",
       "description": "Description 2"
     },
     {
       "id": 3,
       "name": "Thushini Ranasinghe",
-      "email": "moiz.2015033@iit.ac.lk",
-      "age": "21",
-      "title": "Manager - Duh",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 3"
+      "email": "thushini.2014013@iit.ac.lk",
+      "age": "20",
+      "title": "HR Manager",
+      "image": "../assets/common/images/Thushini.jpg",
+      "description": "TODO"
     },
     {
       "id": 4,
       "name": "Isira Kandanearachchi",
-      "email": "moiz.2015033@iit.ac.lk",
+      "email": "isira.2015098@iit.ac.lk",
       "age": "21",
-      "title": "Manager - Duh",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 4"
+      "title": "Book Keeper",
+      "image": "../assets/common/images/isira.jpg",
+      "description": "TODO"
     }
   ]
 }
