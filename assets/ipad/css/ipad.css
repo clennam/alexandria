@@ -118,3 +118,8 @@ hr {
 .eventImageHolder {
     padding: 0 1em;
 }
+
+.contactForm {
+    width: 75%;
+    margin: 0 auto;
+}
