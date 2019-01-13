@@ -65,8 +65,19 @@
       "id": 1,
       "headline": "Trump Assassinated",
       "about": "It's Finally Happened",
-      "author": "Obama",
-      "content": ""
+      "content": "News Content 1"
+    },
+    {
+      "id": 2,
+      "headline": "Trump Assassinated",
+      "about": "It's Finally Happened",
+      "content": "News Content 2"
+    },
+    {
+      "id": 3,
+      "headline": "Trump Assassinated",
+      "about": "It's Finally Happened",
+      "content": "News Content 3"
     }
   ],
   "teamMembers": [

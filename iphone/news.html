@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <!-- Page -->
+    <!-- News List Page -->
     <div data-role="page">
 
         <!-- Navigation Panel -->
@@ -36,35 +36,10 @@
         <!-- Page Header -->
 
         <!-- Page Content -->
-        <div role="main" class="ui-grid-solo filter-has-margins">
-            <ul class="sharp-corners" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search News...">
-                <li>
-                    <a href="#newsitem" data-transition="slide">
-                        <h2>Interview with Sarah Jessica Parker</h2>
-                        <p class="normal-whitespace"><span>The celebrated author returns with a new rom-com in the
-                                works.</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#newsitem" data-transition="slide">
-                        <h2>7 Great Books Hitting Shelves This Week</h2>
-                        <p class="normal-whitespace"><span>Need another excuse to go to the bookstore this week?</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#newsitem" data-transition="slide">
-                        <h2>In 'The Dreamers,' a Sleeping Sickness Spreads Through Town</h2>
-                        <p class="normal-whitespace"><span>When a mysterious disease befalls a small Southern
-                                California</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#newsitem" data-transition="slide">
-                        <h2>Is the Book Always Better?</h2>
-                        <p class="normal-whitespace"><span>Presenting the arguments for and against paper.</span></p>
-                    </a>
-                </li>
-            </ul>
+        <div role="main" class="ui-content">
+            <h1 class="center-content narrow-margin">News</h1>
+            <hr />
+            <ul class="sharp-corners" id="newsList" data-role="listview" data-filter="true" data-filter-placeholder="Search News..."></ul>
         </div>
         <!-- Page Content -->
 
@@ -73,44 +48,123 @@
         <!-- Page Footer -->
 
     </div>
-    <!-- Page -->
+    <!-- News List Page -->
 
-    <!-- Page -->
+    <!-- News Item Page -->
     <div data-role="page" id="newsitem">
         <!-- Page Header -->
         <div data-role="header">
             <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
-            <h1>Interview with Sarah Jessica Parker</h1>
+            <h1 id="header">Headline</h1>
         </div>
         <!-- Page Header -->
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
-            <h2 class="narrow-margin center-content">Interview with Sarah Jessica Parker</h2>
-            <button class="ui-btn center-content ui-icon-heart ui-btn-icon-left ui-btn-centered">Add to Favourites</button>
+            <h1 id="headline" class="narrow-margin center-content">Headline</h1>
+            <button id="favouritesButton" onclick="addToFavourites()" class="ui-btn center-content ui-icon-heart ui-btn-icon-left ui-btn-centered">Favourites</button>
             <div class="ui-body ui-body-a">
-                <div class="card">
-                    "I describe 99 Percent Mine as The Hating Game's sexy, rebellious older sister," says author Sally
-                    Thorne of her latest contemporary romance. In it, readers are introduced to Darcy Barrett, a badass
-                    heroine who's a bit of a fixer-upper, especially when it comes to her love life. Darcy's also
-                    perfectly aware of her own shortcomings, thank you very much. Her overbearing twin brother, Jamie,
-                    reminds her of them all the time.<br /><br />
-
-                    Things take a turn when she runs into Tom Valeska, a childhood sweetheart who happens to be
-                    managing the renovation of her grandmother's house. He may be the man of Darcy's dreams, but he's
-                    also Thorne's alternative take on the alpha male character. "My personal catnip is a guy with a
-                    body like an alpha who is as tender as a kitten," says Thorne.<br /><br />
-
-                    Darcy wants nothing more than to make Tom 100 percent hers. The problem? He's also Jamie's best
-                    friend—and the twins were never good at sharing. Here Thorne dives into what makes the heart of her
-                    newest rom-com tick, including twists on beloved tropes, outrageous sibling rivalry, and more.
-                </div>
+                <div id="content" class="card">Content</div>
             </div>
         </div>
         <!-- Page Content -->
     </div>
-    <!-- Page -->
+    <!-- News Item Page -->
 
 </body>
+
+<script>
+    $(document).ready(function () {
+        JsonServer.get('news', function (news, status) {
+            if (status == 'success') {
+                var n = 1;
+                news.forEach(function (newsItem) {
+                    $('#newsList').append('<li>' +
+                        '<a onclick="listClick(' + n + ')" href="#newsitem" data-transition="slide" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                        '<h2>' + newsItem.headline + '</h2>' +
+                        '<p class="normal-whitespace">' + newsItem.about + '</p>' +
+                        '</a></li>'
+                    );
+                    n++;
+                });
+            } else {
+                console.error('Internal Server Error, GET Request Failed');
+            }
+        });
+    });
+
+    var newsId = 0;
+    function listClick(n) {
+        newsId = n;
+        JsonServer.get('news/' + newsId, function (data, status) {
+            if (status == 'success') {
+                $('#header').html(data.headline);
+                $('#headline').html(data.headline);
+                $('#content').html(data.content);
+            } else {
+                console.error('Internal Server Error, GET Request Failed');
+            }
+        });
+        var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+        if (favourites) {
+            if (favourites.news.indexOf(newsId) !== -1) {
+                $('#favouritesButton').html('Remove From Favourites');
+            } else {
+                $('#favouritesButton').html('Add To Favourites');
+            }
+        } else {
+            $('#favouritesButton').html('Add To Favourites');
+        }
+    }
+
+    function addToFavourites() {
+        var favourites = JSON.parse(sessionStorage.getItem('favourites'));
+        if (favourites) {
+            if (favourites.news.indexOf(newsId) == -1) {
+                favourites.news.push(newsId);
+            } else {
+                favourites.news.splice(favourites.news.indexOf(newsId), 1);
+            }
+
+            var firstName = sessionStorage.getItem('firstName');
+            var lastName = sessionStorage.getItem('lastName');
+            var email = sessionStorage.getItem('email');
+            var tokens = sessionStorage.getItem('tokens');
+            var bookings = sessionStorage.getItem('bookings');
+
+            var values = {
+                "firstName": firstName,
+                "lastName": lastName,
+                "email": email,
+                "tokens": tokens,
+                "favourites": JSON.stringify(favourites),
+                "bookings": bookings
+            };
+
+            JsonServer.get('users?email=' + email, function (data, status) {
+                if (status == 'success') {
+                    var userId = data[0].id;
+                    values.password = data[0].password;
+                    JsonServer.put('users/' + userId, values, function (data, status) {
+                        if (status == 'success') {
+                            sessionStorage.setItem('favourites', JSON.stringify(favourites));
+                            if ($('#favouritesButton').html() == 'Add To Favourites') {
+                                $('#favouritesButton').html('Remove From Favourites');
+                            } else {
+                                $('#favouritesButton').html('Add To Favourites');
+                            }
+                        } else {
+                            console.error('Internal Error Occurred, PUT Request Failed');
+                        }
+                    });
+                } else {
+                    console.error('Internal Error Occurred, GET Request Failed');
+                }
+            });
+        } else {
+            window.location.replace('signin.html');
+        }
+    }
+</script>
 
 </html>
