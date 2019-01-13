@@ -1,15 +1,6 @@
-.limit-image {
-    margin: 0 38%;
-}
 .form-margins {
-    padding: 0 10%;
+    padding: 0 2%;
 }
-
-.checkout-btn {
-    margin: 0 auto 1em;
-    font-size: 20px;
-}
-
 @media all and (max-width: 376px) {
 	.stack-portrait {
 		width: 100% !important;

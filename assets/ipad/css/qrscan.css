@@ -2,7 +2,6 @@
 #cameraContainer {
     position:relative;
     display: grid;
-	height: -webkit-fill-available;
 }
 
 #cameraToolbar {
