@@ -2,7 +2,7 @@
   padding-top: 5em;
   text-align: center;
   background-image: url(../../common/images/bookshome.jpg);
-  min-height: 15em;
+  min-height: 20em;
   background-size: 100% 100%;
   color: #2a2d34;
   border-bottom: 5px solid #7d003e;
@@ -10,7 +10,7 @@
 
 .hero-header {
   padding: 0.5em;
-  margin: 0em 3.5em 0.5em 3.5em;
+  margin: 1em 3.5em 0.5em 3.5em;
   background: rgba(255,255,255,0.5);
 }
 
