@@ -2,10 +2,8 @@ var stripe = Stripe('pk_test_4igOTjtQxqsoqiX5D3iIVWCN');
 var elements = stripe.elements();
 
 $(function () {
-    // Custom styling can be passed to options when creating an Element.
     var style = {
         base: {
-            // Add your base input styles here. For example:
             fontSize: '20px',
             color: "#000"
         }
@@ -36,7 +34,7 @@ $(function () {
                 var errorElement = document.getElementById('card-errors');
                 errorElement.textContent = result.error.message;
             } else {
-                // Send the token to your server.
+                //Once the Stripe Verification is completed, call the function to the other fields' verifications.
                 verifyForm();
             }
         });
@@ -49,7 +47,6 @@ function verifyForm() {
     requiredFields.forEach(function (field) {
         if (error == false) {
             if (document.forms["paymentDetails"]["payment" + field].value == "") {
-                console.log("payment" + field);
                 error = true;
                 $("#formInvalidPopup").popup();
                 $("#formInvalidPopup").popup("open");
@@ -107,6 +104,3 @@ function makePayment() {
         });
     });
 }
-
-$(function () {
-});
