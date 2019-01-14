@@ -19,12 +19,10 @@
     <script src="../assets/common/database/json_server.js"></script>
     <!-- Panel Loader Script -->
     <script src="../assets/ipad/js/load_panels.js"></script>
-	<!-- Book Filters Script -->
-    <script src="../assets/iphone/js/filter_books.js"></script>
 </head>
 
 <body>
-    <!-- Community Page -->
+    <!-- News items List Page -->
     <div data-role="page">
 	
         <!-- Page Header -->
@@ -32,33 +30,9 @@
         <!-- Page Header -->
 
         <!-- Page Content -->
-        <div role="main" class="ui-content">
-            <div class="ui-grid-a">
-				<div class="ui-block-a width-25" style="margin-top:0.6em;">
-					<div class="ui-bar ui-bar-a">
-                        <h1>Filters</span></h1>
-                    </div>
-					 <form style="max-width:325px;margin:2em;">
-                       <label for="price">Price(LKR):</label>
-                        <input data-theme="b" type="range" name="price" id="price" value="1000" min="100" max="5000"
-                            step="100" data-highlight="true">
-                        <br />
-                        <select name="genre" id="genre" data-native-menu="false">
-                            <option value="all-genres">All Genres</option>
-                            <option value="fantasy">Fantasy</option>
-                            <option value="classic">Classic</option>
-                            <option value="nonfiction">Nonfiction</option>
-                        </select>
-                    </form>
-				</div>
-				<div class="ui-block-b width-68" style="margin-left:2em;">
-					<ul id="booklist" data-role="listview" data-filter="true" data-filter-placeholder="Search Books..."
-						data-autodividers="true">
-					</ul>
-				
-				</div>
-				
-			</div>
+		<div role="main" class="ui-content">
+            <ul class="sharp-corners" id="newsList" data-role="listview" data-filter="true" data-filter-placeholder="Search News..." data-autodividers="true"></ul>
+			
         </div>
         <!-- Page Content -->
 
@@ -67,28 +41,28 @@
         <!-- Page Footer -->
 
     </div>
-    <!-- Community Page -->
+    <!-- News items List Page -->
 
-    <!-- Book Page -->
-    <div data-role="page" id="book">
-
+    <!-- News Item Page -->
+    <div data-role="page" id="newsitem">
         <!-- Page Header -->
         <div data-role="header">
             <a data-rel="back" class="ui-alt-icon ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext">Back</a>
-            <h1>Alexandria</h1>
+            <h1 id="header">Headline</h1>
         </div>
         <!-- Page Header -->
 
         <!-- Page Content -->
         <div role="main" class="ui-content">
+			<hr>
+            <h1 id="headline" class="narrow-margin">Headline</h1>
+			December 30,2018 written by Susan Crawford
+			<hr>
 			<div class="ui-grid-a center-content">
 				<div class="ui-block-a width-32">	
 					<div class="center-content">
-						<img id="bookImage" src="" alt="Book Image" class="book-image" />
+						<img id="bookImage" src="https://images-na.ssl-images-amazon.com/images/I/310nCrOurWL.jpg" alt="newsItem Image" class="book-image" />
 					</div>
-					<h2 class="narrow-margin center-content" id="bookTitle">Book Title</h2>
-					<h3 class="center-content" id="bookAuthor">Book Author</h3>
-					<h3 class="center-content" id="bookPrice">Book Price</h3>
 				</div>
 				<div class="ui-block-b width-68">
 					<div class="ui-corner-all custom-corners">
@@ -96,27 +70,27 @@
 							<h1>Synopsis</h1>
 						</div>
 						<div class="ui-body ui-body-a card">
-							<p class="justify-content" style="margin:0.5em 2.5em 0.5em 2.5em;" id="bookDescription">Description</p>
+							<p class="justify-content" style="margin:0.5em 2.5em 0.5em 2.5em;" id="content">Description</p>
 						</div>
 					</div>
 				</div>
 			</div>	
 			<div class="ui-grid-b">
-				<div class="ui-block-a bookBtn">
-					<a href="#reviewPopup" data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-comment"
-						data-transition="pop">Write A Review</a>
-					<div data-role="popup" id="reviewPopup" data-theme="a" class="ui-corner-all">
+				<div class="ui-block-a newsBtn">
+					<a href="#commentPopup" data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-comment"
+						data-transition="pop">Add a comment</a>
+					<div data-role="popup" id="commentPopup" data-theme="a" class="ui-corner-all">
 						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 						<div class="card">
-							<h2 class="center-content narrow-margin">Write A Review</h2>
+							<h2 class="center-content narrow-margin">Add a comment</h2>
 							<hr />
-							<textarea name="bookReview" id="bookReview" cols="30" rows="10"></textarea>
-							<button onclick="submitReview()">Submit</button>
+							<textarea name="newsComment" id="newsComment" cols="30" rows="10"></textarea>
+							<button onclick="submitComment()">Submit</button>
 						</div>
 					</div>			
 				</div>
-				<div class="ui-block-b bookBtn">
-					<a href="#locationPopup" data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location" data-transition="pop">Locate Nearest Store</a>
+				<div class="ui-block-b newsBtn">
+					<a href="#locationPopup" data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location" data-transition="pop">Location</a>
 					<div data-role="popup" id="locationPopup" data-theme="a" class="ui-corner-all">
 						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 						<div class="mapouter">
@@ -140,54 +114,68 @@
 						</div>
 					</div>
 				</div>
-				<div class="ui-block-c bookBtn">
+				<div class="ui-block-c newsBtn">
 					<button onclick="addToFavourites()" id="favouritesButton" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Favourites</button>
 				</div>
 			</div>	
 			<br />
 			
 			<hr />
-			<h2 class="center-content">Book Reviews</h2>
+			<h2 class="center-content">Comments</h2>
 			<br />
-			<ul data-role="listview" class="review-list" id="reviewList">
+			<ul data-role="listview" class="comment-list" id="commentList">
 				<li>
 					<img src="http://www.theworksoftimpowers.com/images/horrabin01.jpg" style="width: 2.8em;height: 4.8em;margin:0.5em;border:1px solid #ac5c84;">
-					<h1>Thushini Ranasinghe reviewed on this book</h1>
-					<p>A fairly common mistake made by authors is failing to be familiar with their genre. They end up retreading old ground and relying on long-dead cliches because they aren't aware of what's already been done. So, it behooves an author to get some familiarity with the genre he intends to work in, to ensure that he isn't just writing the same old story over again.In that spirit, I thought I'd check out this award-winning early piece of Steampunk. It was a rough start. </p>
+					
+					 <p class="justify-content">A fairly common mistake made by authors is failing to be familiar with their genre. </p>
 				</li>
 				<li>
 					<img src="http://www.theworksoftimpowers.com/images/horrabin01.jpg" style="width: 2.8em;height: 4.8em;margin:0.5em;border:1px solid #ac5c84;">
-					<h1>Aishcharya Kahandawala reviewed on this book</h1>
-					<p>More time travel than steampunk, although it has been categorized as the latter, this book is fun, but it leaves one feeling a little short changed.The problem is that Powers' story has the narrative scope of Neal Stephenson's Baroque Cycle, but it is packed into a mere 380-ish pages. Beggar's guilds, Egyptian wizards, Romantic poets, business magnates, and prize fighters mix with cross dressing vengeance seekers, mad clowns, body snatchers, fire elementals and gypsies.</p>
+					
+					 <p class="justify-content">More time travel than steampunk, although it has been categorized as the latter, this is fun.</p>
 				</li>
 			</ul>
         </div>
         <!-- Page Content -->
-
     </div>
-    <!-- Book Page -->
+    <!-- News Item Page -->
 </body>
-
 <script>
-    var bookId = 0;
-
-	//function to load data when a book is clicked from the book list
-    function listClick(n) {
-        bookId = n;
-        JsonServer.get('books/' + bookId, function (data, status) {
+    $(document).ready(function () {
+        JsonServer.get('news', function (news, status) {
             if (status == 'success') {
-                $('#bookTitle').html(data.title);
-                $('#bookAuthor').html(data.author);
-                $('#bookDescription').html(data.description);
-				$('#bookImage').attr('src', data.image);
-				$('#bookPrice').html(data.price);
+                var n = 1;
+                news.forEach(function (newsItem) {
+                    $('#newsList').append('<li>' +
+                        '<a onclick="listClick(' + n + ')" href="#newsitem" data-transition="slide" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                        '<h2>' + newsItem.headline + '</h2>' +
+                        '<p class="normal-whitespace">' + newsItem.about + '</p>' +
+                        '</a></li>'
+                    );
+                    n++;
+                });
+            } else {
+                console.error('Internal Server Error, GET Request Failed');
+            }
+        });
+    });
+
+     var newsId = 0;
+	 //function to load data when a news item is clicked from the list
+    function listClick(n) {
+        newsId = n;
+        JsonServer.get('news/' + newsId, function (data, status) {
+            if (status == 'success') {
+                $('#header').html(data.headline);
+                $('#headline').html(data.headline);
+                $('#content').html(data.content);
             } else {
                 console.error('Internal Server Error, GET Request Failed');
             }
         });
         var favourites = JSON.parse(sessionStorage.getItem('favourites'));
         if (favourites) {
-            if (favourites.books.indexOf(bookId) !== -1) {
+            if (favourites.news.indexOf(newsId) !== -1) {
                 $('#favouritesButton').html('Remove From Favourites');
             } else {
                 $('#favouritesButton').html('Add To Favourites');
@@ -196,21 +184,23 @@
             $('#favouritesButton').html('Add To Favourites');
         }
     }
-	
-	//function to add a book to favourites list
-   function addToFavourites() {
+
+	//function to add a news item to favourites list
+    function addToFavourites() {
         var favourites = JSON.parse(sessionStorage.getItem('favourites'));
         if (favourites) {
-            if (favourites.books.indexOf(bookId) == -1) {
-                favourites.books.push(bookId);
+            if (favourites.news.indexOf(newsId) == -1) {
+                favourites.news.push(newsId);
             } else {
-                favourites.books.splice(favourites.books.indexOf(bookId), 1);
+                favourites.news.splice(favourites.news.indexOf(newsId), 1);
             }
+
             var firstName = sessionStorage.getItem('firstName');
             var lastName = sessionStorage.getItem('lastName');
             var email = sessionStorage.getItem('email');
             var tokens = sessionStorage.getItem('tokens');
             var bookings = sessionStorage.getItem('bookings');
+
             var values = {
                 "firstName": firstName,
                 "lastName": lastName,
@@ -219,6 +209,7 @@
                 "favourites": JSON.stringify(favourites),
                 "bookings": bookings
             };
+
             JsonServer.get('users?email=' + email, function (data, status) {
                 if (status == 'success') {
                     var userId = data[0].id;
@@ -244,25 +235,25 @@
         }
     }
 	
-	//function to display a popup to write a review about a book
-    function submitReview() {
-        var bookReview = $('#bookReview').val();
+	//function to display a popup to write a comment about a news article
+    function submitComment() {
+        var newsComment = $('#newsComment').val();
         var firstName = sessionStorage.getItem('firstName');
         var lastName = sessionStorage.getItem('lastName');
         if (firstName && lastName) {
-            if (bookReview) {
+            if (newsComment) {
                 var fullName = firstName + ' ' + lastName;
-                $('#reviewList').append('<li class="ui-li-static ui-body-inherit ui-last-child"><h1>' + fullName + '</h1><p class="max-width">' + bookReview + '</p></li>');
+                $('#commentList').append('<li class="ui-li-static ui-body-inherit ui-last-child"><h1>' + fullName + '</h1><p class="max-width">' + newsComment + '</p></li>');
                 updateTokens();
             }
-            $('#bookReview').val('');
-            $('#reviewPopup').popup('close');
+            $('#newsComment').val('');
+            $('#commentPopup').popup('close');
         } else {
             window.location.replace('signin.html');
         }
     }
 	
-	//function to increase token amount if user submits a review
+	//function to increase token amount if user submits a comment
     function updateTokens() {
         JsonServer.get('users?email=' + sessionStorage.getItem('email'), function (data, status) {
             if (status == 'success') {
@@ -280,8 +271,6 @@
             }
         });
     }
-
+	
 </script>
-
-
 </html>

@@ -10,121 +10,190 @@
     <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/alexandria-theme.min.css" />
     <link rel="stylesheet" href="../assets/common/lib/jquery-mobile-theme/themes/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css" />
-    <!-- iPhone CSS -->
-    <link rel="stylesheet" href="../assets/iphone/css/iphone.css">
+    <!-- iPad CSS -->
+    <link rel="stylesheet" href="../assets/ipad/css/ipad.css">
     <!-- Javascript Libraries -->
     <script src="../assets/common/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="../assets/common/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <!-- JSON Server Script -->
     <script src="../assets/common/database/json_server.js"></script>
     <!-- Panel Loader Script -->
-    <script src="../assets/iphone/js/load_panels.js"></script>
+    <script src="../assets/ipad/js/load_panels.js"></script>
+	<!-- Pre-render Script -->
+    <script>
+        var sessionFirstName = sessionStorage.getItem('firstName');
+        var sessionLastName = sessionStorage.getItem('lastName');
+        var sessionEmail = sessionStorage.getItem('email');
+        var sessionTokens = sessionStorage.getItem('tokens');
+        if (!(sessionFirstName && sessionLastName && sessionEmail && sessionTokens)) {
+            window.location.replace('signin.html');
+        }
+    </script>
 </head>
 
 <body>
     <!-- Page -->
     <div data-role="page">
 
-        <!-- Navigation Panel -->
-        <div id="external_navbar"></div>
-        <!-- Navigation Panel -->
-
         <!-- Page Header -->
-        <div id="external_header"></div>
+        <div id="external_header_ipad"></div>
         <!-- Page Header -->
 
         <!-- Page Content -->
-        <div role="main" class="ui-content" style="text-align: center;">
+		<div role="main" class="ui-content" style="text-align: center;">
             <h1 class="narrow-margin center-content">Favourites</h1>
             <hr />
-            <button class="ui-btn ui-icon-mail ui-btn-icon-left" style="max-width: 20em;display: inline-block;">Email Favourites</button>
+            <button id="emailFavourites" onclick="emailFavourites()" class="ui-btn ui-icon-mail ui-btn-icon-left" style="max-width: 20em;display: inline-block;background:#ac5c84 !important;color:white;">Email
+                Favourites</button>
+            <!-- Popup -->
+            <div data-role="popup" id="emailFavouritesPopup" data-theme="a" class="ui-corner-all">
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <div class="card">
+                    <h2 id="popupHeading" class="center-content narrow-margin">Favourites Emailed</h2>
+                    <hr />
+                    <p id="popupMessage" class="center-content">Your Favourites list has been emailed to <a href="#" id="favouritesEmail">email</a></p>
+                </div>
+            </div>
+            <!-- Popup -->
             <br />
-            <ul data-role="listview" data-filter="true" data-filter-placeholder="Search Favourites...">
-                <li data-role="list-divider">Books</li>
-                <li>
-                    <a href="books.html#book" data-ajax="false" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Harry Potter</h2>
-                        <p>J. K. Rowling</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Wolfgang Amadeus Phoenix</h2>
-                        <p>Phoenix</p>
-                    </a>
-                </li>
-                <li data-role="list-divider">Events</li>
-                <li>
-                    <a href="#" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Wolfgang Amadeus Phoenix</h2>
-                        <p>Phoenix</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Wolfgang Amadeus Phoenix</h2>
-                        <p>Phoenix</p>
-                    </a>
-                </li>
-                <li data-role="list-divider">News</li>
-                <li>
-                    <a href="#" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Wolfgang Amadeus Phoenix</h2>
-                        <p>Phoenix</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Wolfgang Amadeus Phoenix</h2>
-                        <p>Phoenix</p>
-                    </a>
-                </li>
-                <li data-role="list-divider">Points of Interest</li>
-                <li>
-                    <a href="#" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Wolfgang Amadeus Phoenix</h2>
-                        <p>Phoenix</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Wolfgang Amadeus Phoenix</h2>
-                        <p>Phoenix</p>
-                    </a>
-                </li>
-                <li data-role="list-divider">Team Members</li>
-                <li>
-                    <a href="#" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Wolfgang Amadeus Phoenix</h2>
-                        <p>Phoenix</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-transition="slide">
-                        <img src="../assets/common/images/hpfs.jpg" />
-                        <h2>Wolfgang Amadeus Phoenix</h2>
-                        <p>Phoenix</p>
-                    </a>
-                </li>
+            <ul id="favouritesList" data-role="listview" data-filter="true" data-filter-placeholder="Search Favourites...">
             </ul>
         </div>
         <!-- Page Content -->
 
         <!-- Page Footer -->
-        <div id="external_footer"></div>
+        <div id="external_footer_ipad"></div>
         <!-- Page Footer -->
 
     </div>
     <!-- Page -->
 </body>
+<script>
+    function emailFavourites() {
+        $('#favouritesEmail').html(sessionStorage.getItem('email'));
+        $('#emailFavouritesPopup').popup();
+        $('#emailFavouritesPopup').popup('open');
+    }
 
+    $(document).ready(function () {
+        var email = sessionStorage.getItem('email');
+        JsonServer.get('users?email=' + email, function (data, status) {
+            if (status == 'success') {
+                var user = data[0];
+                var favourites = JSON.parse(user.favourites);
+
+                if (!(favourites.books[0] || favourites.events[0] || favourites.news[0] || favourites.pois[0] || favourites.teamMembers[0])) {
+                    $('#favouritesList').html('<li class="ui-li-static ui-body-inherit ui-first-child ui-last-child center-content">No Items Have Been Added To The Favourites List</li>');
+                    $('#emailFavourites').attr('disabled', true);
+                }
+
+                if (favourites.books) {
+                    favourites.books.forEach(function (bookId) {
+                        JsonServer.get('books/' + bookId, function (book, response) {
+                            if (response == 'success') {
+                                $('#favouritesList').append('<li class="ui-li-has-thumb">' +
+                                    '<a href="books.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                                    '<img src="' + book.image + '"/>' +
+                                    '<h2>' + book.title + '</h2>' +
+                                    '<p>' + book.author + '</p>' +
+                                    '</a>' +
+                                    '</li>'
+                                );
+                            } else {
+                                console.log('Internal Server Error, GET Request Failed');
+                            }
+                        });
+                    });
+                } else {
+                    $('#favouritesList').append('<li class="ui-li-static ui-body-inherit">No Books Favourited</li>');
+                }
+
+                if (favourites.events) {
+                    favourites.events.forEach(function (eventId) {
+                        JsonServer.get('events/' + eventId, function (event, response) {
+                            if (response == 'success') {
+                                $('#favouritesList').append('<li class="ui-li-has-thumb">' +
+                                    '<a href="events.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                                    '<img src="' + event.image + '"/>' +
+                                    '<h2>' + event.name + '</h2>' +
+                                    '<p>' + event.date + ' | ' + event.location + '</p>' +
+                                    '</a>' +
+                                    '</li>'
+                                );
+                            } else {
+                                console.log('Internal Server Error, GET Request Failed');
+                            }
+                        });
+                    });
+                } else {
+                    $('#favouritesList').append('<li class="ui-li-static ui-body-inherit">No Events Favourited</li>');
+                }
+
+                if (favourites.news) {
+                    favourites.news.forEach(function (newsId) {
+                        JsonServer.get('news/' + newsId, function (news, response) {
+                            if (response == 'success') {
+                                $('#favouritesList').append('<li>' +
+                                    '<a href="news.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                                    '<h2>' + news.headline + '</h2>' +
+                                    '<p class="normal-whitespace">' + news.about + '</p>' +
+                                    '</a>' +
+                                    '</li>'
+                                );
+                            } else {
+                                console.log('Internal Server Error, GET Request Failed');
+                            }
+                        });
+                    });
+                } else {
+                    $('#favouritesList').append('<li class="ui-li-static ui-body-inherit">No News Items Favourited</li>');
+                }
+
+                if (favourites.pois) {
+                    favourites.pois.forEach(function (poiId) {
+                        JsonServer.get('pois/' + poiId, function (poi, response) {
+                            if (response == 'success') {
+                                $('#favouritesList').append('<li class="ui-li-has-thumb">' +
+                                    '<a href="POI.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                                    '<img src="' + poi.image + '"/>' +
+                                    '<h2>' + poi.name + '</h2>' +
+                                    '<p>' + poi.address + '</p>' +
+                                    '</a>' +
+                                    '</li>'
+                                );
+                            } else {
+                                console.log('Internal Server Error, GET Request Failed');
+                            }
+                        });
+                    });
+                } else {
+                    $('#favouritesList').append('<li class="ui-li-static ui-body-inherit">No Points of Interest Favourited</li>');
+                }
+
+                if (favourites.teamMembers) {
+                    favourites.teamMembers.forEach(function (teamMemberId) {
+                        JsonServer.get('teamMembers/' + teamMemberId, function (teamMember, response) {
+                            if (response == 'success') {
+                                $('#favouritesList').append('<li class="ui-li-has-thumb">' +
+                                    '<a href="about.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                                    '<img src="' + teamMember.image + '"/>' +
+                                    '<h2>' + teamMember.name + '</h2>' +
+                                    '<p>' + teamMember.title + '</p>' +
+                                    '</a>' +
+                                    '</li>'
+                                );
+                            } else {
+                                console.log('Internal Server Error, GET Request Failed');
+                            }
+                        });
+                    });
+                } else {
+                    $('#favouritesList').append('<li class="ui-li-static ui-body-inherit">No Team Members Favourited</li>');
+                }
+            } else {
+                console.log('Internal Server Error, GET Request Failed');
+            }
+        });
+    });
+</script>
 </html>
