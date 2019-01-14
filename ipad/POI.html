@@ -25,20 +25,16 @@
     <style>
 
         @media all and (min-width: 1366px) {
-            .POI-Image {
-                width: 50%;
-            }
-
             .POI-description {
                 padding: 0;
             }
 
             .mapouter {
-                height: 300px;
+                height: 320px;
             }
 
             .gmap_canvas iframe {
-                height: 300px;
+                height: 320px;
             }
         }
 
@@ -92,10 +88,10 @@
             </div>
 
             <div class="ui-block-b center-content POI-description">
-                <div class="ui-body-a ui-corner-all">
+                <div class="ui-body-a ui-corner-all POI-content">
                     <h2 id="name" class="center-content">Name</h2>
                     <p id="address" class="narrow-margin center-content">Address</p>
-                    <p id="description"></p>
+                    <p id="description" class="justify-content"></p>
                 </div>
                 <button id="favouritesButton" onclick="addToFavourites()"
                         class="ui-btn center-content ui-icon-heart ui-btn-icon-left ui-btn-centered">Favourites

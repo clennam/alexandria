@@ -126,45 +126,45 @@
   "pois": [
     {
       "id": 1,
-      "name": "Random Bookshop",
-      "address": "123 Street at ABC",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 1"
+      "name": "Shakepeare and Company",
+      "address": "37 Rue de la Bûcherie, Hedgegrove Street, Maribyrnong, Sri Lanka",
+      "image": "../assets/common/images/Shakespeare-and-Co.-Paris-Bookstore.jpg",
+      "description": "Shakespeare and Company is the name of two independent English-language bookstores. The first was opened by Sylvia Beach, an American, on 19 November 1919, at 8 rue Dupuytren, before moving to larger premises at 12 rue de l'Odéon in the 6th arrondissement in 1922. (Source - Shakespeare and Company)"
     },
     {
       "id": 2,
-      "name": "Random Bookshop",
-      "address": "123 Street at ABC",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 2"
+      "name": "City Lights Booksellers & Publishers",
+      "address": "4519, 261 Columbus Ave, Greenpath, Galle Sri Lanka",
+      "image": "../assets/common/images/City_Lights_Bookstore.jpg",
+      "description": "City Lights is an independent bookstore-publisher combination in San Francisco, California, that specializes in world literature, the arts, and progressive politics. It also houses the nonprofit City Lights Foundation, which publishes selected titles related to San Francisco culture. City Lights opened their latest branch in Sri Lanka in the year 2002. (Source - City Lights Booksellers and Publishers)"
     },
     {
       "id": 3,
-      "name": "Random Bookshop",
-      "address": "123 Street at ABC",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 3"
+      "name": "Selexyz Dominicanen",
+      "address": "258, White Wave Street, Railway Avenue, Colombo, Sri Lanka",
+      "image": "../assets/common/images/Boekhandel-Dominicanen.jpg",
+      "description": "Originally built over 700 years ago, the ancient church that now houses the Selexyz Dominicanen bookstore has been attracting visitors with its gothic beauty for centuries, but with its godly duties at an end, it now draws people in as a massive bookstore. The store continues to operate today despite the biblical friction concerning commerce in churches, holding a large selection of books on its black steel shelves and incorporating elements of the historic church such as a large cross-shaped table. (Source - Atlas Obscura)"
     },
     {
       "id": 4,
-      "name": "Random Bookshop",
-      "address": "123 Street at ABC",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 1"
+      "name": "Barter Books",
+      "address": "Alnwick Station, Wagon Way Rd, Alnwick, Sri Lanka",
+      "image": "../assets/common/images/barter_books_by_daveybot.jpg",
+      "description": "Located in a Victorian train station in a small village in Sri Lanka, this second-hand bookshop where you can trade books as well as buy them, is one of the largest of its kind and was opened in 1991. The shop’s claim to fame is that it rediscovered the Second World War ‘Keep Calm and Carry On’ posters in an old box of books and now you see that iconic slogan everywhere. (Source - Barter Books)"
     },
     {
       "id": 5,
-      "name": "Random Bookshop",
-      "address": "123 Street at ABC",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 2"
+      "name": "Livraria Lello e Irmao",
+      "address": "R. das Carmelitas 144, Port of Mayfield, Surrey, Sri Lanka",
+      "image": "../assets/common/images/livraria lello e irmao.jpg",
+      "description": "The building itself is a work of art and is packed full of history. It was founded in 1869 and has been named one of the most beautiful book shops in the world, but is perhaps more famous for being the location of several scenes in the Harry Potter films. What is most impressive about this building is the beautiful wooden staircase and the stained-glass windows in the ceiling that reflect around the room. (Source - Livraria Lello e Irmao)"
     },
     {
       "id": 6,
-      "name": "Random Bookshop",
-      "address": "123 Street at ABC",
-      "image": "../assets/common/images/hpfs.jpg",
-      "description": "Description 3"
+      "name": "The Strand",
+      "address": "828 Broadway, New Coal, Cheshire Town, Sri Lanka",
+      "image": "../assets/common/images/Strand_Bookstore.jpg",
+      "description": "Maybe it’s not the most stylish bookstore in the world, but the Strand Bookstore in New York is certainly iconic. At number 828 Broadway Street in the East Village, their slogan is ’18 miles of books’ and when you arrive you will see why. It’s huge and there is a vast selection of titles (over two million). If that’s not enough, it is where Patti Smith used to work. (Source - The Strand)"
     }
   ],
   "news": [

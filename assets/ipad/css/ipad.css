@@ -172,11 +172,15 @@ hr {
 }
 
 .POI-Image {
-    width: 80%;
+    width: 95%;
     padding: .5em;
 }
 
 .POI-description {
+    padding: .5em !important;
+}
+
+.POI-content {
     padding: .5em;
 }
 
