@@ -213,7 +213,7 @@
       "age": "20",
       "title": "Sales Manager",
       "image": "../assets/common/images/moizmansoorali.jpg",
-      "description": "TODO"
+      "description": "Moiz is driven in everything he does. He studied Software Engineering at the University of Westminster and spreads his positive energy as a Sales Manager at Alexandria. His body is as strong as his brain: Be it karate, surfing or basketball, Moiz excels in all the sporting activities he undertakes."
     },
     {
       "id": 2,
@@ -222,7 +222,7 @@
       "age": "20",
       "title": "Accounts Manager",
       "image": "../assets/common/images/aishcharyakahandawala.jpg",
-      "description": "Description 2"
+      "description": "Aishcharya is the personified precursor of the cyborg. He was born with the Internet, thinks accounts and balances checkbooks. He favors to settle deals and knows Alexandria's transactions inside out. Aishcharya achieves his finance equilibirum playing guitar. Electric of course."
     },
     {
       "id": 3,
@@ -231,7 +231,7 @@
       "age": "20",
       "title": "HR Manager",
       "image": "../assets/common/images/Thushini.jpg",
-      "description": "TODO"
+      "description": "Thushini was born and raised in Barcelona, Spain before moving to Austin, Texas where she helped build and strengthen our Alexandria team over the past 21 months. She has now embarked on a new adventure and is our first Alexandria transplant after joining us. \n\nWhen Thushini finds the time, she loves to travel and observe the world through her camera lenses - you can find proof of her passion for both art and literature in her Flickr gallery!"
     },
     {
       "id": 4,
@@ -240,7 +240,7 @@
       "age": "21",
       "title": "Book Keeper",
       "image": "../assets/common/images/isira.jpg",
-      "description": "TODO"
+      "description": "Nobody in our team cares about books than Isira. But don't expect a nerd - he's a prime geek pink of perfection. Naturally Mr. I is the one to bring out the rarest books with the most interesting, awe inspiring stories, all while keeping track of the books - the guardian of Alexandria. Isira stems from Timisoara, Romania, and will be happy to speak to you in English, German or Romanian."
     }
   ]
 }
