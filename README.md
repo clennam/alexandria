@@ -18,6 +18,8 @@ When the server is started your browser will automatically open up and redirect 
 * For iPhone - http://127.0.0.1:8080/iphone/home.html
 * For iPad - http://127.0.0.1:8080/ipad/home.html
 
+**The iPhone website is best suited for the _'iPhone 6/7/8 Plus'_ view on your browser and the iPad website is best suited for the _'iPad Pro'_ view.**
+
 **NOTE - Most of the functionality of the website rely on a user account, please create an account to gain full access to the website. A user account can be created at http://127.0.0.1:8080/iphone/signup.html**
 
 ## Youtube Video
