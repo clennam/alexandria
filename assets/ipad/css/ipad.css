@@ -27,6 +27,22 @@ h3 {
     font-family: 'Montserrat light italic';
 }
 
+.width-12{width:12% !important;}
+
+.width-24{width:24% !important;}
+
+.width-25{width:25% !important;}
+
+.width-30{width:30% !important;}
+
+.width-32{width:32% !important;}
+
+.width-40{width:40% !important;}
+
+.width-68{width:68% !important;}
+
+.width-76{width:76% !important;}
+
 .bookBtn{
 	width: 30% !important;
 	margin: 15px;
@@ -35,6 +51,14 @@ h3 {
 .newsBtn{
 	width: 29% !important;
 	margin: 15px;
+}
+
+.homeBtn{
+	background: #ac5c84 !important;
+	border: none;
+	color: white !important;
+	font-size: 0.93em !important;
+	
 }
 
 .tab {
@@ -114,18 +138,6 @@ hr {
 
 .full-width {
     width: 100vw;
-}
-
-.width-25{
-	width:25% !important;
-}
-
-.width-32{
-	width:32% !important;
-}
-
-.width-68{
-	width:68% !important;
 }
 
 .themeColor {
