@@ -123,3 +123,38 @@ hr {
     width: 75%;
     margin: 0 auto;
 }
+
+.POI-Image {
+    width: 80%;
+    padding: .5em;
+}
+
+.POI-description {
+    padding: .5em;
+}
+
+.mapContainer {
+    margin-top: 1.5em !important;
+}
+
+.mapContainer .card {
+    padding: unset !important;
+}
+
+.mapouter {
+    text-align: right;
+    height: 540px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 100%;
+}
+
+.gmap_canvas iframe {
+    width: 100%;
+    height: 540px;
+}
