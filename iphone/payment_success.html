@@ -56,11 +56,11 @@
                         <h1>Booking Details</h1>
                     </div>
                     <div class="ui-body ui-body-a center-content">
-                        <h3>Price: <span class="text-fuchsia">Rs.10</span></h3>
-                        <h3>Quantity: <span class="text-fuchsia">1</span></h3>
-                        <h3>Tokens Redeemed: <span class="text-fuchsia">0</span></h3>
-                        <h3>Discount: <span class="text-fuchsia">Rs.10</span></h3>
-                        <h2 class="text-purple">Total Amount: <span>Rs.10</span></h2>
+                        <h3>Price: <span class="text-fuchsia">Rs.<span id="ticketPrice"></span></h3>
+                        <h3>Quantity: <span id="ticketQty" class="text-fuchsia"></span></h3>
+                        <h3>Tokens Redeemed: <span id="tokensRedeemed" class="text-fuchsia"></span></h3>
+                        <h3>Discount: <span class="text-fuchsia">Rs.<span id="ticketDiscount"></span></span></h3>
+                        <h2 class="text-purple">Total Amount: <span>Rs.<span id="ticketPriceFinal"></span></span></h2>
                     </div>
                 </div>
                 <a href="home.html" data-ajax="false" class="ui-btn ui-btn-outline ui-corner-all">Back To Home</a>
@@ -75,5 +75,17 @@
     </div>
     <!-- Page -->
 </body>
+<script>
+    $(document).ready(function () {
+        if (sessionStorage.getItem('order')) {
+            order = JSON.parse(sessionStorage.getItem('order'));
+            $("#ticketPrice").text(order.ticketPrice);
+            $("#ticketQty").text(order.ticketQty);
+            $("#tokensRedeemed").text(order.tokensRedeemed);
+            $("#ticketDiscount").text(order.ticketDiscount);
+            $("#ticketPriceFinal").text(order.ticketPriceFinal);
+        } else window.location.replace('home.html');
+    });
+</script>
 
 </html>
