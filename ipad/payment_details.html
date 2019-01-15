@@ -51,7 +51,15 @@
                 <!--Card Payment UI Section-->
                 <h3 class="narrow-margin">Card Details</h3>
                 <div class="stack-portrait ui-block-a form-margins">
-
+                    <label for="paymentFirstName">First Name:</label>
+                    <input type="text" name="paymentFirstName" id="paymentFirstName" value="" required>
+                </div>
+                <div class="stack-portrait ui-block-b form-margins">
+                    <label for="paymentLastName">Last Name:</label>
+                    <input type="text" name="paymentLastName" id="paymentLastName" value="" required>
+                </div>
+                <div class="stack-portrait ui-block-a form-margins">
+                    <label>Card Number:</label>
                     <div id="card-element">
                         <!-- A Stripe Element will be inserted here. -->
                     </div>

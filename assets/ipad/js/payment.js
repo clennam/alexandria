@@ -5,7 +5,7 @@ $(function () {
     var style = {
         base: {
             fontSize: '20px',
-            color: "#000"
+            color: "#2a2d34"
         }
     };
     // Create an instance of the card Element.
@@ -42,7 +42,7 @@ $(function () {
 });
 
 function verifyForm() {
-    var requiredFields = ["Address1", "Address2", "City", "State", "ZIPCode", "Country"];
+    var requiredFields = ["FirstName", "LastName", "Address1", "City", "State", "ZIPCode", "Country"];
     error = false;
     requiredFields.forEach(function (field) {
         if (error == false) {
@@ -62,7 +62,7 @@ function makePayment() {
     var booking = {
         eventName: JSON.parse(sessionStorage.getItem('loadedEvent')).name,
         ticketQty: JSON.parse(sessionStorage.getItem('order')).ticketQty
-    }
+    };
     var bookings;
     if ((sessionStorage.getItem('bookings') == "") || (sessionStorage.getItem('bookings') == "undefined")) {
         bookings = [booking];
@@ -72,9 +72,6 @@ function makePayment() {
     }
     var user_id;
     JsonServer.get("users?email=" + sessionStorage.getItem('email'), function (data, status) {
-        console.log("users?email=" + sessionStorage.getItem('email'));
-        console.log(data);
-        console.log(status);
         if (status === "success") {
             if (data.length === 1) {
                 user_id = data[0].id;
@@ -88,9 +85,7 @@ function makePayment() {
             "favourites": sessionStorage.getItem('favourites'),
             "bookings": JSON.stringify(bookings),
             "password": data[0].password
-        }
-        console.log(user.tokens);
-        console.log(user.bookings);
+        };
         JsonServer.put("users/" + user_id, user, function (requestData, requestStatus) {
             if (requestStatus != "success") {
                 $('#formInvalidPopup p').html('There was an error with your transaction, please try again.');
