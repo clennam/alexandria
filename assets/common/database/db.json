@@ -9,6 +9,16 @@
       "bookings": "[{\"eventName\":\"Colombo Comic Expo\",\"ticketQty\":\"2\"},{\"eventName\":\"Christmas Book Club Meeting\",\"ticketQty\":\"2\"},{\"eventName\":\"Christmas Book Club Meeting\",\"ticketQty\":\"1\"},{\"eventName\":\"Christmas Book Club Meeting\",\"ticketQty\":\"1\"}]",
       "password": "Yahyee",
       "id": 1
+    },
+    {
+      "firstName": "Aishcharya",
+      "lastName": "Kahandawala",
+      "email": "amkahandawala@gmail.com",
+      "tokens": "30",
+      "favourites": "{\"books\":[4],\"events\":[],\"pois\":[],\"news\":[],\"teamMembers\":[]}",
+      "bookings": "[{\"eventName\":\"Intro to Writing Picture Books\",\"ticketQty\":\"1\"}]",
+      "password": "1212121212121212",
+      "id": 2
     }
   ],
   "books": [
