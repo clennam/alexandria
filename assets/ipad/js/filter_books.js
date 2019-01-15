@@ -6,15 +6,13 @@
 		if (books) {
 			// initialise listview (this is important, do this first to avoid lifecycle troubles)
 			$("#booklist").listview();
-			var i = 1;
 			//for each element in the array
 			books.forEach(function (book) {
 				// (capitalise the genre field so it looks better in the app, not important)
 				book.genre = book.genre.charAt(0).toUpperCase() + book.genre.slice(1);
 				// Just insert raw html and add the necessary text in the appropriate places to the booklist listview div to make this
 				// actual html
-				$("#booklist").append('<li onclick="listClick('+i+')"><a class="booklist-item" href="#book" data-transition="slide"><img src="' + book.image + '" /><h2>' + book.title + '</h2><p>' + book.author + ' | ' + book.genre + '</p><span class="ui-li-count">' + book.price + '</span></a></li>');
-				i++;
+				$("#booklist").append('<li onclick="listClick('+book.id+')"><a class="booklist-item" href="#book" data-transition="slide"><img src="' + book.image + '" /><h2>' + book.title + '</h2><p>' + book.author + ' | ' + book.genre + '</p><span class="ui-li-count">' + book.price + '</span></a></li>');
 			});
 			// refresh listview, this is important as it adds css to our new booklist, do this one before last
 			$("#booklist").listview("refresh");

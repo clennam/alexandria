@@ -75,15 +75,13 @@
     $(document).ready(function () {
         JsonServer.get('news', function (news, status) {
             if (status == 'success') {
-                var n = 1;
                 news.forEach(function (newsItem) {
                     $('#newsList').append('<li>' +
-                        '<a onclick="listClick(' + n + ')" href="#newsitem" data-transition="slide" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                        '<a onclick="listClick(' + newsItem.id + ')" href="#newsitem" data-transition="slide" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
                         '<h2>' + newsItem.headline + '</h2>' +
                         '<p class="normal-whitespace">' + newsItem.about + '</p>' +
                         '</a></li>'
                     );
-                    n++;
                 });
             } else {
                 console.error('Internal Server Error, GET Request Failed');

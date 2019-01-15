@@ -127,16 +127,14 @@
         JsonServer.get('pois', function (pois, status) {
             if (status == 'success') {
                 $('#poiList').listview();
-                var n = 1;
                 pois.forEach(function (poi) {
                     $('#poiList').append('<li>' +
-                        '<a onclick="listClick(' + n + ')" href="#poi" data-transition="slide">' +
+                        '<a onclick="listClick(' + poi.id + ')" href="#poi" data-transition="slide">' +
                         '<img style="width:10em;" src="' + poi.image + '" alt="POI Image" />' +
                         '<h2>' + poi.name + '</h2>' +
                         '<p>' + poi.address + '</p>' +
                         '</a></li>'
                     );
-                    n++;
                 });
                 $('#poiList').listview('refresh');
             } else {
