@@ -20,6 +20,8 @@
     <script src="../assets/common/database/json_server.js"></script>
     <!-- Panel Loader Script -->
     <script src="../assets/iphone/js/load_panels.js"></script>
+    <!-- Stripe Script -->
+    <script src="https://js.stripe.com/v3/"></script>
     <!-- Panel Loader Script -->
     <script src="../assets/iphone/js/payment.js"></script>
     <!-- Pre-render Script -->
@@ -61,16 +63,14 @@
                         <input type="text" name="paymentLastName" id="paymentLastName" value="" required>
                     </div>
                     <div class="stack-portrait ui-block-a form-margins">
-                        <label for="paymentCardNumber">Card Number:</label>
-                        <input type="number" name="paymentCardNumber" id="paymentCardNumber" value="" required>
-                    </div>
-                    <div class="stack-portrait ui-block-b form-margins">
-                        <label for="paymentCVV">CVV:</label>
-                        <input type="number" name="paymentCVV" id="paymentCVV" value="" required>
-                    </div>
-                    <div class="stack-portrait ui-block-a form-margins">
-                        <label for="paymentExpyDate">Expiry Date:</label>
-                        <input type="date" name="paymentExpyDate" id="paymentExpyDate" value="" required>
+                        <label>Card Number:</label>
+                        <div id="card-element">
+                            <!-- A Stripe Element will be inserted here. -->
+                        </div>
+
+                        <!-- Used to display form errors. -->
+                        <div id="card-errors" role="alert"></div>
+                        <br />
                     </div>
                 </div>
                 <div class="ui-grid-a">

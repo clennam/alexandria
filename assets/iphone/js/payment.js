@@ -1,5 +1,5 @@
 function verifyForm() {
-    const requiredFields = ["FirstName", "LastName", "CardNumber", "CVV", "ExpyDate", "Address1", "Address2", "City", "State", "ZIPCode", "Country"];
+    const requiredFields = ["FirstName", "LastName", "Address1", "City", "State", "ZIPCode", "Country"];
     error = false;
     requiredFields.forEach(function (field) {
         if (error == false) {
@@ -60,9 +60,47 @@ function makePayment() {
     });
 }
 
+function stripeVerify() {
+    stripe.createToken(card).then(function (result) {
+        if (result.error) {
+            // Inform the customer that there was an error.
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = result.error.message;
+        } else {
+            //Once the Stripe Verification is completed, call the function to the other fields' verifications.
+            verifyForm();
+        }
+    });
+}
+
+var stripe = Stripe('pk_test_4igOTjtQxqsoqiX5D3iIVWCN');
+var elements = stripe.elements();
+var card;
+
 $(function () {
+    var style = {
+        base: {
+            fontSize: '18px',
+            color: "#2a2d34",
+            fontFamily: 'Nunito Sans'
+        }
+    };
+    // Create an instance of the card Element.
+    card = elements.create('card', { style: style });
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
+
+    card.addEventListener('change', function (event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
 
     $("#submitDetails").click(function () {
-        verifyForm();
+        stripeVerify();
     });
 });
