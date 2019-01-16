@@ -23,7 +23,7 @@ When the server is started your browser will automatically open up and redirect 
 **NOTE - Most of the functionality of the website rely on a user account, please create an account to gain full access to the website. A user account can be created at http://127.0.0.1:8080/iphone/signup.html**
 
 ## Youtube Video
-Project Petrus | Alexandria - Web Application Demonstration - https://www.youtube.com/watch?v=_p_YZtgONwk&t=8s
+Project Petrus | Alexandria - Web Application Demonstration - https://youtu.be/ele0mL0oUbc
 
 ## Team Members
 * Moiz Mansoor Ali - 2015033 | w1582998 (iPhone Site - Student 1)
